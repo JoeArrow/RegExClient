@@ -29,11 +29,14 @@ namespace RegExClient
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegExClientForm));
             this.tcForm = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.cbMultiLine = new System.Windows.Forms.CheckBox();
             this.tbInput = new System.Windows.Forms.RichTextBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.rbIgnoreCase = new System.Windows.Forms.CheckBox();
+            this.cbIgnoreCase = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbRegEx = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,9 +51,14 @@ namespace RegExClient
             this.label5 = new System.Windows.Forms.Label();
             this.tbReplaceInput = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcForm
@@ -68,9 +76,11 @@ namespace RegExClient
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button3);
+            this.tabPage1.Controls.Add(this.cbMultiLine);
             this.tabPage1.Controls.Add(this.tbInput);
             this.tabPage1.Controls.Add(this.btnExit);
-            this.tabPage1.Controls.Add(this.rbIgnoreCase);
+            this.tabPage1.Controls.Add(this.cbIgnoreCase);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.tbRegEx);
             this.tabPage1.Controls.Add(this.label3);
@@ -82,6 +92,30 @@ namespace RegExClient
             this.tabPage1.Text = "Regular Expression";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(368, 363);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(52, 23);
+            this.button3.TabIndex = 17;
+            this.button3.Text = "&Match";
+            this.button3.Click += new System.EventHandler(this.OnMatch);
+            // 
+            // cbMultiLine
+            // 
+            this.cbMultiLine.AutoSize = true;
+            this.cbMultiLine.Checked = true;
+            this.cbMultiLine.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbMultiLine.Location = new System.Drawing.Point(628, 58);
+            this.cbMultiLine.Name = "cbMultiLine";
+            this.cbMultiLine.Size = new System.Drawing.Size(64, 17);
+            this.cbMultiLine.TabIndex = 16;
+            this.cbMultiLine.Text = "Multiline";
+            this.cbMultiLine.UseVisualStyleBackColor = true;
+            this.cbMultiLine.Visible = false;
+            this.cbMultiLine.CheckedChanged += new System.EventHandler(this.OnOptionsChange);
+            // 
             // tbInput
             // 
             this.tbInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -92,7 +126,6 @@ namespace RegExClient
             this.tbInput.Size = new System.Drawing.Size(775, 277);
             this.tbInput.TabIndex = 15;
             this.tbInput.Text = "";
-            this.tbInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OnKeyUp);
             // 
             // btnExit
             // 
@@ -104,14 +137,17 @@ namespace RegExClient
             this.btnExit.Text = "E&xit";
             this.btnExit.Click += new System.EventHandler(this.OnExit);
             // 
-            // rbIgnoreCase
+            // cbIgnoreCase
             // 
-            this.rbIgnoreCase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbIgnoreCase.Location = new System.Drawing.Point(696, 58);
-            this.rbIgnoreCase.Name = "rbIgnoreCase";
-            this.rbIgnoreCase.Size = new System.Drawing.Size(86, 17);
-            this.rbIgnoreCase.TabIndex = 1;
-            this.rbIgnoreCase.Text = "Ignore Case";
+            this.cbIgnoreCase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbIgnoreCase.Checked = true;
+            this.cbIgnoreCase.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbIgnoreCase.Location = new System.Drawing.Point(696, 58);
+            this.cbIgnoreCase.Name = "cbIgnoreCase";
+            this.cbIgnoreCase.Size = new System.Drawing.Size(86, 17);
+            this.cbIgnoreCase.TabIndex = 1;
+            this.cbIgnoreCase.Text = "Ignore Case";
+            this.cbIgnoreCase.CheckedChanged += new System.EventHandler(this.OnOptionsChange);
             // 
             // label1
             // 
@@ -258,12 +294,48 @@ namespace RegExClient
             this.label4.TabIndex = 6;
             this.label4.Text = "Text to Test";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearInputToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "A&bout";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
+            // 
+            // clearInputToolStripMenuItem
+            // 
+            this.clearInputToolStripMenuItem.Name = "clearInputToolStripMenuItem";
+            this.clearInputToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearInputToolStripMenuItem.Text = "C&lear Input";
+            this.clearInputToolStripMenuItem.Click += new System.EventHandler(this.ClearInput);
+            // 
             // RegExClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tcForm);
+            this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "RegExClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegEx Client";
@@ -273,7 +345,10 @@ namespace RegExClient
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -283,7 +358,7 @@ namespace RegExClient
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.RichTextBox tbInput;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.CheckBox rbIgnoreCase;
+        private System.Windows.Forms.CheckBox cbIgnoreCase;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbRegEx;
         private System.Windows.Forms.Label label3;
@@ -298,6 +373,12 @@ namespace RegExClient
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbReplaceInput;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearInputToolStripMenuItem;
+        private System.Windows.Forms.CheckBox cbMultiLine;
+        private System.Windows.Forms.Button button3;
     }
 }
 

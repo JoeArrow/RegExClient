@@ -1,0 +1,53 @@
+﻿RegEx Training
+
+http://msdn.microsoft.com/en-us/library/az24scfc(v=vd.110.aspx)
+
+? - preceding character zero or one times
+* - preceding character zero or more times
++ - preceding character one or more times
+Lazy (? modifier) means as few times as possible
+?? - preceding character zero or one times as few times as possible
+*? - preceding character zero or more times as few times as possible
++? - preceding character one or more times as few times as possible
+
+{n} - preceding character exactly n times
+{n1,} - Limit match to at least n1
+{n1,n2} - Limit match to between n1 and n2
+
+. - Single character wild card
+\ - escape character
+
+[] - Character Sets
+-  - Range ex. [0-9] zero through nine, [A-Z] A through Z
+^  - Negation (NOT)
+\d - Digit
+\w - Word (single characters alphanumeric)
+\s - Whitespace
+\<Uppercase> - opposite of the \<lowercase> ex. \D - Non-Digits
+
+Alternation (OR) |:
+super(market|bowl)
+
+Anchors (Position, not the character itself): 
+^ - Beginning of the line
+$ - End of the line
+
+\b - Only a word boundary
+\B - Not a word boundary (Inside of a word)
+
+Back References:
+\ (or $) number 1 - 9 Captured values
+
+Non-Capturing matches:
+?:
+
+Assertions:
+Match without capturing
+\w+(?=,) - Has a comma following the word
+\w+(?!,) - Does not have a comma following the word
+
+
+
+-----------------------------------------------
+[0-2]?\d[/\-][0-3]?\d[/\-][12]\d{3}
+01/01/2021 until 12/31/2021

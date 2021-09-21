@@ -21,8 +21,6 @@ namespace RegExClient
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -53,9 +51,9 @@ namespace RegExClient
             this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideMatchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hideMatchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -122,6 +120,7 @@ namespace RegExClient
             this.tbInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbInput.Location = new System.Drawing.Point(7, 81);
             this.tbInput.Name = "tbInput";
             this.tbInput.Size = new System.Drawing.Size(775, 277);
@@ -315,26 +314,26 @@ namespace RegExClient
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
+            // hideMatchesToolStripMenuItem
+            // 
+            this.hideMatchesToolStripMenuItem.Name = "hideMatchesToolStripMenuItem";
+            this.hideMatchesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.hideMatchesToolStripMenuItem.Text = "&Hide Matches";
+            this.hideMatchesToolStripMenuItem.Click += new System.EventHandler(this.OnHideMatches);
+            // 
             // clearInputToolStripMenuItem
             // 
             this.clearInputToolStripMenuItem.Name = "clearInputToolStripMenuItem";
-            this.clearInputToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearInputToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.clearInputToolStripMenuItem.Text = "C&lear Input";
             this.clearInputToolStripMenuItem.Click += new System.EventHandler(this.ClearInput);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.aboutToolStripMenuItem.Text = "A&bout";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
-            // 
-            // hideMatchesToolStripMenuItem
-            // 
-            this.hideMatchesToolStripMenuItem.Name = "hideMatchesToolStripMenuItem";
-            this.hideMatchesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.hideMatchesToolStripMenuItem.Text = "&Hide Matches";
-            this.hideMatchesToolStripMenuItem.Click += new System.EventHandler(this.OnHideMatches);
             // 
             // RegExClientForm
             // 
@@ -360,8 +359,6 @@ namespace RegExClient
             this.PerformLayout();
 
         }
-
-        #endregion
 
         private System.Windows.Forms.TabControl tcForm;
         private System.Windows.Forms.TabPage tabPage1;

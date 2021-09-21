@@ -43,15 +43,17 @@ namespace RegExClient
             // The values can be changed at will and
             // tests re-run.
 
-            //tbText.Text = "PaSSwORd";
-            tbInput.Text = "01/01/2021 until 12/31/2021";
-            //tbInput.Text = @"\\dcaages01\AGES\DEV\AGTracGARMImageOutput\";
+            #if DEBUG
+                //tbText.Text = "PaSSwORd";
+                tbInput.Text = "01/01/2021 until 12/31/2021";
+                //tbInput.Text = @"\\dcaages01\AGES\DEV\AGTracGARMImageOutput\";
 
-            tbRegEx.Text = @"\b(0?[1-9]|1[0-2])[/\-](0?[1-3]|3[0-1])[/\-][12]\d{3}\b";
-            //tbRegEx.Text = "(?=^.{8,30}$)(?=.*[A-Z])(?=.*[a-z].*[a-z].*[a-z]).*$";
-            //tbRegEx.Text = "(\\\\\\\\([a-z|A-Z|0-9|-|_|\\s]{2,15}){1}(\\.[a-z|A-Z|0-9|-|_|\\s]{1,64}){0,3}){1}(\\\\[^\\\\|\\/|\\*|\\:|\\?|\"|\\<|\\>|\\|]{1,64}){1,}(\\\\){0,}";
+                tbRegEx.Text = @"\b(0?[1-9]|1[0-2])[/\-](0?[1-3]|3[0-1])[/\-][12]\d{3}\b";
+                //tbRegEx.Text = "(?=^.{8,30}$)(?=.*[A-Z])(?=.*[a-z].*[a-z].*[a-z]).*$";
+                //tbRegEx.Text = @"(\\\\([a-z|A-Z|0-9|-|_|\s]{2,15}){1}(\.[a-z|A-Z|0-9|-|_|\s]{1,64}){0,3}){1}(\\[^\\|\/|\*|\:|\?||\<|\>|\|]{1,64}){1,}(\\){0,}";
 
-            ShowMatches();
+                ShowMatches();
+            #endif
         }
 
         // ------------------------------------------------
@@ -59,7 +61,7 @@ namespace RegExClient
         private void ShowMatches()
         {
             var toggleColor = true;
-            ClearMatches();
+            HideMatches();
 
             try
             {
@@ -112,7 +114,7 @@ namespace RegExClient
 
         // ------------------------------------------------
 
-        private void ClearMatches()
+        private void HideMatches()
         {
             tbInput.Text = tbInput.Text;
             tbInput.SelectionStart = tbInput.Text.Length;
@@ -147,6 +149,13 @@ namespace RegExClient
         private void OnMatch(object sender, EventArgs e)
         {
             ShowMatches();
+        }
+        
+        // ------------------------------------------------
+
+        private void OnHideMatches(object sender, EventArgs e)
+        {
+            HideMatches();
         }
     }
 }

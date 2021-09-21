@@ -55,6 +55,7 @@ namespace RegExClient
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideMatchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -94,7 +95,7 @@ namespace RegExClient
             // 
             // button3
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button3.Location = new System.Drawing.Point(368, 363);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(52, 23);
@@ -307,6 +308,7 @@ namespace RegExClient
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hideMatchesToolStripMenuItem,
             this.clearInputToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -316,16 +318,23 @@ namespace RegExClient
             // clearInputToolStripMenuItem
             // 
             this.clearInputToolStripMenuItem.Name = "clearInputToolStripMenuItem";
-            this.clearInputToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.clearInputToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clearInputToolStripMenuItem.Text = "C&lear Input";
             this.clearInputToolStripMenuItem.Click += new System.EventHandler(this.ClearInput);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "A&bout";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
+            // 
+            // hideMatchesToolStripMenuItem
+            // 
+            this.hideMatchesToolStripMenuItem.Name = "hideMatchesToolStripMenuItem";
+            this.hideMatchesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hideMatchesToolStripMenuItem.Text = "&Hide Matches";
+            this.hideMatchesToolStripMenuItem.Click += new System.EventHandler(this.OnHideMatches);
             // 
             // RegExClientForm
             // 
@@ -379,6 +388,7 @@ namespace RegExClient
         private System.Windows.Forms.ToolStripMenuItem clearInputToolStripMenuItem;
         private System.Windows.Forms.CheckBox cbMultiLine;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ToolStripMenuItem hideMatchesToolStripMenuItem;
     }
 }
 

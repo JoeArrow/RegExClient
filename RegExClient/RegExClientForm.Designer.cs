@@ -54,6 +54,13 @@ namespace RegExClient
             this.hideMatchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openRegExToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveRegExToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -309,6 +316,13 @@ namespace RegExClient
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hideMatchesToolStripMenuItem,
             this.clearInputToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.saveRegExToolStripMenuItem,
+            this.openRegExToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.saveRegExAndTextToolStripMenuItem,
+            this.openRegExAndTextToolStripMenuItem,
+            this.toolStripSeparator3,
             this.aboutToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -317,23 +331,66 @@ namespace RegExClient
             // hideMatchesToolStripMenuItem
             // 
             this.hideMatchesToolStripMenuItem.Name = "hideMatchesToolStripMenuItem";
-            this.hideMatchesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.hideMatchesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.hideMatchesToolStripMenuItem.Text = "&Hide Matches";
             this.hideMatchesToolStripMenuItem.Click += new System.EventHandler(this.OnHideMatches);
             // 
             // clearInputToolStripMenuItem
             // 
             this.clearInputToolStripMenuItem.Name = "clearInputToolStripMenuItem";
-            this.clearInputToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.clearInputToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.clearInputToolStripMenuItem.Text = "C&lear Input";
             this.clearInputToolStripMenuItem.Click += new System.EventHandler(this.ClearInput);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.aboutToolStripMenuItem.Text = "A&bout";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
+            // 
+            // openRegExToolStripMenuItem
+            // 
+            this.openRegExToolStripMenuItem.Name = "openRegExToolStripMenuItem";
+            this.openRegExToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.openRegExToolStripMenuItem.Text = "Open RegEx";
+            this.openRegExToolStripMenuItem.Click += new System.EventHandler(this.OnOpenRegex);
+            // 
+            // openRegExAndTextToolStripMenuItem
+            // 
+            this.openRegExAndTextToolStripMenuItem.Name = "openRegExAndTextToolStripMenuItem";
+            this.openRegExAndTextToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.openRegExAndTextToolStripMenuItem.Text = "Open RegEx and Text";
+            this.openRegExAndTextToolStripMenuItem.Click += new System.EventHandler(this.OnOpenRegex);
+            // 
+            // saveRegExToolStripMenuItem
+            // 
+            this.saveRegExToolStripMenuItem.Name = "saveRegExToolStripMenuItem";
+            this.saveRegExToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.saveRegExToolStripMenuItem.Text = "Save RegEx";
+            this.saveRegExToolStripMenuItem.Click += new System.EventHandler(this.OnSaveRegEx);
+            // 
+            // saveRegExAndTextToolStripMenuItem
+            // 
+            this.saveRegExAndTextToolStripMenuItem.Name = "saveRegExAndTextToolStripMenuItem";
+            this.saveRegExAndTextToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.saveRegExAndTextToolStripMenuItem.Text = "Save RegEx and Text";
+            this.saveRegExAndTextToolStripMenuItem.Click += new System.EventHandler(this.OnSaveRegEx);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(182, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(182, 6);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(182, 6);
             // 
             // RegExClientForm
             // 
@@ -386,6 +443,13 @@ namespace RegExClient
         private System.Windows.Forms.CheckBox cbMultiLine;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem hideMatchesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openRegExToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveRegExToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openRegExAndTextToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveRegExAndTextToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 

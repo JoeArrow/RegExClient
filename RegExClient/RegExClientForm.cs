@@ -2,12 +2,18 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Web.Script.Serialization;
+
 using AboutJoeWare_Lib;
+using System.IO;
 
 namespace RegExClient
 {
     public partial class RegExClientForm : Form
     {
+        private bool _matchesVisible = false;
+        private readonly JavaScriptSerializer jsSer = new JavaScriptSerializer();
+
         public RegExClientForm()
         {
             InitializeComponent();
@@ -15,28 +21,7 @@ namespace RegExClient
 
         // ------------------------------------------------
 
-        private void OnKeyUp(object sender, KeyEventArgs e)
-        {
-            ShowMatches();
-        }
-
-        // ------------------------------------------------
-
-        private void OnExit(object sender, System.EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        // ------------------------------------------------
-
-        private void OnRegexReplace(object sender, EventArgs e)
-        {
-            tbReplaceResult.Text = Regex.Replace(tbReplaceInput.Text, tbReplaceRegex.Text, tbReplaceString.Text);
-        }
-
-        // ------------------------------------------------
-
-        private void RegExForm_Load(object sender, System.EventArgs e)
+        private void RegExForm_Load(object sender, EventArgs e)
         {
             // --------------------------------------
             // Initialize the text boxes for testing.
@@ -93,9 +78,22 @@ namespace RegExClient
             {
                 // Throw away any exception;
             }
-            finally
+
+            _matchesVisible = true;
+        }
+
+        // ------------------------------------------------
+
+        private void HideMatches()
+        {
+            if(_matchesVisible)
             {
-                toggleColor = true;
+                tbInput.Text = tbInput.Text;
+                tbInput.SelectionStart = tbInput.Text.Length;
+                tbInput.SelectionLength = 0;
+                tbInput.SelectionBackColor = Color.White;
+
+                _matchesVisible = false;
             }
         }
 
@@ -114,12 +112,23 @@ namespace RegExClient
 
         // ------------------------------------------------
 
-        private void HideMatches()
+        private void OnKeyUp(object sender, KeyEventArgs e)
         {
-            tbInput.Text = tbInput.Text;
-            tbInput.SelectionStart = tbInput.Text.Length;
-            tbInput.SelectionLength = 0;
-            tbInput.SelectionBackColor = Color.White;
+            ShowMatches();
+        }
+
+        // ------------------------------------------------
+
+        private void OnExit(object sender, System.EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        // ------------------------------------------------
+
+        private void OnRegexReplace(object sender, EventArgs e)
+        {
+            tbReplaceResult.Text = Regex.Replace(tbReplaceInput.Text, tbReplaceRegex.Text, tbReplaceString.Text);
         }
 
         // ------------------------------------------------
@@ -128,13 +137,6 @@ namespace RegExClient
         {
             var dlg = new AboutJoeWareDlg();
             dlg.ShowDialog();
-        }
-
-        // ------------------------------------------------
-
-        private void ClearInput(object sender, EventArgs e)
-        {
-            tbInput.Text = string.Empty;
         }
 
         // ------------------------------------------------
@@ -156,6 +158,75 @@ namespace RegExClient
         private void OnHideMatches(object sender, EventArgs e)
         {
             HideMatches();
+        }
+
+        // ------------------------------------------------
+
+        private void OnOpenRegex(object sender, EventArgs e)
+        {
+            var menuItem = sender as ToolStripMenuItem;
+            var openDlg = new OpenFileDialog() { Filter = "regx Files|*.regx|All Files|*.*" };
+
+            if(openDlg.ShowDialog() == DialogResult.OK)
+            {
+                var stream = new StreamReader(openDlg.FileName);
+                var regExItem = jsSer.Deserialize<regExItem>(stream.ReadToEnd());
+
+                tbInput.Text = regExItem.Text;
+
+                // ------------------------------------------------
+                // Only load the text if the menu item was selected
+
+                if(menuItem.Text.Contains("and Text"))
+                {
+                    tbRegEx.Text = regExItem.RegEx;
+                }
+
+                ShowMatches();
+            }
+        }
+
+        // ------------------------------------------------
+
+        private void OnSaveRegEx(object sender, EventArgs e)
+        {
+            var menuItem = sender as ToolStripMenuItem;
+
+            if(menuItem != null)
+            {
+                var regExItem = new regExItem() { RegEx = tbRegEx.Text, Text = menuItem.Text.Contains("and Text") ? tbInput.Text : string.Empty };
+
+                var saveDlg = new SaveFileDialog();
+                saveDlg.Filter = "regx Files|*.regx|All Files|*.*";
+                saveDlg.DefaultExt = ".regx";
+
+                if(saveDlg.ShowDialog() == DialogResult.OK)
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+
+                    try
+                    {
+                        var swFileStream = new StreamWriter(saveDlg.FileName);
+                        swFileStream.Write(regExItem.ToString());
+                        swFileStream.Close();
+                    }
+                    catch(Exception exp)
+                    {
+                        MessageBox.Show(exp.Message, "Exception!");
+                    }
+                    finally
+                    {
+                        Cursor.Current = Cursors.Default;
+                    }
+                }
+            }
+        }
+
+        // ------------------------------------------------
+
+        private void ClearInput(object sender, EventArgs e)
+        {
+            tbInput.Text = string.Empty;
         }
     }
 }

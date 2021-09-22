@@ -53,14 +53,14 @@ namespace RegExClient
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideMatchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.openRegExToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveRegExToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -133,6 +133,7 @@ namespace RegExClient
             this.tbInput.Size = new System.Drawing.Size(775, 277);
             this.tbInput.TabIndex = 15;
             this.tbInput.Text = "";
+            this.tbInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDown);
             // 
             // btnExit
             // 
@@ -317,11 +318,11 @@ namespace RegExClient
             this.hideMatchesToolStripMenuItem,
             this.clearInputToolStripMenuItem,
             this.toolStripSeparator2,
-            this.saveRegExToolStripMenuItem,
             this.openRegExToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.saveRegExAndTextToolStripMenuItem,
             this.openRegExAndTextToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.saveRegExToolStripMenuItem,
+            this.saveRegExAndTextToolStripMenuItem,
             this.toolStripSeparator3,
             this.aboutToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -342,12 +343,10 @@ namespace RegExClient
             this.clearInputToolStripMenuItem.Text = "C&lear Input";
             this.clearInputToolStripMenuItem.Click += new System.EventHandler(this.ClearInput);
             // 
-            // aboutToolStripMenuItem
+            // toolStripSeparator2
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.aboutToolStripMenuItem.Text = "A&bout";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(182, 6);
             // 
             // openRegExToolStripMenuItem
             // 
@@ -363,6 +362,11 @@ namespace RegExClient
             this.openRegExAndTextToolStripMenuItem.Text = "Open RegEx and Text";
             this.openRegExAndTextToolStripMenuItem.Click += new System.EventHandler(this.OnOpenRegex);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(182, 6);
+            // 
             // saveRegExToolStripMenuItem
             // 
             this.saveRegExToolStripMenuItem.Name = "saveRegExToolStripMenuItem";
@@ -377,20 +381,17 @@ namespace RegExClient
             this.saveRegExAndTextToolStripMenuItem.Text = "Save RegEx and Text";
             this.saveRegExAndTextToolStripMenuItem.Click += new System.EventHandler(this.OnSaveRegEx);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(182, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(182, 6);
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(182, 6);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.aboutToolStripMenuItem.Text = "A&bout";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
             // 
             // RegExClientForm
             // 
@@ -404,7 +405,6 @@ namespace RegExClient
             this.Name = "RegExClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegEx Client";
-            this.Load += new System.EventHandler(this.RegExForm_Load);
             this.tcForm.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

@@ -21,28 +21,6 @@ namespace RegExClient
 
         // ------------------------------------------------
 
-        private void RegExForm_Load(object sender, EventArgs e)
-        {
-            // --------------------------------------
-            // Initialize the text boxes for testing.
-            // The values can be changed at will and
-            // tests re-run.
-
-            #if DEBUG
-                //tbText.Text = "PaSSwORd";
-                tbInput.Text = "01/01/2021 until 12/31/2021";
-                //tbInput.Text = @"\\dcaages01\AGES\DEV\AGTracGARMImageOutput\";
-
-                tbRegEx.Text = @"\b(0?[1-9]|1[0-2])[/\-](0?[1-3]|3[0-1])[/\-][12]\d{3}\b";
-                //tbRegEx.Text = "(?=^.{8,30}$)(?=.*[A-Z])(?=.*[a-z].*[a-z].*[a-z]).*$";
-                //tbRegEx.Text = @"(\\\\([a-z|A-Z|0-9|-|_|\s]{2,15}){1}(\.[a-z|A-Z|0-9|-|_|\s]{1,64}){0,3}){1}(\\[^\\|\/|\*|\:|\?||\<|\>|\|]{1,64}){1,}(\\){0,}";
-
-                ShowMatches();
-            #endif
-        }
-
-        // ------------------------------------------------
-
         private void ShowMatches()
         {
             var toggleColor = true;
@@ -112,6 +90,13 @@ namespace RegExClient
 
         // ------------------------------------------------
 
+        private void OnKeyDown(object sender, KeyEventArgs e)
+        {
+            HideMatches();
+        }
+
+        // ------------------------------------------------
+
         private void OnKeyUp(object sender, KeyEventArgs e)
         {
             ShowMatches();
@@ -170,19 +155,27 @@ namespace RegExClient
             if(openDlg.ShowDialog() == DialogResult.OK)
             {
                 var stream = new StreamReader(openDlg.FileName);
-                var regExItem = jsSer.Deserialize<regExItem>(stream.ReadToEnd());
 
-                tbInput.Text = regExItem.Text;
-
-                // ------------------------------------------------
-                // Only load the text if the menu item was selected
-
-                if(menuItem.Text.Contains("and Text"))
+                try
                 {
-                    tbRegEx.Text = regExItem.RegEx;
-                }
+                    var regExItem = jsSer.Deserialize<regExItem>(stream.ReadToEnd());
 
-                ShowMatches();
+                    tbInput.Text = regExItem.Text;
+
+                    // ------------------------------------------------
+                    // Only load the text if the menu item was selected
+
+                    if(menuItem.Text.Contains("and Text"))
+                    {
+                        tbRegEx.Text = regExItem.RegEx;
+                    }
+
+                    ShowMatches();
+                }
+                finally
+                {
+                    stream.Close();
+                }
             }
         }
 

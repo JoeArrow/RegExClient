@@ -42,7 +42,7 @@ namespace RegExClient
                 {
                     tbInput.SelectionStart = group.Index;
                     tbInput.SelectionLength = group.Length;
-                    tbInput.SelectionBackColor = toggleColor ? Color.Cyan : Color.Aquamarine;
+                    tbInput.SelectionBackColor = toggleColor ? Color.Cyan : Color.Chartreuse;
                     tbInput.SelectionProtected = true;
 
                     toggleColor = !toggleColor;
@@ -77,13 +77,20 @@ namespace RegExClient
 
         // ------------------------------------------------
 
+        private void ClearInput(object sender, EventArgs e)
+        {
+            tbInput.Text = string.Empty;
+        }
+
+        // ------------------------------------------------
+
         private Regex GetRegex()
         {
             var retVal = new Regex(".*");
             var options = RegexOptions.Multiline;
             options |= cbIgnoreCase.Checked ? RegexOptions.IgnoreCase : RegexOptions.None;
 
-            retVal = cbIgnoreCase.Checked ? new Regex(tbRegEx.Text, options) : new Regex(tbRegEx.Text);
+            retVal = new Regex(tbRegEx.Text, options);
 
             return retVal;
         }
@@ -210,9 +217,12 @@ namespace RegExClient
 
         // ------------------------------------------------
 
-        private void ClearInput(object sender, EventArgs e)
+        private void OnMouseClick(object sender, MouseEventArgs e)
         {
-            tbInput.Text = string.Empty;
+            if(e.Button == MouseButtons.Right)
+            {
+                HideMatches();
+            }
         }
     }
 }

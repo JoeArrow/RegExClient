@@ -57,9 +57,9 @@ namespace RegExClient
             this.openRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveRegExToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -117,6 +117,7 @@ namespace RegExClient
             this.tbInput.Size = new System.Drawing.Size(775, 277);
             this.tbInput.TabIndex = 15;
             this.tbInput.Text = "";
+            this.tbInput.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
             // 
             // btnExit
             // 
@@ -357,6 +358,13 @@ namespace RegExClient
             this.saveRegExToolStripMenuItem.Text = "Save RegEx";
             this.saveRegExToolStripMenuItem.Click += new System.EventHandler(this.OnSaveRegEx);
             // 
+            // saveRegExAndTextToolStripMenuItem
+            // 
+            this.saveRegExAndTextToolStripMenuItem.Name = "saveRegExAndTextToolStripMenuItem";
+            this.saveRegExAndTextToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.saveRegExAndTextToolStripMenuItem.Text = "Save RegEx and Text";
+            this.saveRegExAndTextToolStripMenuItem.Click += new System.EventHandler(this.OnSaveRegEx);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
@@ -368,13 +376,6 @@ namespace RegExClient
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.aboutToolStripMenuItem.Text = "A&bout";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
-            // 
-            // saveRegExAndTextToolStripMenuItem
-            // 
-            this.saveRegExAndTextToolStripMenuItem.Name = "saveRegExAndTextToolStripMenuItem";
-            this.saveRegExAndTextToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.saveRegExAndTextToolStripMenuItem.Text = "Save RegEx and Text";
-            this.saveRegExAndTextToolStripMenuItem.Click += new System.EventHandler(this.OnSaveRegEx);
             // 
             // RegExClientForm
             // 

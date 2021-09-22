@@ -221,7 +221,14 @@ namespace RegExClient
         {
             if(e.Button == MouseButtons.Right)
             {
-                HideMatches();
+                if(_matchesVisible)
+                {
+                    HideMatches();
+                }
+                else
+                {
+                    ShowMatches(); 
+                }
             }
         }
     }

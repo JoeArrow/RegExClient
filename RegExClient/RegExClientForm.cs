@@ -80,19 +80,12 @@ namespace RegExClient
         private Regex GetRegex()
         {
             var retVal = new Regex(".*");
-            var options = cbMultiLine.Checked ? RegexOptions.Multiline : RegexOptions.None;
+            var options = RegexOptions.Multiline;
             options |= cbIgnoreCase.Checked ? RegexOptions.IgnoreCase : RegexOptions.None;
 
             retVal = cbIgnoreCase.Checked ? new Regex(tbRegEx.Text, options) : new Regex(tbRegEx.Text);
 
             return retVal;
-        }
-
-        // ------------------------------------------------
-
-        private void OnKeyDown(object sender, KeyEventArgs e)
-        {
-            HideMatches();
         }
 
         // ------------------------------------------------
@@ -160,14 +153,14 @@ namespace RegExClient
                 {
                     var regExItem = jsSer.Deserialize<regExItem>(stream.ReadToEnd());
 
-                    tbInput.Text = regExItem.Text;
+                    tbRegEx.Text = regExItem.RegEx;
 
                     // ------------------------------------------------
                     // Only load the text if the menu item was selected
 
                     if(menuItem.Text.Contains("and Text"))
                     {
-                        tbRegEx.Text = regExItem.RegEx;
+                        tbInput.Text = regExItem.Text;
                     }
 
                     ShowMatches();

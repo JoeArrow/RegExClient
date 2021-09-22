@@ -31,7 +31,6 @@ namespace RegExClient
             this.tcForm = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
-            this.cbMultiLine = new System.Windows.Forms.CheckBox();
             this.tbInput = new System.Windows.Forms.RichTextBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.cbIgnoreCase = new System.Windows.Forms.CheckBox();
@@ -58,9 +57,9 @@ namespace RegExClient
             this.openRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveRegExToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -83,7 +82,6 @@ namespace RegExClient
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.cbMultiLine);
             this.tabPage1.Controls.Add(this.tbInput);
             this.tabPage1.Controls.Add(this.btnExit);
             this.tabPage1.Controls.Add(this.cbIgnoreCase);
@@ -108,20 +106,6 @@ namespace RegExClient
             this.button3.Text = "&Match";
             this.button3.Click += new System.EventHandler(this.OnMatch);
             // 
-            // cbMultiLine
-            // 
-            this.cbMultiLine.AutoSize = true;
-            this.cbMultiLine.Checked = true;
-            this.cbMultiLine.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbMultiLine.Location = new System.Drawing.Point(628, 58);
-            this.cbMultiLine.Name = "cbMultiLine";
-            this.cbMultiLine.Size = new System.Drawing.Size(64, 17);
-            this.cbMultiLine.TabIndex = 16;
-            this.cbMultiLine.Text = "Multiline";
-            this.cbMultiLine.UseVisualStyleBackColor = true;
-            this.cbMultiLine.Visible = false;
-            this.cbMultiLine.CheckedChanged += new System.EventHandler(this.OnOptionsChange);
-            // 
             // tbInput
             // 
             this.tbInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -133,7 +117,6 @@ namespace RegExClient
             this.tbInput.Size = new System.Drawing.Size(775, 277);
             this.tbInput.TabIndex = 15;
             this.tbInput.Text = "";
-            this.tbInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDown);
             // 
             // btnExit
             // 
@@ -374,13 +357,6 @@ namespace RegExClient
             this.saveRegExToolStripMenuItem.Text = "Save RegEx";
             this.saveRegExToolStripMenuItem.Click += new System.EventHandler(this.OnSaveRegEx);
             // 
-            // saveRegExAndTextToolStripMenuItem
-            // 
-            this.saveRegExAndTextToolStripMenuItem.Name = "saveRegExAndTextToolStripMenuItem";
-            this.saveRegExAndTextToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.saveRegExAndTextToolStripMenuItem.Text = "Save RegEx and Text";
-            this.saveRegExAndTextToolStripMenuItem.Click += new System.EventHandler(this.OnSaveRegEx);
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
@@ -392,6 +368,13 @@ namespace RegExClient
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.aboutToolStripMenuItem.Text = "A&bout";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
+            // 
+            // saveRegExAndTextToolStripMenuItem
+            // 
+            this.saveRegExAndTextToolStripMenuItem.Name = "saveRegExAndTextToolStripMenuItem";
+            this.saveRegExAndTextToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.saveRegExAndTextToolStripMenuItem.Text = "Save RegEx and Text";
+            this.saveRegExAndTextToolStripMenuItem.Click += new System.EventHandler(this.OnSaveRegEx);
             // 
             // RegExClientForm
             // 
@@ -440,16 +423,15 @@ namespace RegExClient
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearInputToolStripMenuItem;
-        private System.Windows.Forms.CheckBox cbMultiLine;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem hideMatchesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openRegExToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveRegExToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openRegExAndTextToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveRegExAndTextToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem saveRegExAndTextToolStripMenuItem;
     }
 }
 

@@ -17,6 +17,7 @@ namespace RegExClient
         public RegExClientForm()
         {
             InitializeComponent();
+            lblFileName.Text = string.Empty;
         }
 
         // ------------------------------------------------
@@ -130,13 +131,6 @@ namespace RegExClient
         {
             ShowMatches();
         }
-
-        // ------------------------------------------------
-
-        private void OnMatch(object sender, EventArgs e)
-        {
-            ShowMatches();
-        }
         
         // ------------------------------------------------
 
@@ -150,33 +144,7 @@ namespace RegExClient
         private void OnOpenRegex(object sender, EventArgs e)
         {
             var menuItem = sender as ToolStripMenuItem;
-            var openDlg = new OpenFileDialog() { Filter = "regx Files|*.regx|All Files|*.*" };
-
-            if(openDlg.ShowDialog() == DialogResult.OK)
-            {
-                var stream = new StreamReader(openDlg.FileName);
-
-                try
-                {
-                    var regExItem = jsSer.Deserialize<regExItem>(stream.ReadToEnd());
-
-                    tbRegEx.Text = regExItem.RegEx;
-
-                    // ------------------------------------------------
-                    // Only load the text if the menu item was selected
-
-                    if(menuItem.Text.Contains("and Text"))
-                    {
-                        tbInput.Text = regExItem.Text;
-                    }
-
-                    ShowMatches();
-                }
-                finally
-                {
-                    stream.Close();
-                }
-            }
+            OpenRegex(menuItem.Text.Contains("and Text"));
         }
 
         // ------------------------------------------------
@@ -188,29 +156,65 @@ namespace RegExClient
             if(menuItem != null)
             {
                 var regExItem = new regExItem() { RegEx = tbRegEx.Text, Text = menuItem.Text.Contains("and Text") ? tbInput.Text : string.Empty };
+                SaveRegEx(regExItem);
+            }
+        }
 
-                var saveDlg = new SaveFileDialog();
-                saveDlg.Filter = "regx Files|*.regx|All Files|*.*";
-                saveDlg.DefaultExt = ".regx";
+        // ------------------------------------------------
+        
+        private void SaveRegEx(regExItem item)
+        {
+            var saveDlg = new SaveFileDialog();
+            saveDlg.Filter = "regx Files|*.regx|All Files|*.*";
+            saveDlg.DefaultExt = ".regx";
 
-                if(saveDlg.ShowDialog() == DialogResult.OK)
+            if(saveDlg.ShowDialog() == DialogResult.OK)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                try
                 {
-                    Cursor.Current = Cursors.WaitCursor;
+                    var swFileStream = new StreamWriter(saveDlg.FileName);
+                    swFileStream.Write(item.ToString());
+                    swFileStream.Close();
 
-                    try
-                    {
-                        var swFileStream = new StreamWriter(saveDlg.FileName);
-                        swFileStream.Write(regExItem.ToString());
-                        swFileStream.Close();
-                    }
-                    catch(Exception exp)
-                    {
-                        MessageBox.Show(exp.Message, "Exception!");
-                    }
-                    finally
-                    {
-                        Cursor.Current = Cursors.Default;
-                    }
+                    lblFileName.Text = saveDlg.FileName;
+                }
+                catch(Exception exp)
+                {
+                    MessageBox.Show(exp.Message, "Exception!");
+                }
+                finally
+                {
+                    Cursor.Current = Cursors.Default;
+                }
+            }
+        }
+
+        // ------------------------------------------------
+
+        private void OpenRegex(bool includeText)
+        {
+            var openDlg = new OpenFileDialog() { Filter = "regx Files|*.regx|All Files|*.*" };
+
+            if(openDlg.ShowDialog() == DialogResult.OK)
+            {
+                var stream = new StreamReader(openDlg.FileName);
+                lblFileName.Text = openDlg.FileName;
+
+                try
+                {
+                    var regExItem = jsSer.Deserialize<regExItem>(stream.ReadToEnd());
+
+                    tbRegEx.Text = regExItem.RegEx;
+
+                    if(includeText) { tbInput.Text = regExItem.Text; }
+
+                    ShowMatches();
+                }
+                finally
+                {
+                    stream.Close();
                 }
             }
         }
@@ -230,6 +234,23 @@ namespace RegExClient
                     ShowMatches(); 
                 }
             }
+        }
+
+        // ------------------------------------------------
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if(keyData == (Keys.Control | Keys.S))
+            {
+                var regExItem = new regExItem() { RegEx = tbRegEx.Text, Text = tbInput.Text };
+                SaveRegEx(regExItem);
+            }
+            else if(keyData == (Keys.Control | Keys.O))
+            {
+                OpenRegex(true);
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

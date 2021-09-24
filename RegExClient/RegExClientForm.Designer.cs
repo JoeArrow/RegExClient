@@ -30,7 +30,6 @@ namespace RegExClient
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegExClientForm));
             this.tcForm = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
             this.tbInput = new System.Windows.Forms.RichTextBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.cbIgnoreCase = new System.Windows.Forms.CheckBox();
@@ -60,6 +59,7 @@ namespace RegExClient
             this.saveRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblFileName = new System.Windows.Forms.Label();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -81,7 +81,7 @@ namespace RegExClient
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button3);
+            this.tabPage1.Controls.Add(this.lblFileName);
             this.tabPage1.Controls.Add(this.tbInput);
             this.tabPage1.Controls.Add(this.btnExit);
             this.tabPage1.Controls.Add(this.cbIgnoreCase);
@@ -95,16 +95,6 @@ namespace RegExClient
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Regular Expression";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button3.Location = new System.Drawing.Point(368, 363);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(52, 23);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "&Match";
-            this.button3.Click += new System.EventHandler(this.OnMatch);
             // 
             // tbInput
             // 
@@ -122,7 +112,7 @@ namespace RegExClient
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(730, 364);
+            this.btnExit.Location = new System.Drawing.Point(730, 363);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(52, 23);
             this.btnExit.TabIndex = 6;
@@ -377,6 +367,16 @@ namespace RegExClient
             this.aboutToolStripMenuItem.Text = "A&bout";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
             // 
+            // lblFileName
+            // 
+            this.lblFileName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblFileName.AutoSize = true;
+            this.lblFileName.Location = new System.Drawing.Point(10, 368);
+            this.lblFileName.Name = "lblFileName";
+            this.lblFileName.Size = new System.Drawing.Size(10, 13);
+            this.lblFileName.TabIndex = 16;
+            this.lblFileName.Text = ".";
+            // 
             // RegExClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,7 +424,6 @@ namespace RegExClient
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearInputToolStripMenuItem;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem hideMatchesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openRegExToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveRegExToolStripMenuItem;
@@ -433,6 +432,7 @@ namespace RegExClient
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem saveRegExAndTextToolStripMenuItem;
+        private System.Windows.Forms.Label lblFileName;
     }
 }
 

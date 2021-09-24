@@ -30,6 +30,7 @@ namespace RegExClient
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegExClientForm));
             this.tcForm = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblFileName = new System.Windows.Forms.Label();
             this.tbInput = new System.Windows.Forms.RichTextBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.cbIgnoreCase = new System.Windows.Forms.CheckBox();
@@ -59,7 +60,6 @@ namespace RegExClient
             this.saveRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblFileName = new System.Windows.Forms.Label();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -76,7 +76,7 @@ namespace RegExClient
             this.tcForm.Location = new System.Drawing.Point(2, 30);
             this.tcForm.Name = "tcForm";
             this.tcForm.SelectedIndex = 0;
-            this.tcForm.Size = new System.Drawing.Size(796, 419);
+            this.tcForm.Size = new System.Drawing.Size(980, 455);
             this.tcForm.TabIndex = 10;
             // 
             // tabPage1
@@ -91,10 +91,20 @@ namespace RegExClient
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(788, 393);
+            this.tabPage1.Size = new System.Drawing.Size(972, 429);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Regular Expression";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // lblFileName
+            // 
+            this.lblFileName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblFileName.AutoSize = true;
+            this.lblFileName.Location = new System.Drawing.Point(10, 404);
+            this.lblFileName.Name = "lblFileName";
+            this.lblFileName.Size = new System.Drawing.Size(10, 13);
+            this.lblFileName.TabIndex = 16;
+            this.lblFileName.Text = ".";
             // 
             // tbInput
             // 
@@ -104,7 +114,7 @@ namespace RegExClient
             this.tbInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbInput.Location = new System.Drawing.Point(7, 81);
             this.tbInput.Name = "tbInput";
-            this.tbInput.Size = new System.Drawing.Size(775, 277);
+            this.tbInput.Size = new System.Drawing.Size(959, 313);
             this.tbInput.TabIndex = 15;
             this.tbInput.Text = "";
             this.tbInput.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
@@ -112,7 +122,7 @@ namespace RegExClient
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(730, 363);
+            this.btnExit.Location = new System.Drawing.Point(914, 399);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(52, 23);
             this.btnExit.TabIndex = 6;
@@ -124,7 +134,7 @@ namespace RegExClient
             this.cbIgnoreCase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbIgnoreCase.Checked = true;
             this.cbIgnoreCase.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbIgnoreCase.Location = new System.Drawing.Point(696, 58);
+            this.cbIgnoreCase.Location = new System.Drawing.Point(880, 58);
             this.cbIgnoreCase.Name = "cbIgnoreCase";
             this.cbIgnoreCase.Size = new System.Drawing.Size(86, 17);
             this.cbIgnoreCase.TabIndex = 1;
@@ -146,7 +156,7 @@ namespace RegExClient
             this.tbRegEx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbRegEx.Location = new System.Drawing.Point(6, 23);
             this.tbRegEx.Name = "tbRegEx";
-            this.tbRegEx.Size = new System.Drawing.Size(776, 29);
+            this.tbRegEx.Size = new System.Drawing.Size(960, 29);
             this.tbRegEx.TabIndex = 2;
             this.tbRegEx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OnKeyUp);
             // 
@@ -282,7 +292,7 @@ namespace RegExClient
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -367,21 +377,11 @@ namespace RegExClient
             this.aboutToolStripMenuItem.Text = "A&bout";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
             // 
-            // lblFileName
-            // 
-            this.lblFileName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblFileName.AutoSize = true;
-            this.lblFileName.Location = new System.Drawing.Point(10, 368);
-            this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(10, 13);
-            this.lblFileName.TabIndex = 16;
-            this.lblFileName.Text = ".";
-            // 
             // RegExClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(984, 486);
             this.Controls.Add(this.tcForm);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

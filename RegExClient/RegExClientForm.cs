@@ -91,7 +91,11 @@ namespace RegExClient
             var options = RegexOptions.Multiline;
             options |= cbIgnoreCase.Checked ? RegexOptions.IgnoreCase : RegexOptions.None;
 
-            retVal = new Regex(tbRegEx.Text, options);
+            // ------------------------------------
+            // Allows us to write Windows eol RegEx
+            // that still works in this app
+
+            retVal = new Regex(tbRegEx.Text.Replace(@"\r\n", @"\n"), options);
 
             return retVal;
         }

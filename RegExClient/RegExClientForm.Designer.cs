@@ -57,7 +57,6 @@ namespace RegExClient
             this.openRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveRegExToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tcForm.SuspendLayout();
@@ -183,7 +182,7 @@ namespace RegExClient
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(788, 393);
+            this.tabPage2.Size = new System.Drawing.Size(972, 429);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Regex Replace";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -306,7 +305,6 @@ namespace RegExClient
             this.openRegExAndTextToolStripMenuItem,
             this.toolStripSeparator1,
             this.saveRegExToolStripMenuItem,
-            this.saveRegExAndTextToolStripMenuItem,
             this.toolStripSeparator3,
             this.aboutToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -355,15 +353,8 @@ namespace RegExClient
             // 
             this.saveRegExToolStripMenuItem.Name = "saveRegExToolStripMenuItem";
             this.saveRegExToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.saveRegExToolStripMenuItem.Text = "Save RegEx";
+            this.saveRegExToolStripMenuItem.Text = "Save";
             this.saveRegExToolStripMenuItem.Click += new System.EventHandler(this.OnSaveRegEx);
-            // 
-            // saveRegExAndTextToolStripMenuItem
-            // 
-            this.saveRegExAndTextToolStripMenuItem.Name = "saveRegExAndTextToolStripMenuItem";
-            this.saveRegExAndTextToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.saveRegExAndTextToolStripMenuItem.Text = "Save RegEx and Text";
-            this.saveRegExAndTextToolStripMenuItem.Click += new System.EventHandler(this.OnSaveRegEx);
             // 
             // toolStripSeparator3
             // 
@@ -431,7 +422,6 @@ namespace RegExClient
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem saveRegExAndTextToolStripMenuItem;
         private System.Windows.Forms.Label lblFileName;
     }
 }

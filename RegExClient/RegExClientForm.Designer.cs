@@ -30,7 +30,6 @@ namespace RegExClient
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegExClientForm));
             this.tcForm = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.lblFileName = new System.Windows.Forms.Label();
             this.tbInput = new System.Windows.Forms.RichTextBox();
             this.cbIgnoreCase = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,8 +55,8 @@ namespace RegExClient
             this.openRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveRegExToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -79,7 +78,6 @@ namespace RegExClient
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.lblFileName);
             this.tabPage1.Controls.Add(this.tbInput);
             this.tabPage1.Controls.Add(this.cbIgnoreCase);
             this.tabPage1.Controls.Add(this.label1);
@@ -92,16 +90,6 @@ namespace RegExClient
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Regular Expression";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // lblFileName
-            // 
-            this.lblFileName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblFileName.AutoSize = true;
-            this.lblFileName.Location = new System.Drawing.Point(10, 404);
-            this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(10, 13);
-            this.lblFileName.TabIndex = 16;
-            this.lblFileName.Text = ".";
             // 
             // tbInput
             // 
@@ -344,19 +332,19 @@ namespace RegExClient
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(182, 6);
             // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.aboutToolStripMenuItem.Text = "A&bout";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
-            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.OnExit);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.aboutToolStripMenuItem.Text = "A&bout";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
             // 
             // RegExClientForm
             // 
@@ -410,7 +398,6 @@ namespace RegExClient
         private System.Windows.Forms.ToolStripMenuItem openRegExAndTextToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }

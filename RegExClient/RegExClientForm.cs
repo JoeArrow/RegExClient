@@ -11,13 +11,14 @@ namespace RegExClient
 {
     public partial class RegExClientForm : Form
     {
+        private const string TITLE = "Regular Expression Client";
         private bool _matchesVisible = false;
         private readonly JavaScriptSerializer jsSer = new JavaScriptSerializer();
 
         public RegExClientForm()
         {
             InitializeComponent();
-            lblFileName.Text = string.Empty;
+            Text = TITLE;
         }
 
         // ------------------------------------------------
@@ -182,7 +183,7 @@ namespace RegExClient
                     swFileStream.Write(item.ToString());
                     swFileStream.Close();
 
-                    lblFileName.Text = saveDlg.FileName;
+                    Text = $"{TITLE}: {saveDlg.FileName}";
                 }
                 catch(Exception exp)
                 {
@@ -204,7 +205,7 @@ namespace RegExClient
             if(openDlg.ShowDialog() == DialogResult.OK)
             {
                 var stream = new StreamReader(openDlg.FileName);
-                lblFileName.Text = openDlg.FileName;
+                Text = $"{TITLE}: {openDlg.FileName}";
 
                 try
                 {

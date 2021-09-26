@@ -70,6 +70,7 @@
     <Reference Include="JoeWare_Lib">
       <HintPath>..\Lib\JoeWare_Lib.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />

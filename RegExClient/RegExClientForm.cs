@@ -10,6 +10,7 @@ using System;
 using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Windows.Controls;
 using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
 
@@ -24,16 +25,21 @@ namespace RegExClient
         private const string TITLE = "Regular Expression Client";
         private readonly JavaScriptSerializer jsSer = new JavaScriptSerializer();
 
-        public RegExClientForm()
+        public RegExClientForm(string fileName)
         {
             InitializeComponent();
 
-            _currentFile = string.Empty;
+            _currentFile = fileName;
             Text = TITLE;
 
             Size = Properties.Settings.Default.FormSize;
             tbInput.ZoomFactor = Properties.Settings.Default.ZoomFactor;
             cbIgnoreCase.Checked = Properties.Settings.Default.IgnoreCase;
+
+            if(!string.IsNullOrWhiteSpace(fileName))
+            {
+                OpenRegex(fileName, true);
+            }
         }
 
         // ------------------------------------------------
@@ -83,7 +89,7 @@ namespace RegExClient
         {
             if(_matchesVisible)
             {
-                tbInput.Text = tbInput.Text;
+                //tbInput.Text = tbInput.Text;
                 tbInput.SelectionStart = tbInput.Text.Length;
                 tbInput.SelectionLength = 0;
                 tbInput.SelectionBackColor = Color.White;
@@ -111,30 +117,25 @@ namespace RegExClient
 
         // ------------------------------------------------
 
-        private void OpenRegex(bool includeText)
+        private void OpenRegex(string fileName, bool includeText)
         {
-            var openDlg = new OpenFileDialog() { Filter = "regx Files|*.regx|All Files|*.*" };
+            _currentFile = fileName;
+            var stream = new StreamReader(fileName);
+            Text = $"{TITLE}: {_currentFile}";
 
-            if(openDlg.ShowDialog() == DialogResult.OK)
+            try
             {
-                _currentFile = openDlg.FileName;
-                var stream = new StreamReader(openDlg.FileName);
-                Text = $"{TITLE}: {_currentFile}";
+                var regExItem = jsSer.Deserialize<regExItem>(stream.ReadToEnd());
 
-                try
-                {
-                    var regExItem = jsSer.Deserialize<regExItem>(stream.ReadToEnd());
+                tbRegEx.Text = regExItem.RegEx;
 
-                    tbRegEx.Text = regExItem.RegEx;
+                if(includeText) { tbInput.Text = regExItem.Text; }
 
-                    if(includeText) { tbInput.Text = regExItem.Text; }
-
-                    ShowMatches();
-                }
-                finally
-                {
-                    stream.Close();
-                }
+                ShowMatches();
+            }
+            finally
+            {
+                stream.Close();
             }
         }
 
@@ -239,7 +240,13 @@ namespace RegExClient
         private void OnOpenRegex(object sender, EventArgs e)
         {
             var menuItem = sender as ToolStripMenuItem;
-            OpenRegex(menuItem.Text.Contains("and Text"));
+
+            var openDlg = new OpenFileDialog() { Filter = "regx Files|*.regx|All Files|*.*" };
+
+            if(openDlg.ShowDialog() == DialogResult.OK)
+            {
+                OpenRegex(openDlg.FileName, menuItem.Text.Contains("and Text"));
+            }
         }
 
         // ------------------------------------------------
@@ -298,7 +305,15 @@ namespace RegExClient
                     break;
 
                 case (Keys.Control | Keys.O):
-                    OpenRegex(true);
+                    var fileName = string.Empty;
+                    var openDlg = new OpenFileDialog() { Filter = "regx Files|*.regx|All Files|*.*" };
+                    
+                    if(openDlg.ShowDialog() == DialogResult.OK) 
+                    {
+                        fileName = openDlg.FileName; 
+                        OpenRegex(fileName, true);
+                    }
+
                     break;
 
                 case (Keys.Control | Keys.Add):

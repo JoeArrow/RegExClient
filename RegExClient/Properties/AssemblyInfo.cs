@@ -12,8 +12,11 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("RegExClient")]
 [assembly: AssemblyProduct("RegExClient")]
 [assembly: AssemblyCopyright("Copyright © JoeWare 2021")]
-[assembly: AssemblyDescription("RegEx Client is designed to allow the user to test Regular Expressions.\r\n\r\nNot quite ready yet...\r\n\r\n" +
-                               "This is a work in progress.")]
+[assembly: AssemblyDescription("RegEx Client is designed to allow the user to test Regular Expressions.\r\n\r\n" +
+                               "Regular Expressions and the text used to test them can be saved and\r\n" +
+                               "reloaded later. Once a complicated RegEx is perfected, this will come in handy for using it later.\r\n" +
+                               "The Test Text can be zoomed into and out of by using CTRL - Plus (+) and CTRL - Minus (-)\r\n\r\n" +
+                               "This is a work in progress. (But it is coming along...)")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from

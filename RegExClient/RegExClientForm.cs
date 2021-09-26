@@ -19,17 +19,19 @@ namespace RegExClient
 {
     public partial class RegExClientForm : Form
     {
-        private const string TITLE = "Regular Expression Client";
         private bool _matchesVisible = false;
+        private const string TITLE = "Regular Expression Client";
         private readonly JavaScriptSerializer jsSer = new JavaScriptSerializer();
 
         public RegExClientForm()
         {
             InitializeComponent();
+
             Text = TITLE;
 
             Size = Properties.Settings.Default.FormSize;
             tbInput.ZoomFactor = Properties.Settings.Default.ZoomFactor;
+            cbIgnoreCase.Checked = Properties.Settings.Default.IgnoreCase;
         }
 
         // ------------------------------------------------
@@ -114,6 +116,37 @@ namespace RegExClient
 
         // ------------------------------------------------
 
+        private void SaveRegEx(regExItem item)
+        {
+            var saveDlg = new SaveFileDialog();
+            saveDlg.Filter = "regx Files|*.regx|All Files|*.*";
+            saveDlg.DefaultExt = ".regx";
+
+            if(saveDlg.ShowDialog() == DialogResult.OK)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                try
+                {
+                    var swFileStream = new StreamWriter(saveDlg.FileName);
+                    swFileStream.Write(item.ToString());
+                    swFileStream.Close();
+
+                    Text = $"{TITLE}: {saveDlg.FileName}";
+                }
+                catch(Exception exp)
+                {
+                    MessageBox.Show(exp.Message, "Exception!");
+                }
+                finally
+                {
+                    Cursor.Current = Cursors.Default;
+                }
+            }
+        }
+
+        // ------------------------------------------------
+
         private void OnKeyUp(object sender, KeyEventArgs e)
         {
             ShowMatches();
@@ -177,37 +210,6 @@ namespace RegExClient
         }
 
         // ------------------------------------------------
-        
-        private void SaveRegEx(regExItem item)
-        {
-            var saveDlg = new SaveFileDialog();
-            saveDlg.Filter = "regx Files|*.regx|All Files|*.*";
-            saveDlg.DefaultExt = ".regx";
-
-            if(saveDlg.ShowDialog() == DialogResult.OK)
-            {
-                Cursor.Current = Cursors.WaitCursor;
-
-                try
-                {
-                    var swFileStream = new StreamWriter(saveDlg.FileName);
-                    swFileStream.Write(item.ToString());
-                    swFileStream.Close();
-
-                    Text = $"{TITLE}: {saveDlg.FileName}";
-                }
-                catch(Exception exp)
-                {
-                    MessageBox.Show(exp.Message, "Exception!");
-                }
-                finally
-                {
-                    Cursor.Current = Cursors.Default;
-                }
-            }
-        }
-
-        // ------------------------------------------------
 
         private void OpenRegex(bool includeText)
         {
@@ -258,6 +260,7 @@ namespace RegExClient
         {
             Properties.Settings.Default.FormSize = Size;
             Properties.Settings.Default.ZoomFactor = tbInput.ZoomFactor;
+            Properties.Settings.Default.IgnoreCase = cbIgnoreCase.Checked;
 
             Properties.Settings.Default.Save();
         }

@@ -46,5 +46,17 @@ namespace RegExClient.Properties {
                 this["FormSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IgnoreCase {
+            get {
+                return ((bool)(this["IgnoreCase"]));
+            }
+            set {
+                this["IgnoreCase"] = value;
+            }
+        }
     }
 }

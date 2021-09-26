@@ -38,7 +38,6 @@ namespace RegExClient
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label7 = new System.Windows.Forms.Label();
             this.tbReplaceString = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.tbReplaceResult = new System.Windows.Forms.TextBox();
@@ -150,7 +149,6 @@ namespace RegExClient
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.tbReplaceString);
-            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.tbReplaceResult);
@@ -180,17 +178,8 @@ namespace RegExClient
             this.tbReplaceString.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReplaceString.Location = new System.Drawing.Point(6, 106);
             this.tbReplaceString.Name = "tbReplaceString";
-            this.tbReplaceString.Size = new System.Drawing.Size(902, 26);
+            this.tbReplaceString.Size = new System.Drawing.Size(947, 26);
             this.tbReplaceString.TabIndex = 15;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(914, 248);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(52, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "E&xit";
             // 
             // button2
             // 
@@ -221,7 +210,7 @@ namespace RegExClient
             this.tbReplaceResult.Multiline = true;
             this.tbReplaceResult.Name = "tbReplaceResult";
             this.tbReplaceResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbReplaceResult.Size = new System.Drawing.Size(902, 235);
+            this.tbReplaceResult.Size = new System.Drawing.Size(960, 235);
             this.tbReplaceResult.TabIndex = 11;
             // 
             // tbReplaceRegex
@@ -231,7 +220,7 @@ namespace RegExClient
             this.tbReplaceRegex.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReplaceRegex.Location = new System.Drawing.Point(8, 18);
             this.tbReplaceRegex.Name = "tbReplaceRegex";
-            this.tbReplaceRegex.Size = new System.Drawing.Size(902, 26);
+            this.tbReplaceRegex.Size = new System.Drawing.Size(947, 26);
             this.tbReplaceRegex.TabIndex = 9;
             // 
             // label5
@@ -249,7 +238,7 @@ namespace RegExClient
             this.tbReplaceInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReplaceInput.Location = new System.Drawing.Point(7, 61);
             this.tbReplaceInput.Name = "tbReplaceInput";
-            this.tbReplaceInput.Size = new System.Drawing.Size(902, 26);
+            this.tbReplaceInput.Size = new System.Drawing.Size(947, 26);
             this.tbReplaceInput.TabIndex = 5;
             // 
             // label4
@@ -395,7 +384,6 @@ namespace RegExClient
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbReplaceString;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbReplaceResult;

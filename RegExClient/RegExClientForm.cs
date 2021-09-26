@@ -1,11 +1,19 @@
-﻿using System;
+﻿#region © 2021 JoeWare.
+//
+// All rights reserved. Reproduction or transmission in whole or in part, in
+// any form or by any means, electronic, mechanical, or otherwise, is prohibited
+// without the prior written consent of the copyright owner.
+//
+#endregion
+
+using System;
+using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
 
 using AboutJoeWare_Lib;
-using System.IO;
 
 namespace RegExClient
 {

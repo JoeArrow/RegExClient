@@ -89,7 +89,7 @@ namespace RegExClient
         {
             if(_matchesVisible)
             {
-                //tbInput.Text = tbInput.Text;
+                tbInput.Text = tbInput.Text;
                 tbInput.SelectionStart = tbInput.Text.Length;
                 tbInput.SelectionLength = 0;
                 tbInput.SelectionBackColor = Color.White;

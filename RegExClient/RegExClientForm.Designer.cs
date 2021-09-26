@@ -147,6 +147,7 @@ namespace RegExClient
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.tbReplaceString);
             this.tabPage2.Controls.Add(this.button1);
@@ -163,7 +164,6 @@ namespace RegExClient
             this.tabPage2.Size = new System.Drawing.Size(972, 429);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Regex Replace";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -180,14 +180,13 @@ namespace RegExClient
             this.tbReplaceString.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReplaceString.Location = new System.Drawing.Point(6, 106);
             this.tbReplaceString.Name = "tbReplaceString";
-            this.tbReplaceString.Size = new System.Drawing.Size(841, 26);
+            this.tbReplaceString.Size = new System.Drawing.Size(902, 26);
             this.tbReplaceString.TabIndex = 15;
-            this.tbReplaceString.Text = "\"";
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(795, 268);
+            this.button1.Location = new System.Drawing.Point(914, 248);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(52, 23);
             this.button1.TabIndex = 13;
@@ -195,8 +194,8 @@ namespace RegExClient
             // 
             // button2
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(358, 364);
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button2.Location = new System.Drawing.Point(460, 399);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(52, 23);
             this.button2.TabIndex = 12;
@@ -222,7 +221,7 @@ namespace RegExClient
             this.tbReplaceResult.Multiline = true;
             this.tbReplaceResult.Name = "tbReplaceResult";
             this.tbReplaceResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbReplaceResult.Size = new System.Drawing.Size(776, 200);
+            this.tbReplaceResult.Size = new System.Drawing.Size(902, 235);
             this.tbReplaceResult.TabIndex = 11;
             // 
             // tbReplaceRegex
@@ -232,9 +231,8 @@ namespace RegExClient
             this.tbReplaceRegex.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReplaceRegex.Location = new System.Drawing.Point(6, 63);
             this.tbReplaceRegex.Name = "tbReplaceRegex";
-            this.tbReplaceRegex.Size = new System.Drawing.Size(841, 26);
+            this.tbReplaceRegex.Size = new System.Drawing.Size(902, 26);
             this.tbReplaceRegex.TabIndex = 9;
-            this.tbReplaceRegex.Text = "\"[\"\"]+\"";
             // 
             // label5
             // 
@@ -251,9 +249,8 @@ namespace RegExClient
             this.tbReplaceInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReplaceInput.Location = new System.Drawing.Point(6, 20);
             this.tbReplaceInput.Name = "tbReplaceInput";
-            this.tbReplaceInput.Size = new System.Drawing.Size(841, 26);
+            this.tbReplaceInput.Size = new System.Drawing.Size(902, 26);
             this.tbReplaceInput.TabIndex = 5;
-            this.tbReplaceInput.Text = "{ \"Test\" : \"\"\"{{Var}}\"\"\"\", \"Test2\" : \"{{OKAY}}\" }";
             // 
             // label4
             // 

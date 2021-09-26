@@ -53,10 +53,10 @@ namespace RegExClient
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.openRegExToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveRegExToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tcForm.SuspendLayout();
@@ -229,14 +229,14 @@ namespace RegExClient
             this.tbReplaceRegex.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbReplaceRegex.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReplaceRegex.Location = new System.Drawing.Point(6, 63);
+            this.tbReplaceRegex.Location = new System.Drawing.Point(8, 18);
             this.tbReplaceRegex.Name = "tbReplaceRegex";
             this.tbReplaceRegex.Size = new System.Drawing.Size(902, 26);
             this.tbReplaceRegex.TabIndex = 9;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(4, 47);
+            this.label5.Location = new System.Drawing.Point(6, 2);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 16);
             this.label5.TabIndex = 10;
@@ -247,14 +247,14 @@ namespace RegExClient
             this.tbReplaceInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbReplaceInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReplaceInput.Location = new System.Drawing.Point(6, 20);
+            this.tbReplaceInput.Location = new System.Drawing.Point(7, 61);
             this.tbReplaceInput.Name = "tbReplaceInput";
             this.tbReplaceInput.Size = new System.Drawing.Size(902, 26);
             this.tbReplaceInput.TabIndex = 5;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(4, 4);
+            this.label4.Location = new System.Drawing.Point(5, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 16);
             this.label4.TabIndex = 6;
@@ -320,6 +320,11 @@ namespace RegExClient
             this.openRegExAndTextToolStripMenuItem.Text = "&Open RegEx and Text";
             this.openRegExAndTextToolStripMenuItem.Click += new System.EventHandler(this.OnOpenRegex);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(182, 6);
+            // 
             // saveRegExToolStripMenuItem
             // 
             this.saveRegExToolStripMenuItem.Name = "saveRegExToolStripMenuItem";
@@ -339,11 +344,6 @@ namespace RegExClient
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.OnExit);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(182, 6);
-            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -355,7 +355,7 @@ namespace RegExClient
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "A&bout";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
             // 

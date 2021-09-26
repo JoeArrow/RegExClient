@@ -111,15 +111,6 @@ namespace RegExClient
 
         // ------------------------------------------------
 
-        private void OnNew(object sender, EventArgs e)
-        {
-            tbRegEx.Text = string.Empty;
-            tbInput.Text = string.Empty;
-            tbInput.Focus();
-        }
-
-        // ------------------------------------------------
-
         private void OpenRegex(bool includeText)
         {
             var openDlg = new OpenFileDialog() { Filter = "regx Files|*.regx|All Files|*.*" };
@@ -186,6 +177,18 @@ namespace RegExClient
                     Cursor.Current = Cursors.Default;
                 } 
             }
+        }
+
+        // ------------------------------------------------
+
+        private void OnNew(object sender, EventArgs e)
+        {
+            _currentFile = string.Empty;
+            tbRegEx.Text = string.Empty;
+            tbInput.Text = string.Empty;
+            Text = $"{TITLE}: {_currentFile}";
+
+            tbInput.Focus();
         }
 
         // ------------------------------------------------

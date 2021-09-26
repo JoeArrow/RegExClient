@@ -19,6 +19,9 @@ namespace RegExClient
         {
             InitializeComponent();
             Text = TITLE;
+
+            Size = Properties.Settings.Default.FormSize;
+            tbInput.ZoomFactor = Properties.Settings.Default.ZoomFactor;
         }
 
         // ------------------------------------------------
@@ -243,16 +246,44 @@ namespace RegExClient
 
         // ------------------------------------------------
 
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.FormSize = Size;
+            Properties.Settings.Default.ZoomFactor = tbInput.ZoomFactor;
+
+            Properties.Settings.Default.Save();
+        }
+
+        // ------------------------------------------------
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if(keyData == (Keys.Control | Keys.S))
+            switch(keyData)
             {
-                var regExItem = new regExItem() { RegEx = tbRegEx.Text, Text = tbInput.Text };
-                SaveRegEx(regExItem);
-            }
-            else if(keyData == (Keys.Control | Keys.O))
-            {
-                OpenRegex(true);
+                case (Keys.Control | Keys.S):
+                    var regExItem = new regExItem() { RegEx = tbRegEx.Text, Text = tbInput.Text };
+                    SaveRegEx(regExItem);
+                    break;
+
+                case (Keys.Control | Keys.O):
+                    OpenRegex(true);
+                    break;
+
+                case (Keys.Control | Keys.Add):
+                case (Keys.Control | Keys.Oemplus):
+                    if(tbInput.ZoomFactor < 1.75f)
+                    {
+                        tbInput.ZoomFactor += .05f;
+                    }
+                    break;
+
+                case (Keys.Control | Keys.Subtract):
+                case (Keys.Control | Keys.OemMinus):
+                    if(tbInput.ZoomFactor > .75f)
+                    {
+                        tbInput.ZoomFactor -= .05f;
+                    }
+                    break;
             }
 
             return base.ProcessCmdKey(ref msg, keyData);

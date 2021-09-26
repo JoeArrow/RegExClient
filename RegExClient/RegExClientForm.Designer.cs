@@ -78,6 +78,7 @@ namespace RegExClient
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage1.Controls.Add(this.tbInput);
             this.tabPage1.Controls.Add(this.cbIgnoreCase);
             this.tabPage1.Controls.Add(this.label1);
@@ -89,7 +90,6 @@ namespace RegExClient
             this.tabPage1.Size = new System.Drawing.Size(972, 429);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Regular Expression";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tbInput
             // 
@@ -122,7 +122,7 @@ namespace RegExClient
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 16);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Text to Test";
+            this.label1.Text = "Text to Test:";
             // 
             // tbRegEx
             // 
@@ -141,7 +141,7 @@ namespace RegExClient
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 16);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Regular Expression";
+            this.label3.Text = "Regular Expression:";
             // 
             // tabPage2
             // 
@@ -350,6 +350,7 @@ namespace RegExClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(984, 486);
             this.Controls.Add(this.tcForm);
             this.Controls.Add(this.menuStrip1);
@@ -358,6 +359,7 @@ namespace RegExClient
             this.Name = "RegExClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegEx Client";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this.tcForm.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

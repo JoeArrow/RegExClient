@@ -19,6 +19,7 @@ namespace RegExClient
 {
     public partial class RegExClientForm : Form
     {
+        private string _currentFile;
         private bool _matchesVisible = false;
         private const string TITLE = "Regular Expression Client";
         private readonly JavaScriptSerializer jsSer = new JavaScriptSerializer();
@@ -27,6 +28,7 @@ namespace RegExClient
         {
             InitializeComponent();
 
+            _currentFile = string.Empty;
             Text = TITLE;
 
             Size = Properties.Settings.Default.FormSize;
@@ -92,13 +94,6 @@ namespace RegExClient
 
         // ------------------------------------------------
 
-        private void ClearInput(object sender, EventArgs e)
-        {
-            tbInput.Text = string.Empty;
-        }
-
-        // ------------------------------------------------
-
         private Regex GetRegex()
         {
             var retVal = new Regex(".*");
@@ -116,23 +111,71 @@ namespace RegExClient
 
         // ------------------------------------------------
 
-        private void SaveRegEx(regExItem item)
+        private void OnNew(object sender, EventArgs e)
         {
-            var saveDlg = new SaveFileDialog();
-            saveDlg.Filter = "regx Files|*.regx|All Files|*.*";
-            saveDlg.DefaultExt = ".regx";
+            tbRegEx.Text = string.Empty;
+            tbInput.Text = string.Empty;
+            tbInput.Focus();
+        }
 
-            if(saveDlg.ShowDialog() == DialogResult.OK)
+        // ------------------------------------------------
+
+        private void OpenRegex(bool includeText)
+        {
+            var openDlg = new OpenFileDialog() { Filter = "regx Files|*.regx|All Files|*.*" };
+
+            if(openDlg.ShowDialog() == DialogResult.OK)
             {
-                Cursor.Current = Cursors.WaitCursor;
+                _currentFile = openDlg.FileName;
+                var stream = new StreamReader(openDlg.FileName);
+                Text = $"{TITLE}: {_currentFile}";
 
                 try
                 {
-                    var swFileStream = new StreamWriter(saveDlg.FileName);
+                    var regExItem = jsSer.Deserialize<regExItem>(stream.ReadToEnd());
+
+                    tbRegEx.Text = regExItem.RegEx;
+
+                    if(includeText) { tbInput.Text = regExItem.Text; }
+
+                    ShowMatches();
+                }
+                finally
+                {
+                    stream.Close();
+                }
+            }
+        }
+
+        // ------------------------------------------------
+
+        private void SaveRegEx(regExItem item)
+        {
+            var doSave = true;
+
+            if(string.IsNullOrEmpty(_currentFile))
+            { 
+                var saveDlg = new SaveFileDialog();
+                saveDlg.Filter = "regx Files|*.regx|All Files|*.*";
+                saveDlg.DefaultExt = ".regx";
+
+                if(doSave = saveDlg.ShowDialog() == DialogResult.OK)
+                {
+                    _currentFile = saveDlg.FileName;
+                }
+            }
+
+            if(doSave)
+            {
+                try
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+
+                    var swFileStream = new StreamWriter(_currentFile);
                     swFileStream.Write(item.ToString());
                     swFileStream.Close();
 
-                    Text = $"{TITLE}: {saveDlg.FileName}";
+                    Text = $"{TITLE}: {_currentFile}";
                 }
                 catch(Exception exp)
                 {
@@ -141,7 +184,7 @@ namespace RegExClient
                 finally
                 {
                     Cursor.Current = Cursors.Default;
-                }
+                } 
             }
         }
 
@@ -198,43 +241,18 @@ namespace RegExClient
 
         // ------------------------------------------------
 
-        private void OnSaveRegEx(object sender, EventArgs e)
+        private void OnSaveAs(object sender, EventArgs e)
         {
-            var menuItem = sender as ToolStripMenuItem;
-
-            if(menuItem != null)
-            {
-                var regExItem = new regExItem() { RegEx = tbRegEx.Text, Text = menuItem.Text.Contains("and Text") ? tbInput.Text : string.Empty };
-                SaveRegEx(regExItem);
-            }
+            _currentFile = string.Empty;
+            OnSaveRegEx(sender, e);
         }
 
         // ------------------------------------------------
 
-        private void OpenRegex(bool includeText)
+        private void OnSaveRegEx(object sender, EventArgs e)
         {
-            var openDlg = new OpenFileDialog() { Filter = "regx Files|*.regx|All Files|*.*" };
-
-            if(openDlg.ShowDialog() == DialogResult.OK)
-            {
-                var stream = new StreamReader(openDlg.FileName);
-                Text = $"{TITLE}: {openDlg.FileName}";
-
-                try
-                {
-                    var regExItem = jsSer.Deserialize<regExItem>(stream.ReadToEnd());
-
-                    tbRegEx.Text = regExItem.RegEx;
-
-                    if(includeText) { tbInput.Text = regExItem.Text; }
-
-                    ShowMatches();
-                }
-                finally
-                {
-                    stream.Close();
-                }
-            }
+            var regExItem = new regExItem() { RegEx = tbRegEx.Text, Text = tbInput.Text };
+            SaveRegEx(regExItem);
         }
 
         // ------------------------------------------------

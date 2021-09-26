@@ -54,6 +54,7 @@ namespace RegExClient
             this.openRegExAndTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveRegExToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,9 +99,9 @@ namespace RegExClient
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbInput.Location = new System.Drawing.Point(7, 81);
+            this.tbInput.Location = new System.Drawing.Point(9, 88);
             this.tbInput.Name = "tbInput";
-            this.tbInput.Size = new System.Drawing.Size(959, 341);
+            this.tbInput.Size = new System.Drawing.Size(957, 334);
             this.tbInput.TabIndex = 15;
             this.tbInput.Text = "";
             this.tbInput.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
@@ -110,7 +111,7 @@ namespace RegExClient
             this.cbIgnoreCase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbIgnoreCase.Checked = true;
             this.cbIgnoreCase.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbIgnoreCase.Location = new System.Drawing.Point(880, 58);
+            this.cbIgnoreCase.Location = new System.Drawing.Point(880, 68);
             this.cbIgnoreCase.Name = "cbIgnoreCase";
             this.cbIgnoreCase.Size = new System.Drawing.Size(86, 17);
             this.cbIgnoreCase.TabIndex = 1;
@@ -119,7 +120,7 @@ namespace RegExClient
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(6, 59);
+            this.label1.Location = new System.Drawing.Point(6, 69);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 16);
             this.label1.TabIndex = 4;
@@ -130,15 +131,15 @@ namespace RegExClient
             this.tbRegEx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbRegEx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbRegEx.Location = new System.Drawing.Point(6, 23);
+            this.tbRegEx.Location = new System.Drawing.Point(8, 33);
             this.tbRegEx.Name = "tbRegEx";
-            this.tbRegEx.Size = new System.Drawing.Size(960, 29);
+            this.tbRegEx.Size = new System.Drawing.Size(958, 29);
             this.tbRegEx.TabIndex = 2;
             this.tbRegEx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OnKeyUp);
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(4, 6);
+            this.label3.Location = new System.Drawing.Point(6, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 16);
             this.label3.TabIndex = 7;
@@ -165,7 +166,7 @@ namespace RegExClient
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(4, 90);
+            this.label7.Location = new System.Drawing.Point(4, 103);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(116, 13);
             this.label7.TabIndex = 16;
@@ -176,7 +177,7 @@ namespace RegExClient
             this.tbReplaceString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbReplaceString.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReplaceString.Location = new System.Drawing.Point(6, 106);
+            this.tbReplaceString.Location = new System.Drawing.Point(6, 119);
             this.tbReplaceString.Name = "tbReplaceString";
             this.tbReplaceString.Size = new System.Drawing.Size(947, 26);
             this.tbReplaceString.TabIndex = 15;
@@ -193,7 +194,7 @@ namespace RegExClient
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(4, 139);
+            this.label6.Location = new System.Drawing.Point(4, 152);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 16);
             this.label6.TabIndex = 14;
@@ -206,11 +207,11 @@ namespace RegExClient
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbReplaceResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReplaceResult.Location = new System.Drawing.Point(6, 158);
+            this.tbReplaceResult.Location = new System.Drawing.Point(6, 170);
             this.tbReplaceResult.Multiline = true;
             this.tbReplaceResult.Name = "tbReplaceResult";
             this.tbReplaceResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbReplaceResult.Size = new System.Drawing.Size(960, 235);
+            this.tbReplaceResult.Size = new System.Drawing.Size(960, 223);
             this.tbReplaceResult.TabIndex = 11;
             // 
             // tbReplaceRegex
@@ -218,14 +219,14 @@ namespace RegExClient
             this.tbReplaceRegex.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbReplaceRegex.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReplaceRegex.Location = new System.Drawing.Point(8, 18);
+            this.tbReplaceRegex.Location = new System.Drawing.Point(8, 31);
             this.tbReplaceRegex.Name = "tbReplaceRegex";
             this.tbReplaceRegex.Size = new System.Drawing.Size(947, 26);
             this.tbReplaceRegex.TabIndex = 9;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(6, 2);
+            this.label5.Location = new System.Drawing.Point(6, 15);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 16);
             this.label5.TabIndex = 10;
@@ -236,14 +237,14 @@ namespace RegExClient
             this.tbReplaceInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbReplaceInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReplaceInput.Location = new System.Drawing.Point(7, 61);
+            this.tbReplaceInput.Location = new System.Drawing.Point(7, 74);
             this.tbReplaceInput.Name = "tbReplaceInput";
             this.tbReplaceInput.Size = new System.Drawing.Size(947, 26);
             this.tbReplaceInput.TabIndex = 5;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(5, 45);
+            this.label4.Location = new System.Drawing.Point(5, 58);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 16);
             this.label4.TabIndex = 6;
@@ -270,6 +271,7 @@ namespace RegExClient
             this.openRegExAndTextToolStripMenuItem,
             this.toolStripSeparator1,
             this.saveRegExToolStripMenuItem,
+            this.saveAsToolStripMenuItem,
             this.toolStripSeparator3,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -287,8 +289,8 @@ namespace RegExClient
             // 
             this.clearInputToolStripMenuItem.Name = "clearInputToolStripMenuItem";
             this.clearInputToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.clearInputToolStripMenuItem.Text = "C&lear Input";
-            this.clearInputToolStripMenuItem.Click += new System.EventHandler(this.ClearInput);
+            this.clearInputToolStripMenuItem.Text = "&New";
+            this.clearInputToolStripMenuItem.Click += new System.EventHandler(this.OnNew);
             // 
             // toolStripSeparator2
             // 
@@ -320,6 +322,13 @@ namespace RegExClient
             this.saveRegExToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.saveRegExToolStripMenuItem.Text = "&Save";
             this.saveRegExToolStripMenuItem.Click += new System.EventHandler(this.OnSaveRegEx);
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.saveAsToolStripMenuItem.Text = "Save &As";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.OnSaveAs);
             // 
             // toolStripSeparator3
             // 
@@ -404,6 +413,7 @@ namespace RegExClient
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
     }
 }
 

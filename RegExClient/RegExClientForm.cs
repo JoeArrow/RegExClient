@@ -84,7 +84,7 @@ namespace RegExClient
         }
 
         // ------------------------------------------------
-
+ 
         private void HideMatches()
         {
             if(_matchesVisible)
@@ -334,6 +334,12 @@ namespace RegExClient
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void OnRegExValidated(object sender, EventArgs e)
+        {
+            tbReplaceRegex.Text = tbRegEx.Text;
+            tbReplaceInput.Text = tbInput.Text;
         }
     }
 }

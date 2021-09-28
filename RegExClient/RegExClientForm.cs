@@ -15,6 +15,7 @@ using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
 
 using AboutJoeWare_Lib;
+using RegExClient.Help;
 
 namespace RegExClient
 {
@@ -284,6 +285,23 @@ namespace RegExClient
 
         // ------------------------------------------------
 
+        private void OnRegExValidated(object sender, EventArgs e)
+        {
+            tbReplaceRegex.Text = tbRegEx.Text;
+            tbReplaceInput.Text = tbInput.Text;
+        }
+
+        // ------------------------------------------------
+
+        private void OnHelp(object sender, EventArgs e)
+        {
+            var dlg = new HelpForm();
+
+            dlg.ShowDialog();
+        }
+
+        // ------------------------------------------------
+
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
             Properties.Settings.Default.FormSize = Size;
@@ -334,12 +352,6 @@ namespace RegExClient
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
-        }
-
-        private void OnRegExValidated(object sender, EventArgs e)
-        {
-            tbReplaceRegex.Text = tbRegEx.Text;
-            tbReplaceInput.Text = tbInput.Text;
         }
     }
 }

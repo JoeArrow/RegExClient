@@ -1,0 +1,16 @@
+﻿table.HelpList tr.Header
+{
+    font-weight: bold;
+    background-color: lightgray;
+}
+
+table.HelpList td.RegEx 
+{
+    width: 120px;
+    text-align:center;
+}
+
+table.HelpList td.Def
+{
+    width: 850px;
+}

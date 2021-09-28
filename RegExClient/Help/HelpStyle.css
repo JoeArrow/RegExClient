@@ -1,16 +1,36 @@
-﻿table.HelpList tr.Header
+﻿label
 {
     font-weight: bold;
-    background-color: lightgray;
 }
 
-table.HelpList td.RegEx 
+table td.RegEx 
 {
     width: 120px;
     text-align:center;
 }
 
-table.HelpList td.Def
+table td.Def
 {
     width: 850px;
+}
+
+table tr:nth-child(odd)
+{
+    background-color: ghostwhite
+}
+
+table tr:nth-child(even)
+{
+    background-color: beige
+}
+
+table td.Header1
+{
+    text-align: center;
+}
+
+table tr.Header
+{
+    font-weight: bold;
+    background-color: lightgray;
 }

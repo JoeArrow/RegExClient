@@ -300,6 +300,7 @@ namespace RegExClient
             dlg.ShowDialog();
         }
 
+
         // ------------------------------------------------
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)

@@ -13,8 +13,6 @@ namespace RegExClient.Help
             
             var curDir = Directory.GetCurrentDirectory();
             wbHelp.Url = new Uri($@"file:///{curDir}\Help\RegExHelp.html");
-
-            //wbHelp.Navigate(@".\Help\RegExHelp.html");
         }
     }
 }

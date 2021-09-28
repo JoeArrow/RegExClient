@@ -14,12 +14,12 @@ table td.Def
     width: 850px;
 }
 
-table tr:nth-child(odd)
+table tr.light
 {
     background-color: ghostwhite
 }
 
-table tr:nth-child(even)
+table tr.dark
 {
     background-color: beige
 }

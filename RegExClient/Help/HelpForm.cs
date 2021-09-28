@@ -9,7 +9,7 @@ namespace RegExClient.Help
         {
             InitializeComponent();
 
-            wbHelp.Navigate(@"C:\Usage\_Source\CSharp\JoeWare\RegExClient\RegExClient\Help\RegExHelp.html");
+            wbHelp.Navigate(@".\Help\RegExHelp.html");
         }
     }
 }

@@ -30,6 +30,7 @@ namespace RegExClient
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegExClientForm));
             this.tcForm = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cbMultiline = new System.Windows.Forms.CheckBox();
             this.tbInput = new System.Windows.Forms.RichTextBox();
             this.cbIgnoreCase = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,7 +61,6 @@ namespace RegExClient
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cbMultiline = new System.Windows.Forms.CheckBox();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -100,8 +100,21 @@ namespace RegExClient
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Regular Expression";
             // 
+            // cbMultiline
+            // 
+            this.cbMultiline.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbMultiline.Checked = true;
+            this.cbMultiline.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbMultiline.Location = new System.Drawing.Point(809, 68);
+            this.cbMultiline.Name = "cbMultiline";
+            this.cbMultiline.Size = new System.Drawing.Size(69, 17);
+            this.cbMultiline.TabIndex = 16;
+            this.cbMultiline.Text = "Multiline";
+            this.cbMultiline.CheckedChanged += new System.EventHandler(this.OnOptionsChange);
+            // 
             // tbInput
             // 
+            this.tbInput.AcceptsTab = true;
             this.tbInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -386,18 +399,6 @@ namespace RegExClient
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.aboutToolStripMenuItem.Text = "A&bout";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
-            // 
-            // cbMultiline
-            // 
-            this.cbMultiline.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbMultiline.Checked = true;
-            this.cbMultiline.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbMultiline.Location = new System.Drawing.Point(809, 68);
-            this.cbMultiline.Name = "cbMultiline";
-            this.cbMultiline.Size = new System.Drawing.Size(69, 17);
-            this.cbMultiline.TabIndex = 16;
-            this.cbMultiline.Text = "Multiline";
-            this.cbMultiline.CheckedChanged += new System.EventHandler(this.OnOptionsChange);
             // 
             // RegExClientForm
             // 

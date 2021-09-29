@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Regex", "Sample Rege
 		Sample Regex\DateMatch_Long.regx = Sample Regex\DateMatch_Long.regx
 		Sample Regex\Look Ahead sample.regx = Sample Regex\Look Ahead sample.regx
 		Sample Regex\Look Behind sample.regx = Sample Regex\Look Behind sample.regx
+		Sample Regex\Look Both ways in the Preamble.regx = Sample Regex\Look Both ways in the Preamble.regx
 		Sample Regex\Look Both Ways.regx = Sample Regex\Look Both Ways.regx
 		Sample Regex\MultipleQuotesMatch.regx = Sample Regex\MultipleQuotesMatch.regx
 		Sample Regex\NotImplementedException.regx = Sample Regex\NotImplementedException.regx

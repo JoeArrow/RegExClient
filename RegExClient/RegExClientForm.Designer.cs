@@ -60,6 +60,7 @@ namespace RegExClient
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbMultiline = new System.Windows.Forms.CheckBox();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -86,6 +87,7 @@ namespace RegExClient
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.cbMultiline);
             this.tabPage1.Controls.Add(this.tbInput);
             this.tabPage1.Controls.Add(this.cbIgnoreCase);
             this.tabPage1.Controls.Add(this.label1);
@@ -374,16 +376,28 @@ namespace RegExClient
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
             this.helpToolStripMenuItem1.Text = "RegEx Help";
             this.helpToolStripMenuItem1.Click += new System.EventHandler(this.OnHelp);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.aboutToolStripMenuItem.Text = "A&bout";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
+            // 
+            // cbMultiline
+            // 
+            this.cbMultiline.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbMultiline.Checked = true;
+            this.cbMultiline.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbMultiline.Location = new System.Drawing.Point(809, 68);
+            this.cbMultiline.Name = "cbMultiline";
+            this.cbMultiline.Size = new System.Drawing.Size(69, 17);
+            this.cbMultiline.TabIndex = 16;
+            this.cbMultiline.Text = "Multiline";
+            this.cbMultiline.CheckedChanged += new System.EventHandler(this.OnOptionsChange);
             // 
             // RegExClientForm
             // 
@@ -449,6 +463,7 @@ namespace RegExClient
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
+        private System.Windows.Forms.CheckBox cbMultiline;
     }
 }
 

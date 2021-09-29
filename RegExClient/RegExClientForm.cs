@@ -103,15 +103,19 @@ namespace RegExClient
 
         private Regex GetRegex()
         {
-            var retVal = new Regex(".*");
-            var options = RegexOptions.Multiline;
-            options |= cbIgnoreCase.Checked ? RegexOptions.IgnoreCase : RegexOptions.None;
+            Regex retVal = null;
 
-            // ------------------------------------
-            // Allows us to write Windows eol RegEx
-            // that still works in this app
+            if(!string.IsNullOrWhiteSpace(tbRegEx.Text))
+            {
+                var options  = cbMultiline.Checked ? RegexOptions.Multiline : RegexOptions.None;
+                    options |= cbIgnoreCase.Checked ? RegexOptions.IgnoreCase : RegexOptions.None;
 
-            retVal = new Regex(tbRegEx.Text.Replace(@"\r\n", @"\n"), options);
+                // ------------------------------------
+                // Allows us to write Windows eol RegEx
+                // that still works in this app
+
+                retVal = new Regex(tbRegEx.Text.Replace(@"\r\n", @"\n"), options);
+            }
 
             return retVal;
         }

@@ -10,7 +10,7 @@ namespace RegExClient.Help
         public HelpForm()
         {
             InitializeComponent();
-            
+
             var curDir = Directory.GetCurrentDirectory();
             wbHelp.Url = new Uri($@"file:///{curDir}\Help\RegExHelp.html");
         }

@@ -85,7 +85,7 @@ namespace RegExClient
         }
 
         // ------------------------------------------------
- 
+
         private void HideMatches()
         {
             if(_matchesVisible)
@@ -107,8 +107,8 @@ namespace RegExClient
 
             if(!string.IsNullOrWhiteSpace(tbRegEx.Text))
             {
-                var options  = cbMultiline.Checked ? RegexOptions.Multiline : RegexOptions.None;
-                    options |= cbIgnoreCase.Checked ? RegexOptions.IgnoreCase : RegexOptions.None;
+                var options = cbMultiline.Checked ? RegexOptions.Multiline : RegexOptions.None;
+                options |= cbIgnoreCase.Checked ? RegexOptions.IgnoreCase : RegexOptions.None;
 
                 // ------------------------------------
                 // Allows us to write Windows eol RegEx
@@ -151,7 +151,7 @@ namespace RegExClient
             var doSave = true;
 
             if(string.IsNullOrEmpty(_currentFile))
-            { 
+            {
                 var saveDlg = new SaveFileDialog();
                 saveDlg.Filter = "regx Files|*.regx|All Files|*.*";
                 saveDlg.DefaultExt = ".regx";
@@ -181,7 +181,7 @@ namespace RegExClient
                 finally
                 {
                     Cursor.Current = Cursors.Default;
-                } 
+                }
             }
         }
 
@@ -232,7 +232,7 @@ namespace RegExClient
         {
             ShowMatches();
         }
-        
+
         // ------------------------------------------------
 
         private void OnHideMatches(object sender, EventArgs e)
@@ -282,7 +282,7 @@ namespace RegExClient
                 }
                 else
                 {
-                    ShowMatches(); 
+                    ShowMatches();
                 }
             }
         }
@@ -330,10 +330,10 @@ namespace RegExClient
                 case (Keys.Control | Keys.O):
                     var fileName = string.Empty;
                     var openDlg = new OpenFileDialog() { Filter = "regx Files|*.regx|All Files|*.*" };
-                    
-                    if(openDlg.ShowDialog() == DialogResult.OK) 
+
+                    if(openDlg.ShowDialog() == DialogResult.OK)
                     {
-                        fileName = openDlg.FileName; 
+                        fileName = openDlg.FileName;
                         OpenRegex(fileName, true);
                     }
 

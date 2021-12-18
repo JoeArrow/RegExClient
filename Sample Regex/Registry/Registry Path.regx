@@ -1,0 +1,1 @@
+{"RegEx":"^HKEY_(LOCAL_MACHINE|CURRENT_USER)\\\\SOFTWARE\\\\AflacApps\\\\\\w+(\\\\\\w+)*$","Text":"HKLM\\SOFTWARE\\AflacApps\\AflacDataStore\\SubPath\nHKCU\\SOFTWARE\\AflacApps\\AflacDataStore\\SubPath\nHKEY_LOCAL_MACHINE\\SOFTWARE\\AflacApps\\AflacDataStore\\SubPath\nHKEY_CURRENT_USER\\SOFTWARE\\AflacApps\\AflacDataStore\\SubPath"}

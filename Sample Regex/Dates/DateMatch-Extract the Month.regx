@@ -1,0 +1,1 @@
+{"RegEx":"(?\u003c=\\s)(\\d{1,2})(?=[/\\\\-])","Text":"We should match these:\n01/01/1900 \nor 11/17/1941\nor 01/01/1902\nor 01/01/2000 \nor 11/17/2041\nor 01/01/3121\neven\n01-01-2000 until 11-17-2041 or 01-01-3121\nOr even\n2021/01/01\nBut Not These:\n13/1/2021 or 1/32/2021 or 2021/01/32 or 2021/13/01\nAnd for goodness sake not this:  45/15/2045\nBut this is okay:  02/01/1964"}

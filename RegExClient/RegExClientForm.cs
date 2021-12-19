@@ -304,18 +304,6 @@ namespace RegExClient
             dlg.ShowDialog();
         }
 
-
-        // ------------------------------------------------
-
-        private void OnFormClosing(object sender, FormClosingEventArgs e)
-        {
-            Properties.Settings.Default.FormSize = Size;
-            Properties.Settings.Default.ZoomFactor = tbInput.ZoomFactor;
-            Properties.Settings.Default.IgnoreCase = cbIgnoreCase.Checked;
-
-            Properties.Settings.Default.Save();
-        }
-
         // ------------------------------------------------
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -357,6 +345,17 @@ namespace RegExClient
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        // ------------------------------------------------
+
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.FormSize = Size;
+            Properties.Settings.Default.ZoomFactor = tbInput.ZoomFactor;
+            Properties.Settings.Default.IgnoreCase = cbIgnoreCase.Checked;
+
+            Properties.Settings.Default.Save();
         }
     }
 }

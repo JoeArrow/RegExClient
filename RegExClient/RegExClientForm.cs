@@ -215,14 +215,24 @@ namespace RegExClient
 
         private void OnRegexReplace(object sender, EventArgs e)
         {
-            tbReplaceResult.Text = Regex.Replace(tbReplaceInput.Text, tbReplaceRegex.Text, tbReplaceString.Text);
+            var options = cbReplaceMultiline.Checked ? RegexOptions.Multiline : RegexOptions.None;
+
+            try
+            {
+                tbReplaceResult.Text = Regex.Replace(tbReplaceInput.Text, tbReplaceRegex.Text, tbReplaceString.Text, options);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "RegEx Exception");
+            }
         }
 
         // ------------------------------------------------
 
         private void OnAbout(object sender, EventArgs e)
         {
-            var dlg = new AboutJoeWareDlg();
+            //var dlg = new AboutJoeWareDlg();
+            var dlg = new JWMarkdownDlg();
             dlg.ShowDialog();
         }
 
@@ -356,6 +366,14 @@ namespace RegExClient
             Properties.Settings.Default.IgnoreCase = cbIgnoreCase.Checked;
 
             Properties.Settings.Default.Save();
+        }
+
+        // ------------------------------------------------
+
+        private void OnToggleWordWrap(object sender, EventArgs e)
+        {
+            tbReplaceInput.WordWrap = cbWordWrap.Checked;
+            tbReplaceResult.WordWrap = cbWordWrap.Checked;
         }
     }
 }

@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{43855036-DDCE-4DE0-B9D6-F6F998D910C2}"
 	ProjectSection(SolutionItems) = preProject
 		Lib\JoeWare_Lib.dll = Lib\JoeWare_Lib.dll
+		Lib\MarkdownSharp.dll = Lib\MarkdownSharp.dll
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Regex", "Sample Regex", "{FA6943FE-8BFA-4BCE-96C6-9DB024B2E761}"

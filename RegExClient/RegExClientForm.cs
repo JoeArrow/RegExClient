@@ -10,7 +10,6 @@ using System;
 using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Windows.Controls;
 using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
 

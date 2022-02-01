@@ -84,14 +84,16 @@ namespace RegExClient
         }
 
         // ------------------------------------------------
+        // Do Not Re-arrange...
 
         private void HideMatches()
         {
             if(_matchesVisible)
             {
+                tbInput.Text = tbInput.Text;
+                tbInput.SelectionStart = tbInput.Text.Length;
                 tbInput.SelectionLength = 0;
                 tbInput.SelectionBackColor = Color.White;
-                tbInput.SelectionStart = tbInput.Text.Length;
 
                 _matchesVisible = false;
             }
@@ -209,6 +211,10 @@ namespace RegExClient
 
         private void OnExit(object sender, System.EventArgs e)
         {
+            Properties.Settings.Default.FormSize = Size;
+            Properties.Settings.Default.ZoomFactor = tbInput.ZoomFactor;
+            Properties.Settings.Default.Save();
+
             Application.Exit();
         }
 

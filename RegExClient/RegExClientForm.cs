@@ -77,7 +77,7 @@ namespace RegExClient
             }
             catch(Exception /*ex*/)
             {
-                // Throw away any exception;
+                // Throw away any exception
             }
 
             _matchesVisible = true;
@@ -89,10 +89,9 @@ namespace RegExClient
         {
             if(_matchesVisible)
             {
-                tbInput.Text = tbInput.Text;
-                tbInput.SelectionStart = tbInput.Text.Length;
                 tbInput.SelectionLength = 0;
                 tbInput.SelectionBackColor = Color.White;
+                tbInput.SelectionStart = tbInput.Text.Length;
 
                 _matchesVisible = false;
             }
@@ -124,8 +123,9 @@ namespace RegExClient
         private void OpenRegex(string fileName, bool includeText)
         {
             _currentFile = fileName;
+            
             var stream = new StreamReader(fileName);
-            Text = $"{TITLE}: {_currentFile}";
+            Text = $"{TITLE}: {Path.GetFileName(_currentFile)}";
 
             try
             {
@@ -155,7 +155,9 @@ namespace RegExClient
                 saveDlg.Filter = "regx Files|*.regx|All Files|*.*";
                 saveDlg.DefaultExt = ".regx";
 
-                if(doSave = saveDlg.ShowDialog() == DialogResult.OK)
+                doSave = saveDlg.ShowDialog() == DialogResult.OK;
+
+                if(doSave)
                 {
                     _currentFile = saveDlg.FileName;
                 }
@@ -171,7 +173,7 @@ namespace RegExClient
                     swFileStream.Write(item.ToString());
                     swFileStream.Close();
 
-                    Text = $"{TITLE}: {_currentFile}";
+                    Text = $"{TITLE}: {Path.GetFileName(_currentFile)}";
                 }
                 catch(Exception exp)
                 {
@@ -191,7 +193,7 @@ namespace RegExClient
             _currentFile = string.Empty;
             tbRegEx.Text = string.Empty;
             tbInput.Text = string.Empty;
-            Text = $"{TITLE}: {_currentFile}";
+            Text = $"{TITLE}: {Path.GetFileName(_currentFile)}";
 
             tbInput.Focus();
         }
@@ -230,7 +232,6 @@ namespace RegExClient
 
         private void OnAbout(object sender, EventArgs e)
         {
-            //var dlg = new AboutJoeWareDlg();
             var dlg = new JWMarkdownDlg();
             dlg.ShowDialog();
         }

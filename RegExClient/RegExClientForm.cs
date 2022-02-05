@@ -90,6 +90,10 @@ namespace RegExClient
         {
             if(_matchesVisible)
             {
+                // ------------------------------
+                // Required for text highlighting
+                // DO NOT REMOVE
+
                 tbInput.Text = tbInput.Text;
                 tbInput.SelectionStart = tbInput.Text.Length;
                 tbInput.SelectionLength = 0;
@@ -134,6 +138,7 @@ namespace RegExClient
                 var regExItem = jsSer.Deserialize<regExItem>(stream.ReadToEnd());
 
                 tbRegEx.Text = regExItem.RegEx;
+                tbReplaceRegex.Text = regExItem.ReplaceString;
 
                 if(includeText) { tbInput.Text = regExItem.Text; }
 
@@ -282,7 +287,7 @@ namespace RegExClient
 
         private void OnSaveRegEx(object sender, EventArgs e)
         {
-            var regExItem = new regExItem() { RegEx = tbRegEx.Text, Text = tbInput.Text };
+            var regExItem = new regExItem() { RegEx = tbRegEx.Text, Text = tbInput.Text, ReplaceString = tbReplaceString.Text };
             SaveRegEx(regExItem);
         }
 
@@ -316,7 +321,6 @@ namespace RegExClient
         private void OnHelp(object sender, EventArgs e)
         {
             var dlg = new HelpForm();
-
             dlg.ShowDialog();
         }
 
@@ -327,7 +331,7 @@ namespace RegExClient
             switch(keyData)
             {
                 case (Keys.Control | Keys.S):
-                    var regExItem = new regExItem() { RegEx = tbRegEx.Text, Text = tbInput.Text };
+                    var regExItem = new regExItem() { RegEx = tbRegEx.Text, Text = tbInput.Text, ReplaceString = tbReplaceString.Text };
                     SaveRegEx(regExItem);
                     break;
 

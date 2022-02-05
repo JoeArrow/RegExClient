@@ -17,8 +17,9 @@ namespace RegExClient
 
     public class regExItem
     {
-        public string RegEx { get; set; }
         public string Text { get; set; }
+        public string RegEx { get; set; }
+        public string ReplaceString { get; set; }
 
         // ------------------------------------------------
 

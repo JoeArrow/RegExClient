@@ -37,9 +37,9 @@ namespace RegExClient
             this.tbRegEx = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbReplaceMultiline = new System.Windows.Forms.CheckBox();
+            this.cbWordWrap = new System.Windows.Forms.CheckBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tbReplaceInput = new System.Windows.Forms.TextBox();
-            this.tbReplaceResult = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbReplaceString = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -61,8 +61,8 @@ namespace RegExClient
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cbWordWrap = new System.Windows.Forms.CheckBox();
-            this.cbReplaceMultiline = new System.Windows.Forms.CheckBox();
+            this.tbReplaceResult = new System.Windows.Forms.RichTextBox();
+            this.tbReplaceInput = new System.Windows.Forms.RichTextBox();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -187,6 +187,29 @@ namespace RegExClient
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Regex Replace";
             // 
+            // cbReplaceMultiline
+            // 
+            this.cbReplaceMultiline.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbReplaceMultiline.Checked = true;
+            this.cbReplaceMultiline.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbReplaceMultiline.Location = new System.Drawing.Point(886, 114);
+            this.cbReplaceMultiline.Name = "cbReplaceMultiline";
+            this.cbReplaceMultiline.Size = new System.Drawing.Size(69, 17);
+            this.cbReplaceMultiline.TabIndex = 19;
+            this.cbReplaceMultiline.Text = "Multiline";
+            // 
+            // cbWordWrap
+            // 
+            this.cbWordWrap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbWordWrap.AutoSize = true;
+            this.cbWordWrap.Location = new System.Drawing.Point(870, 398);
+            this.cbWordWrap.Name = "cbWordWrap";
+            this.cbWordWrap.Size = new System.Drawing.Size(81, 17);
+            this.cbWordWrap.TabIndex = 18;
+            this.cbWordWrap.Text = "Word Wrap";
+            this.cbWordWrap.UseVisualStyleBackColor = true;
+            this.cbWordWrap.CheckedChanged += new System.EventHandler(this.OnToggleWordWrap);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -205,35 +228,6 @@ namespace RegExClient
             this.splitContainer1.Size = new System.Drawing.Size(949, 260);
             this.splitContainer1.SplitterDistance = 478;
             this.splitContainer1.TabIndex = 17;
-            // 
-            // tbReplaceInput
-            // 
-            this.tbReplaceInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbReplaceInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReplaceInput.Location = new System.Drawing.Point(0, 1);
-            this.tbReplaceInput.Multiline = true;
-            this.tbReplaceInput.Name = "tbReplaceInput";
-            this.tbReplaceInput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbReplaceInput.Size = new System.Drawing.Size(477, 258);
-            this.tbReplaceInput.TabIndex = 5;
-            this.tbReplaceInput.WordWrap = false;
-            // 
-            // tbReplaceResult
-            // 
-            this.tbReplaceResult.AcceptsReturn = true;
-            this.tbReplaceResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbReplaceResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReplaceResult.Location = new System.Drawing.Point(1, 0);
-            this.tbReplaceResult.Multiline = true;
-            this.tbReplaceResult.Name = "tbReplaceResult";
-            this.tbReplaceResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbReplaceResult.Size = new System.Drawing.Size(466, 260);
-            this.tbReplaceResult.TabIndex = 11;
-            this.tbReplaceResult.WordWrap = false;
             // 
             // label7
             // 
@@ -393,39 +387,38 @@ namespace RegExClient
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
             this.helpToolStripMenuItem1.Text = "RegEx Help";
             this.helpToolStripMenuItem1.Click += new System.EventHandler(this.OnHelp);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.aboutToolStripMenuItem.Text = "A&bout";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
             // 
-            // cbWordWrap
+            // tbReplaceResult
             // 
-            this.cbWordWrap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbWordWrap.AutoSize = true;
-            this.cbWordWrap.Location = new System.Drawing.Point(870, 398);
-            this.cbWordWrap.Name = "cbWordWrap";
-            this.cbWordWrap.Size = new System.Drawing.Size(81, 17);
-            this.cbWordWrap.TabIndex = 18;
-            this.cbWordWrap.Text = "Word Wrap";
-            this.cbWordWrap.UseVisualStyleBackColor = true;
-            this.cbWordWrap.CheckedChanged += new System.EventHandler(this.OnToggleWordWrap);
+            this.tbReplaceResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbReplaceResult.Location = new System.Drawing.Point(1, 1);
+            this.tbReplaceResult.Name = "tbReplaceResult";
+            this.tbReplaceResult.Size = new System.Drawing.Size(466, 259);
+            this.tbReplaceResult.TabIndex = 0;
+            this.tbReplaceResult.Text = "";
             // 
-            // cbReplaceMultiline
+            // tbReplaceInput
             // 
-            this.cbReplaceMultiline.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbReplaceMultiline.Checked = true;
-            this.cbReplaceMultiline.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbReplaceMultiline.Location = new System.Drawing.Point(886, 114);
-            this.cbReplaceMultiline.Name = "cbReplaceMultiline";
-            this.cbReplaceMultiline.Size = new System.Drawing.Size(69, 17);
-            this.cbReplaceMultiline.TabIndex = 19;
-            this.cbReplaceMultiline.Text = "Multiline";
+            this.tbReplaceInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbReplaceInput.Location = new System.Drawing.Point(0, 0);
+            this.tbReplaceInput.Name = "tbReplaceInput";
+            this.tbReplaceInput.Size = new System.Drawing.Size(477, 260);
+            this.tbReplaceInput.TabIndex = 0;
+            this.tbReplaceInput.Text = "";
             // 
             // RegExClientForm
             // 
@@ -447,9 +440,7 @@ namespace RegExClient
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
@@ -470,10 +461,8 @@ namespace RegExClient
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbReplaceString;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox tbReplaceResult;
         private System.Windows.Forms.TextBox tbReplaceRegex;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbReplaceInput;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -494,6 +483,8 @@ namespace RegExClient
         private System.Windows.Forms.CheckBox cbMultiline;
         private System.Windows.Forms.CheckBox cbWordWrap;
         private System.Windows.Forms.CheckBox cbReplaceMultiline;
+        private System.Windows.Forms.RichTextBox tbReplaceInput;
+        private System.Windows.Forms.RichTextBox tbReplaceResult;
     }
 }
 

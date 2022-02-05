@@ -15,7 +15,7 @@ namespace RegExClient
     ///     RegExObj Description
     /// </summary>
 
-    public class regExItem
+    public class RegExItem
     {
         public string Text { get; set; }
         public string RegEx { get; set; }
@@ -23,7 +23,7 @@ namespace RegExClient
 
         // ------------------------------------------------
 
-        public override string ToString()
+        public string ToJson()
         {
             var jsSer = new JavaScriptSerializer();
             return jsSer.Serialize(this);

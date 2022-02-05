@@ -40,6 +40,8 @@ namespace RegExClient
             this.cbReplaceMultiline = new System.Windows.Forms.CheckBox();
             this.cbWordWrap = new System.Windows.Forms.CheckBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tbReplaceInput = new System.Windows.Forms.RichTextBox();
+            this.tbReplaceResult = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbReplaceString = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -61,8 +63,12 @@ namespace RegExClient
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tbReplaceResult = new System.Windows.Forms.RichTextBox();
-            this.tbReplaceInput = new System.Windows.Forms.RichTextBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -71,6 +77,7 @@ namespace RegExClient
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcForm
@@ -80,11 +87,12 @@ namespace RegExClient
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tcForm.Controls.Add(this.tabPage1);
             this.tcForm.Controls.Add(this.tabPage2);
-            this.tcForm.Location = new System.Drawing.Point(2, 30);
+            this.tcForm.Location = new System.Drawing.Point(2, 53);
             this.tcForm.Name = "tcForm";
             this.tcForm.SelectedIndex = 0;
-            this.tcForm.Size = new System.Drawing.Size(980, 455);
+            this.tcForm.Size = new System.Drawing.Size(980, 432);
             this.tcForm.TabIndex = 10;
+            this.tcForm.Selected += new System.Windows.Forms.TabControlEventHandler(this.OnSelected);
             // 
             // tabPage1
             // 
@@ -98,7 +106,7 @@ namespace RegExClient
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(972, 429);
+            this.tabPage1.Size = new System.Drawing.Size(972, 406);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Regular Expression";
             // 
@@ -127,6 +135,7 @@ namespace RegExClient
             this.tbInput.TabIndex = 15;
             this.tbInput.Text = "";
             this.tbInput.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
+            this.tbInput.Validated += new System.EventHandler(this.OnTextToTestValidated);
             // 
             // cbIgnoreCase
             // 
@@ -183,7 +192,7 @@ namespace RegExClient
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(972, 429);
+            this.tabPage2.Size = new System.Drawing.Size(972, 406);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Regex Replace";
             // 
@@ -202,7 +211,7 @@ namespace RegExClient
             // 
             this.cbWordWrap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cbWordWrap.AutoSize = true;
-            this.cbWordWrap.Location = new System.Drawing.Point(870, 398);
+            this.cbWordWrap.Location = new System.Drawing.Point(870, 375);
             this.cbWordWrap.Name = "cbWordWrap";
             this.cbWordWrap.Size = new System.Drawing.Size(81, 17);
             this.cbWordWrap.TabIndex = 18;
@@ -225,9 +234,31 @@ namespace RegExClient
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tbReplaceResult);
-            this.splitContainer1.Size = new System.Drawing.Size(949, 260);
+            this.splitContainer1.Size = new System.Drawing.Size(949, 237);
             this.splitContainer1.SplitterDistance = 478;
             this.splitContainer1.TabIndex = 17;
+            // 
+            // tbReplaceInput
+            // 
+            this.tbReplaceInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbReplaceInput.Location = new System.Drawing.Point(0, 0);
+            this.tbReplaceInput.Name = "tbReplaceInput";
+            this.tbReplaceInput.Size = new System.Drawing.Size(477, 237);
+            this.tbReplaceInput.TabIndex = 0;
+            this.tbReplaceInput.Text = "";
+            // 
+            // tbReplaceResult
+            // 
+            this.tbReplaceResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbReplaceResult.Location = new System.Drawing.Point(1, 1);
+            this.tbReplaceResult.Name = "tbReplaceResult";
+            this.tbReplaceResult.Size = new System.Drawing.Size(466, 236);
+            this.tbReplaceResult.TabIndex = 0;
+            this.tbReplaceResult.Text = "";
             // 
             // label7
             // 
@@ -246,11 +277,12 @@ namespace RegExClient
             this.tbReplaceString.Name = "tbReplaceString";
             this.tbReplaceString.Size = new System.Drawing.Size(947, 26);
             this.tbReplaceString.TabIndex = 15;
+            this.tbReplaceString.Validated += new System.EventHandler(this.OnReplaceStringValidated);
             // 
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button2.Location = new System.Drawing.Point(456, 399);
+            this.button2.Location = new System.Drawing.Point(456, 376);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 23);
             this.button2.TabIndex = 12;
@@ -266,6 +298,7 @@ namespace RegExClient
             this.tbReplaceRegex.Name = "tbReplaceRegex";
             this.tbReplaceRegex.Size = new System.Drawing.Size(947, 26);
             this.tbReplaceRegex.TabIndex = 9;
+            this.tbReplaceRegex.TextChanged += new System.EventHandler(this.OnReplaceRegExValidated);
             // 
             // label5
             // 
@@ -398,27 +431,64 @@ namespace RegExClient
             this.aboutToolStripMenuItem.Text = "A&bout";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAbout);
             // 
-            // tbReplaceResult
+            // toolStrip1
             // 
-            this.tbReplaceResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbReplaceResult.Location = new System.Drawing.Point(1, 1);
-            this.tbReplaceResult.Name = "tbReplaceResult";
-            this.tbReplaceResult.Size = new System.Drawing.Size(466, 259);
-            this.tbReplaceResult.TabIndex = 0;
-            this.tbReplaceResult.Text = "";
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripButton,
+            this.openToolStripButton,
+            this.saveToolStripButton,
+            this.toolStripSeparator,
+            this.helpToolStripButton});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(984, 25);
+            this.toolStrip1.TabIndex = 12;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // tbReplaceInput
+            // newToolStripButton
             // 
-            this.tbReplaceInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbReplaceInput.Location = new System.Drawing.Point(0, 0);
-            this.tbReplaceInput.Name = "tbReplaceInput";
-            this.tbReplaceInput.Size = new System.Drawing.Size(477, 260);
-            this.tbReplaceInput.TabIndex = 0;
-            this.tbReplaceInput.Text = "";
+            this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
+            this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.newToolStripButton.Name = "newToolStripButton";
+            this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.newToolStripButton.Text = "&New";
+            this.newToolStripButton.Click += new System.EventHandler(this.OnNew);
+            // 
+            // openToolStripButton
+            // 
+            this.openToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
+            this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.openToolStripButton.Name = "openToolStripButton";
+            this.openToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.openToolStripButton.Text = "&Open";
+            this.openToolStripButton.Click += new System.EventHandler(this.OnOpenRegex);
+            // 
+            // saveToolStripButton
+            // 
+            this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
+            this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveToolStripButton.Name = "saveToolStripButton";
+            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.saveToolStripButton.Text = "&Save";
+            this.saveToolStripButton.Click += new System.EventHandler(this.OnSaveRegEx);
+            // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // helpToolStripButton
+            // 
+            this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.helpToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripButton.Image")));
+            this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.helpToolStripButton.Name = "helpToolStripButton";
+            this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.helpToolStripButton.Text = "He&lp";
+            this.helpToolStripButton.Click += new System.EventHandler(this.OnHelp);
             // 
             // RegExClientForm
             // 
@@ -426,6 +496,7 @@ namespace RegExClient
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(984, 486);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tcForm);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -445,6 +516,8 @@ namespace RegExClient
             this.splitContainer1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -485,6 +558,12 @@ namespace RegExClient
         private System.Windows.Forms.CheckBox cbReplaceMultiline;
         private System.Windows.Forms.RichTextBox tbReplaceInput;
         private System.Windows.Forms.RichTextBox tbReplaceResult;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton newToolStripButton;
+        private System.Windows.Forms.ToolStripButton openToolStripButton;
+        private System.Windows.Forms.ToolStripButton saveToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
+        private System.Windows.Forms.ToolStripButton helpToolStripButton;
     }
 }
 

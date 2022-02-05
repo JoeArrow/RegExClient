@@ -1,1 +1,1 @@
-{"RegEx":"\\b(0?[1-9]|1[0-2])[/\\-](0?[1-3]|3[0-1])[/\\-]\\d{4}\\b","Text":"I have to work on not matching this: 12/55/2021\nBut match this: 12/31/2021"}
+{"Text":"I have to work on not matching this: 12/55/2021\nBut match this: 12/31/2021","RegEx":"\\b(0?[1-9]|1[0-2])[/\\-](0?[1-3]|3[0-1])[/\\-]\\d{4}\\b","ReplaceString":"{crt}FarFigNutten"}

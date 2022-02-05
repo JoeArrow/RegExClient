@@ -22,6 +22,7 @@ namespace RegExClient
     {
         private string _currentFile;
         private bool _matchesVisible = false;
+        private RegExItem _regExItem = new RegExItem();
         private const string TITLE = "Regular Expression Client";
         private readonly JavaScriptSerializer jsSer = new JavaScriptSerializer();
 
@@ -90,11 +91,7 @@ namespace RegExClient
         {
             if(_matchesVisible)
             {
-                // ------------------------------
-                // Required for text highlighting
-                // DO NOT REMOVE
-
-                tbInput.Text = tbInput.Text;
+                tbInput.Text = _regExItem.Text;
                 tbInput.SelectionStart = tbInput.Text.Length;
                 tbInput.SelectionLength = 0;
                 tbInput.SelectionBackColor = Color.White;
@@ -135,12 +132,13 @@ namespace RegExClient
 
             try
             {
-                var regExItem = jsSer.Deserialize<regExItem>(stream.ReadToEnd());
+                _regExItem = jsSer.Deserialize<RegExItem>(stream.ReadToEnd());
 
-                tbRegEx.Text = regExItem.RegEx;
-                tbReplaceRegex.Text = regExItem.ReplaceString;
+                tbRegEx.Text = _regExItem.RegEx;
+                tbReplaceRegex.Text = _regExItem.RegEx;
+                tbReplaceString.Text = _regExItem.ReplaceString;
 
-                if(includeText) { tbInput.Text = regExItem.Text; }
+                if(includeText) { tbInput.Text = _regExItem.Text; }
 
                 ShowMatches();
             }
@@ -152,7 +150,7 @@ namespace RegExClient
 
         // ------------------------------------------------
 
-        private void SaveRegEx(regExItem item)
+        private void SaveRegEx()
         {
             var doSave = true;
 
@@ -177,7 +175,7 @@ namespace RegExClient
                     Cursor.Current = Cursors.WaitCursor;
 
                     var swFileStream = new StreamWriter(_currentFile);
-                    swFileStream.Write(item.ToString());
+                    swFileStream.Write(_regExItem.ToJson());
                     swFileStream.Close();
 
                     Text = $"{TITLE}: {Path.GetFileName(_currentFile)}";
@@ -231,7 +229,9 @@ namespace RegExClient
 
             try
             {
-                tbReplaceResult.Text = Regex.Replace(tbReplaceInput.Text, tbReplaceRegex.Text, tbReplaceString.Text, options);
+                var raw = Regex.Replace(Regex.Replace(tbReplaceString.Text, "{cr}", Environment.NewLine), "{crt}", $"{Environment.NewLine}\t");
+
+                tbReplaceResult.Text = Regex.Replace(tbReplaceInput.Text, tbReplaceRegex.Text, raw, options);
             }
             catch(Exception ex)
             {
@@ -271,7 +271,14 @@ namespace RegExClient
 
             if(openDlg.ShowDialog() == DialogResult.OK)
             {
-                OpenRegex(openDlg.FileName, menuItem.Text.Contains("and Text"));
+                if(menuItem != null)
+                {
+                    OpenRegex(openDlg.FileName, menuItem.Text.Contains("and Text"));
+                }
+                else
+                {
+                    OpenRegex(openDlg.FileName, true);
+                }
             }
         }
 
@@ -287,8 +294,11 @@ namespace RegExClient
 
         private void OnSaveRegEx(object sender, EventArgs e)
         {
-            var regExItem = new regExItem() { RegEx = tbRegEx.Text, Text = tbInput.Text, ReplaceString = tbReplaceString.Text };
-            SaveRegEx(regExItem);
+            _regExItem.RegEx = tbRegEx.Text;
+            _regExItem.Text = tbInput.Text;
+            _regExItem.ReplaceString = tbReplaceString.Text;
+
+            SaveRegEx();
         }
 
         // ------------------------------------------------
@@ -309,11 +319,56 @@ namespace RegExClient
         }
 
         // ------------------------------------------------
+        /// <summary>
+        ///     Update the Regex regardless of which Tab we 
+        ///     are on
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void OnRegExValidated(object sender, EventArgs e)
         {
-            tbReplaceRegex.Text = tbRegEx.Text;
-            tbReplaceInput.Text = tbInput.Text;
+            _regExItem.RegEx = tbRegEx.Text;
+        }
+
+        // ------------------------------------------------
+        /// <summary>
+        ///     Update the Regex regardless of which Tab we 
+        ///     are on
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void OnReplaceRegExValidated(object sender, EventArgs e)
+        {
+            _regExItem.RegEx = tbReplaceRegex.Text;
+        }
+
+        // ------------------------------------------------
+
+        private void OnTextToTestValidated(object sender, EventArgs e)
+        {
+            _regExItem.Text = tbReplaceInput.Text;
+        }
+
+        // ------------------------------------------------
+
+        private void OnReplaceStringValidated(object sender, EventArgs e)
+        {
+            _regExItem.ReplaceString = tbReplaceString.Text;
+        }
+
+        // ------------------------------------------------
+
+        private void OnSelected(object sender, TabControlEventArgs e)
+        {
+            if(_regExItem != null)
+            {
+                tbRegEx.Text = _regExItem.RegEx;
+                tbReplaceInput.Text = _regExItem.Text;
+                tbReplaceRegex.Text = _regExItem.RegEx;
+                tbReplaceString.Text = _regExItem.ReplaceString;
+            }
         }
 
         // ------------------------------------------------
@@ -331,18 +386,16 @@ namespace RegExClient
             switch(keyData)
             {
                 case (Keys.Control | Keys.S):
-                    var regExItem = new regExItem() { RegEx = tbRegEx.Text, Text = tbInput.Text, ReplaceString = tbReplaceString.Text };
-                    SaveRegEx(regExItem);
+                    _regExItem = new RegExItem() { RegEx = tbRegEx.Text, Text = tbInput.Text, ReplaceString = tbReplaceString.Text };
+                    SaveRegEx();
                     break;
 
                 case (Keys.Control | Keys.O):
-                    var fileName = string.Empty;
                     var openDlg = new OpenFileDialog() { Filter = "regx Files|*.regx|All Files|*.*" };
 
                     if(openDlg.ShowDialog() == DialogResult.OK)
                     {
-                        fileName = openDlg.FileName;
-                        OpenRegex(fileName, true);
+                        OpenRegex(openDlg.FileName, true);
                     }
 
                     break;

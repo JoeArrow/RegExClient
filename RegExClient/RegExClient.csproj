@@ -99,7 +99,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="regExItem.cs" />
+    <Compile Include="RegExItem.cs" />
     <EmbeddedResource Include="Help\HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </EmbeddedResource>

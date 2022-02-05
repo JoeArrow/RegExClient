@@ -134,6 +134,8 @@ namespace RegExClient
             {
                 _regExItem = jsSer.Deserialize<RegExItem>(stream.ReadToEnd());
 
+                tbReplaceResult.Text = string.Empty;
+
                 tbRegEx.Text = _regExItem.RegEx;
                 tbReplaceRegex.Text = _regExItem.RegEx;
                 tbReplaceString.Text = _regExItem.ReplaceString;

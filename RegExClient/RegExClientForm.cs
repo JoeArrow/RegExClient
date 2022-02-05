@@ -106,7 +106,7 @@ namespace RegExClient
         {
             Regex retVal = null;
 
-            if(!string.IsNullOrWhiteSpace(tbRegEx.Text))
+            if(!string.IsNullOrWhiteSpace(_regExItem.RegEx))
             {
                 var options = cbMultiline.Checked ? RegexOptions.Multiline : RegexOptions.None;
                 options |= cbIgnoreCase.Checked ? RegexOptions.IgnoreCase : RegexOptions.None;
@@ -115,7 +115,7 @@ namespace RegExClient
                 // Allows us to write Windows eol RegEx
                 // that still works in this app
 
-                retVal = new Regex(tbRegEx.Text.Replace(@"\r\n", @"\n"), options);
+                retVal = new Regex(_regExItem.RegEx.Replace(@"\r\n", @"\n"), options);
             }
 
             return retVal;

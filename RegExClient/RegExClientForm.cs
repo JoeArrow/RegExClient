@@ -229,9 +229,7 @@ namespace RegExClient
 
             try
             {
-                var raw = Regex.Replace(Regex.Replace(tbReplaceString.Text, "{cr}", Environment.NewLine), "{crt}", $"{Environment.NewLine}\t");
-
-                tbReplaceResult.Text = Regex.Replace(tbReplaceInput.Text, tbReplaceRegex.Text, raw, options);
+                tbReplaceResult.Text = Regex.Replace(tbReplaceInput.Text, tbReplaceRegex.Text, Regex.Unescape(tbReplaceString.Text), options);
             }
             catch(Exception ex)
             {

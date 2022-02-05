@@ -248,6 +248,7 @@ namespace RegExClient
             this.tbReplaceInput.Size = new System.Drawing.Size(477, 237);
             this.tbReplaceInput.TabIndex = 0;
             this.tbReplaceInput.Text = "";
+            this.tbReplaceInput.WordWrap = false;
             // 
             // tbReplaceResult
             // 
@@ -259,6 +260,7 @@ namespace RegExClient
             this.tbReplaceResult.Size = new System.Drawing.Size(466, 236);
             this.tbReplaceResult.TabIndex = 0;
             this.tbReplaceResult.Text = "";
+            this.tbReplaceResult.WordWrap = false;
             // 
             // label7
             // 

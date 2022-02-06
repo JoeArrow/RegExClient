@@ -104,9 +104,9 @@ namespace RegExClient
 
         private Regex GetRegex()
         {
-            Regex retVal = null;
+            Regex retVal = new Regex("~_~");
 
-            if(!string.IsNullOrWhiteSpace(_regExItem.RegEx))
+            if(!string.IsNullOrWhiteSpace(tbRegEx.Text))
             {
                 var options = cbMultiline.Checked ? RegexOptions.Multiline : RegexOptions.None;
                 options |= cbIgnoreCase.Checked ? RegexOptions.IgnoreCase : RegexOptions.None;
@@ -115,7 +115,15 @@ namespace RegExClient
                 // Allows us to write Windows eol RegEx
                 // that still works in this app
 
-                retVal = new Regex(_regExItem.RegEx.Replace(@"\r\n", @"\n"), options);
+                try
+                {
+                    retVal = new Regex(tbRegEx.Text.Replace(@"\r\n", @"\n"), options);
+                    _regExItem.RegEx = tbRegEx.Text.Replace(@"\r\n", @"\n");
+                }
+                catch(Exception /*ex*/)
+                {
+                    retVal = new Regex("~_~");
+                }
             }
 
             return retVal;
@@ -198,8 +206,14 @@ namespace RegExClient
         private void OnNew(object sender, EventArgs e)
         {
             _currentFile = string.Empty;
+
             tbRegEx.Text = string.Empty;
             tbInput.Text = string.Empty;
+
+            tbReplaceRegex.Text = string.Empty;
+            tbReplaceString.Text = string.Empty;
+            tbReplaceResult.Text = string.Empty;
+
             Text = $"{TITLE}: {Path.GetFileName(_currentFile)}";
 
             tbInput.Focus();
@@ -263,8 +277,24 @@ namespace RegExClient
 
         // ------------------------------------------------
 
+        private void OnInputTextChanged(object sender, EventArgs e)
+        {
+            _regExItem.Text = tbInput.Text;
+        }
+
+        // ------------------------------------------------
+
+        private void OnReplacementStringChanged(object sender, EventArgs e)
+        {
+            tbReplaceResult.Text = string.Empty;
+        }
+
+        // ------------------------------------------------
+
         private void OnOpenRegex(object sender, EventArgs e)
         {
+            _currentFile = string.Empty;
+
             var menuItem = sender as ToolStripMenuItem;
 
             var openDlg = new OpenFileDialog() { Filter = "regx Files|*.regx|All Files|*.*" };
@@ -287,6 +317,7 @@ namespace RegExClient
         private void OnSaveAs(object sender, EventArgs e)
         {
             _currentFile = string.Empty;
+
             OnSaveRegEx(sender, e);
         }
 
@@ -329,6 +360,7 @@ namespace RegExClient
         private void OnRegExValidated(object sender, EventArgs e)
         {
             _regExItem.RegEx = tbRegEx.Text;
+            tbReplaceResult.Text = string.Empty;
         }
 
         // ------------------------------------------------
@@ -342,6 +374,7 @@ namespace RegExClient
         private void OnReplaceRegExValidated(object sender, EventArgs e)
         {
             _regExItem.RegEx = tbReplaceRegex.Text;
+            tbReplaceResult.Text = string.Empty;
         }
 
         // ------------------------------------------------
@@ -349,6 +382,7 @@ namespace RegExClient
         private void OnTextToTestValidated(object sender, EventArgs e)
         {
             _regExItem.Text = tbReplaceInput.Text;
+            tbReplaceResult.Text = string.Empty;
         }
 
         // ------------------------------------------------
@@ -356,6 +390,7 @@ namespace RegExClient
         private void OnReplaceStringValidated(object sender, EventArgs e)
         {
             _regExItem.ReplaceString = tbReplaceString.Text;
+            tbReplaceResult.Text = string.Empty;
         }
 
         // ------------------------------------------------

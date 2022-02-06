@@ -131,9 +131,10 @@ namespace RegExClient
             this.tbInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbInput.Location = new System.Drawing.Point(9, 88);
             this.tbInput.Name = "tbInput";
-            this.tbInput.Size = new System.Drawing.Size(957, 334);
+            this.tbInput.Size = new System.Drawing.Size(957, 311);
             this.tbInput.TabIndex = 15;
             this.tbInput.Text = "";
+            this.tbInput.TextChanged += new System.EventHandler(this.OnInputTextChanged);
             this.tbInput.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
             this.tbInput.Validated += new System.EventHandler(this.OnTextToTestValidated);
             // 
@@ -279,6 +280,7 @@ namespace RegExClient
             this.tbReplaceString.Name = "tbReplaceString";
             this.tbReplaceString.Size = new System.Drawing.Size(947, 26);
             this.tbReplaceString.TabIndex = 15;
+            this.tbReplaceString.TextChanged += new System.EventHandler(this.OnReplacementStringChanged);
             this.tbReplaceString.Validated += new System.EventHandler(this.OnReplaceStringValidated);
             // 
             // button2

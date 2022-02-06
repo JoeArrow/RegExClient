@@ -89,9 +89,10 @@ namespace RegExClient
 
         private void HideMatches()
         {
+            tbInput.Text = _regExItem.Text;
+
             if(_matchesVisible)
             {
-                tbInput.Text = _regExItem.Text;
                 tbInput.SelectionStart = tbInput.Text.Length;
                 tbInput.SelectionLength = 0;
                 tbInput.SelectionBackColor = Color.White;

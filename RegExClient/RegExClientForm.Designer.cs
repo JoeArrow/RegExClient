@@ -244,6 +244,7 @@ namespace RegExClient
             this.tbReplaceInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbReplaceInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReplaceInput.Location = new System.Drawing.Point(0, 0);
             this.tbReplaceInput.Name = "tbReplaceInput";
             this.tbReplaceInput.Size = new System.Drawing.Size(477, 237);
@@ -256,6 +257,7 @@ namespace RegExClient
             this.tbReplaceResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbReplaceResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReplaceResult.Location = new System.Drawing.Point(1, 1);
             this.tbReplaceResult.Name = "tbReplaceResult";
             this.tbReplaceResult.Size = new System.Drawing.Size(466, 236);

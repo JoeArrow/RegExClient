@@ -89,6 +89,7 @@ namespace RegExClient
 
         private void HideMatches()
         {
+            _regExItem.Text = tbInput.Text;
             tbInput.Text = _regExItem.Text;
 
             if(_matchesVisible)
@@ -398,10 +399,26 @@ namespace RegExClient
 
         private void OnSelected(object sender, TabControlEventArgs e)
         {
+            var tab = sender as TabControl;
+
+            switch(tab.SelectedTab.Text)
+            {
+                case "Regular Expression":
+                    _regExItem.Text = tbReplaceInput.Text;
+                    break;
+
+                case "Regex Replace":
+                    _regExItem.Text = tbInput.Text;
+                    break;
+            }
+
             if(_regExItem != null)
             {
                 tbRegEx.Text = _regExItem.RegEx;
+
+                tbInput.Text = _regExItem.Text;
                 tbReplaceInput.Text = _regExItem.Text;
+                
                 tbReplaceRegex.Text = _regExItem.RegEx;
                 tbReplaceString.Text = _regExItem.ReplaceString;
             }

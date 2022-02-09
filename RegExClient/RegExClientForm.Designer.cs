@@ -132,7 +132,7 @@ namespace RegExClient
             this.tbInput.Location = new System.Drawing.Point(9, 88);
             this.tbInput.Name = "tbInput";
             this.tbInput.Size = new System.Drawing.Size(957, 311);
-            this.tbInput.TabIndex = 15;
+            this.tbInput.TabIndex = 1;
             this.tbInput.Text = "";
             this.tbInput.TextChanged += new System.EventHandler(this.OnInputTextChanged);
             this.tbInput.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
@@ -166,7 +166,7 @@ namespace RegExClient
             this.tbRegEx.Location = new System.Drawing.Point(8, 33);
             this.tbRegEx.Name = "tbRegEx";
             this.tbRegEx.Size = new System.Drawing.Size(958, 29);
-            this.tbRegEx.TabIndex = 2;
+            this.tbRegEx.TabIndex = 0;
             this.tbRegEx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OnKeyUp);
             this.tbRegEx.Validated += new System.EventHandler(this.OnRegExValidated);
             // 
@@ -205,7 +205,7 @@ namespace RegExClient
             this.cbReplaceMultiline.Location = new System.Drawing.Point(886, 114);
             this.cbReplaceMultiline.Name = "cbReplaceMultiline";
             this.cbReplaceMultiline.Size = new System.Drawing.Size(69, 17);
-            this.cbReplaceMultiline.TabIndex = 19;
+            this.cbReplaceMultiline.TabIndex = 8;
             this.cbReplaceMultiline.Text = "Multiline";
             // 
             // cbWordWrap
@@ -215,7 +215,7 @@ namespace RegExClient
             this.cbWordWrap.Location = new System.Drawing.Point(870, 375);
             this.cbWordWrap.Name = "cbWordWrap";
             this.cbWordWrap.Size = new System.Drawing.Size(81, 17);
-            this.cbWordWrap.TabIndex = 18;
+            this.cbWordWrap.TabIndex = 7;
             this.cbWordWrap.Text = "Word Wrap";
             this.cbWordWrap.UseVisualStyleBackColor = true;
             this.cbWordWrap.CheckedChanged += new System.EventHandler(this.OnToggleWordWrap);
@@ -248,7 +248,7 @@ namespace RegExClient
             this.tbReplaceInput.Location = new System.Drawing.Point(0, 0);
             this.tbReplaceInput.Name = "tbReplaceInput";
             this.tbReplaceInput.Size = new System.Drawing.Size(477, 237);
-            this.tbReplaceInput.TabIndex = 0;
+            this.tbReplaceInput.TabIndex = 4;
             this.tbReplaceInput.Text = "";
             this.tbReplaceInput.WordWrap = false;
             // 
@@ -261,7 +261,7 @@ namespace RegExClient
             this.tbReplaceResult.Location = new System.Drawing.Point(1, 1);
             this.tbReplaceResult.Name = "tbReplaceResult";
             this.tbReplaceResult.Size = new System.Drawing.Size(466, 236);
-            this.tbReplaceResult.TabIndex = 0;
+            this.tbReplaceResult.TabIndex = 6;
             this.tbReplaceResult.Text = "";
             this.tbReplaceResult.WordWrap = false;
             // 
@@ -281,7 +281,7 @@ namespace RegExClient
             this.tbReplaceString.Location = new System.Drawing.Point(6, 81);
             this.tbReplaceString.Name = "tbReplaceString";
             this.tbReplaceString.Size = new System.Drawing.Size(947, 26);
-            this.tbReplaceString.TabIndex = 15;
+            this.tbReplaceString.TabIndex = 3;
             this.tbReplaceString.TextChanged += new System.EventHandler(this.OnReplacementStringChanged);
             this.tbReplaceString.Validated += new System.EventHandler(this.OnReplaceStringValidated);
             // 
@@ -291,7 +291,7 @@ namespace RegExClient
             this.button2.Location = new System.Drawing.Point(456, 376);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 23);
-            this.button2.TabIndex = 12;
+            this.button2.TabIndex = 5;
             this.button2.Text = "&Replace";
             this.button2.Click += new System.EventHandler(this.OnRegexReplace);
             // 
@@ -303,7 +303,7 @@ namespace RegExClient
             this.tbReplaceRegex.Location = new System.Drawing.Point(8, 31);
             this.tbReplaceRegex.Name = "tbReplaceRegex";
             this.tbReplaceRegex.Size = new System.Drawing.Size(947, 26);
-            this.tbReplaceRegex.TabIndex = 9;
+            this.tbReplaceRegex.TabIndex = 2;
             this.tbReplaceRegex.TextChanged += new System.EventHandler(this.OnReplaceRegExValidated);
             // 
             // label5

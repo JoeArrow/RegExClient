@@ -49,7 +49,7 @@ namespace RegExClient.Help
             this.ClientSize = new System.Drawing.Size(892, 469);
             this.Controls.Add(this.wbHelp);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(1000, 550);
+            this.MaximumSize = new System.Drawing.Size(1000, 900);
             this.Name = "HelpForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Regular Expression Reference";

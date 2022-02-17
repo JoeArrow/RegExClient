@@ -491,5 +491,12 @@ namespace RegExClient
             tbReplaceInput.WordWrap = cbWordWrap.Checked;
             tbReplaceResult.WordWrap = cbWordWrap.Checked;
         }
+
+        // ------------------------------------------------
+
+        private void OnWrapChange(object sender, EventArgs e)
+        {
+            tbInput.WordWrap = cbWrap.Checked;
+        }
     }
 }

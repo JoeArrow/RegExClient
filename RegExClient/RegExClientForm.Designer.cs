@@ -69,6 +69,7 @@ namespace RegExClient
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.cbWrap = new System.Windows.Forms.CheckBox();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -97,6 +98,7 @@ namespace RegExClient
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.cbWrap);
             this.tabPage1.Controls.Add(this.cbMultiline);
             this.tabPage1.Controls.Add(this.tbInput);
             this.tabPage1.Controls.Add(this.cbIgnoreCase);
@@ -134,6 +136,7 @@ namespace RegExClient
             this.tbInput.Size = new System.Drawing.Size(957, 311);
             this.tbInput.TabIndex = 1;
             this.tbInput.Text = "";
+            this.tbInput.WordWrap = false;
             this.tbInput.TextChanged += new System.EventHandler(this.OnInputTextChanged);
             this.tbInput.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
             this.tbInput.Validated += new System.EventHandler(this.OnTextToTestValidated);
@@ -496,6 +499,18 @@ namespace RegExClient
             this.helpToolStripButton.Text = "He&lp";
             this.helpToolStripButton.Click += new System.EventHandler(this.OnHelp);
             // 
+            // cbWrap
+            // 
+            this.cbWrap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbWrap.AutoSize = true;
+            this.cbWrap.Location = new System.Drawing.Point(722, 68);
+            this.cbWrap.Name = "cbWrap";
+            this.cbWrap.Size = new System.Drawing.Size(81, 17);
+            this.cbWrap.TabIndex = 17;
+            this.cbWrap.Text = "Word Wrap";
+            this.cbWrap.UseVisualStyleBackColor = true;
+            this.cbWrap.CheckedChanged += new System.EventHandler(this.OnWrapChange);
+            // 
             // RegExClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -570,6 +585,7 @@ namespace RegExClient
         private System.Windows.Forms.ToolStripButton saveToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
+        private System.Windows.Forms.CheckBox cbWrap;
     }
 }
 

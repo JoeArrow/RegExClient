@@ -1,0 +1,1 @@
+{"Text":"/ppt/media/image1.jpg\n/ppt/media/image1.bmp\n/ppt/media/image1.jpeg\n/ppt/media/image1.png","RegEx":"(?\u003c=/ppt/media/)image\\w+(?=\\.\\w{3,4})","ReplaceString":""}

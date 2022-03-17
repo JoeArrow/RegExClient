@@ -91,7 +91,7 @@ namespace RegExClient
             this.tcForm.Location = new System.Drawing.Point(2, 53);
             this.tcForm.Name = "tcForm";
             this.tcForm.SelectedIndex = 0;
-            this.tcForm.Size = new System.Drawing.Size(980, 463);
+            this.tcForm.Size = new System.Drawing.Size(980, 497);
             this.tcForm.TabIndex = 10;
             this.tcForm.Selected += new System.Windows.Forms.TabControlEventHandler(this.OnSelected);
             // 
@@ -108,7 +108,7 @@ namespace RegExClient
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(972, 437);
+            this.tabPage1.Size = new System.Drawing.Size(972, 471);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Regular Expression";
             // 
@@ -145,7 +145,7 @@ namespace RegExClient
             this.tbInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbInput.Location = new System.Drawing.Point(9, 88);
             this.tbInput.Name = "tbInput";
-            this.tbInput.Size = new System.Drawing.Size(957, 342);
+            this.tbInput.Size = new System.Drawing.Size(957, 376);
             this.tbInput.TabIndex = 1;
             this.tbInput.Text = "";
             this.tbInput.WordWrap = false;
@@ -208,7 +208,7 @@ namespace RegExClient
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(972, 406);
+            this.tabPage2.Size = new System.Drawing.Size(972, 437);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Regex Replace";
             // 
@@ -516,7 +516,7 @@ namespace RegExClient
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(984, 517);
+            this.ClientSize = new System.Drawing.Size(984, 551);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tcForm);
             this.Controls.Add(this.menuStrip1);

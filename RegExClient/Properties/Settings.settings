@@ -6,7 +6,7 @@
       <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="FormSize" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">992, 517</Value>
+      <Value Profile="(Default)">995, 590</Value>
     </Setting>
     <Setting Name="IgnoreCase" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

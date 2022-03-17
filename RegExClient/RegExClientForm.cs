@@ -421,6 +421,8 @@ namespace RegExClient
                 
                 tbReplaceRegex.Text = _regExItem.RegEx;
                 tbReplaceString.Text = _regExItem.ReplaceString;
+
+                ShowMatches();
             }
         }
 

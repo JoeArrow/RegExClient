@@ -75,6 +75,9 @@ namespace RegExClient
                     tbInput.SelectionLength = 0;
                     tbInput.SelectionBackColor = Color.White;
                 }
+
+                tbInput.SelectionStart = 0;
+                tbInput.ScrollToCaret();
             }
             catch(Exception /*ex*/)
             {
@@ -97,6 +100,9 @@ namespace RegExClient
                 tbInput.SelectionStart = tbInput.Text.Length;
                 tbInput.SelectionLength = 0;
                 tbInput.SelectionBackColor = Color.White;
+
+                tbInput.SelectionStart = 0;
+                tbInput.ScrollToCaret();
 
                 _matchesVisible = false;
             }

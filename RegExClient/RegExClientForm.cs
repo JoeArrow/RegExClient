@@ -444,6 +444,8 @@ namespace RegExClient
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            var retVal = true;
+
             switch(keyData)
             {
                 case (Keys.Control | Keys.S):
@@ -476,9 +478,27 @@ namespace RegExClient
                         tbInput.ZoomFactor -= .05f;
                     }
                     break;
+
+                case (Keys.Alt | Keys.Add):
+                case (Keys.Alt | Keys.Oemplus):
+                    if (tbRegEx.ZoomFactor < 1.50f)
+                    {
+                        tbRegEx.ZoomFactor += .05f;
+                    }
+                    break;
+
+                case (Keys.Alt | Keys.Subtract):
+                case (Keys.Alt | Keys.OemMinus):
+                    if (tbRegEx.ZoomFactor > 1)
+                    {
+                        tbRegEx.ZoomFactor -= .05f;
+                    }
+                    break;
             }
 
-            return base.ProcessCmdKey(ref msg, keyData);
+            retVal = base.ProcessCmdKey(ref msg, keyData);
+
+            return retVal;
         }
 
         // ------------------------------------------------

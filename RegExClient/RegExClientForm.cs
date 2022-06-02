@@ -437,7 +437,7 @@ namespace RegExClient
         private void OnHelp(object sender, EventArgs e)
         {
             var dlg = new HelpForm();
-            dlg.ShowDialog();
+            dlg.Show(this);
         }
 
         // ------------------------------------------------

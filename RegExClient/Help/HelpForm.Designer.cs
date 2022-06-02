@@ -51,7 +51,7 @@ namespace RegExClient.Help
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1000, 900);
             this.Name = "HelpForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Regular Expression Reference";
             this.ResumeLayout(false);
 

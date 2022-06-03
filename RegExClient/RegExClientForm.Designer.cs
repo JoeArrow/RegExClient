@@ -30,6 +30,7 @@ namespace RegExClient
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegExClientForm));
             this.tcForm = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tbRegEx = new System.Windows.Forms.RichTextBox();
             this.cbWrap = new System.Windows.Forms.CheckBox();
             this.cbMultiline = new System.Windows.Forms.CheckBox();
             this.tbInput = new System.Windows.Forms.RichTextBox();
@@ -69,7 +70,6 @@ namespace RegExClient
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.tbRegEx = new System.Windows.Forms.RichTextBox();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -111,6 +111,18 @@ namespace RegExClient
             this.tabPage1.Size = new System.Drawing.Size(932, 436);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Regular Expression";
+            // 
+            // tbRegEx
+            // 
+            this.tbRegEx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbRegEx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbRegEx.Location = new System.Drawing.Point(9, 30);
+            this.tbRegEx.Name = "tbRegEx";
+            this.tbRegEx.Size = new System.Drawing.Size(917, 32);
+            this.tbRegEx.TabIndex = 18;
+            this.tbRegEx.Text = "";
+            this.tbRegEx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OnKeyUp);
             // 
             // cbWrap
             // 
@@ -175,7 +187,7 @@ namespace RegExClient
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(6, 16);
+            this.label3.Location = new System.Drawing.Point(6, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 16);
             this.label3.TabIndex = 7;
@@ -196,7 +208,7 @@ namespace RegExClient
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(972, 471);
+            this.tabPage2.Size = new System.Drawing.Size(932, 436);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Regex Replace";
             // 
@@ -239,7 +251,7 @@ namespace RegExClient
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tbReplaceResult);
             this.splitContainer1.Size = new System.Drawing.Size(949, 237);
-            this.splitContainer1.SplitterDistance = 478;
+            this.splitContainer1.SplitterDistance = 450;
             this.splitContainer1.TabIndex = 17;
             // 
             // tbReplaceInput
@@ -250,7 +262,7 @@ namespace RegExClient
             this.tbReplaceInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReplaceInput.Location = new System.Drawing.Point(0, 0);
             this.tbReplaceInput.Name = "tbReplaceInput";
-            this.tbReplaceInput.Size = new System.Drawing.Size(477, 237);
+            this.tbReplaceInput.Size = new System.Drawing.Size(449, 237);
             this.tbReplaceInput.TabIndex = 4;
             this.tbReplaceInput.Text = "";
             this.tbReplaceInput.WordWrap = false;
@@ -263,7 +275,7 @@ namespace RegExClient
             this.tbReplaceResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReplaceResult.Location = new System.Drawing.Point(1, 1);
             this.tbReplaceResult.Name = "tbReplaceResult";
-            this.tbReplaceResult.Size = new System.Drawing.Size(466, 236);
+            this.tbReplaceResult.Size = new System.Drawing.Size(468, 236);
             this.tbReplaceResult.TabIndex = 6;
             this.tbReplaceResult.Text = "";
             this.tbReplaceResult.WordWrap = false;
@@ -291,7 +303,7 @@ namespace RegExClient
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button2.Location = new System.Drawing.Point(456, 376);
+            this.button2.Location = new System.Drawing.Point(423, 376);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 23);
             this.button2.TabIndex = 5;
@@ -498,15 +510,6 @@ namespace RegExClient
             this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.helpToolStripButton.Text = "He&lp";
             this.helpToolStripButton.Click += new System.EventHandler(this.OnHelp);
-            // 
-            // tbRegEx
-            // 
-            this.tbRegEx.Location = new System.Drawing.Point(9, 36);
-            this.tbRegEx.Name = "tbRegEx";
-            this.tbRegEx.Size = new System.Drawing.Size(960, 25);
-            this.tbRegEx.TabIndex = 18;
-            this.tbRegEx.Text = "";
-            this.tbRegEx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OnKeyUp);
             // 
             // RegExClientForm
             // 

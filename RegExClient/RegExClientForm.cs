@@ -192,9 +192,11 @@ namespace RegExClient
                 {
                     Cursor.Current = Cursors.WaitCursor;
 
-                    var swFileStream = new StreamWriter(_currentFile);
-                    swFileStream.Write(_regExItem.ToJson());
-                    swFileStream.Close();
+                    using(var swFileStream = new StreamWriter(_currentFile))
+                    {
+                        swFileStream.Write(_regExItem.ToJson());
+                        swFileStream.Close();
+                    }
 
                     Text = $"{TITLE}: {Path.GetFileName(_currentFile)}";
                 }

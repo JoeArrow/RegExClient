@@ -30,13 +30,14 @@ namespace RegExClient
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegExClientForm));
             this.tcForm = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tbRegEx = new System.Windows.Forms.RichTextBox();
-            this.cbWrap = new System.Windows.Forms.CheckBox();
-            this.cbMultiline = new System.Windows.Forms.CheckBox();
-            this.tbInput = new System.Windows.Forms.RichTextBox();
-            this.cbIgnoreCase = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tbInput = new System.Windows.Forms.RichTextBox();
+            this.cbWrap = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbMultiline = new System.Windows.Forms.CheckBox();
+            this.cbIgnoreCase = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.cbReplaceMultiline = new System.Windows.Forms.CheckBox();
             this.cbWordWrap = new System.Windows.Forms.CheckBox();
@@ -70,9 +71,12 @@ namespace RegExClient
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tcForm.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -80,10 +84,6 @@ namespace RegExClient
             this.splitContainer1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcForm
@@ -111,6 +111,29 @@ namespace RegExClient
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Regular Expression";
             // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.tbRegEx);
+            this.splitContainer2.Panel1.Controls.Add(this.label3);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.tbInput);
+            this.splitContainer2.Panel2.Controls.Add(this.cbWrap);
+            this.splitContainer2.Panel2.Controls.Add(this.label1);
+            this.splitContainer2.Panel2.Controls.Add(this.cbMultiline);
+            this.splitContainer2.Panel2.Controls.Add(this.cbIgnoreCase);
+            this.splitContainer2.Size = new System.Drawing.Size(952, 436);
+            this.splitContainer2.SplitterDistance = 52;
+            this.splitContainer2.TabIndex = 19;
+            this.splitContainer2.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.SplitterMoved);
+            // 
             // tbRegEx
             // 
             this.tbRegEx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -118,35 +141,20 @@ namespace RegExClient
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbRegEx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbRegEx.Location = new System.Drawing.Point(3, 22);
+            this.tbRegEx.Multiline = false;
             this.tbRegEx.Name = "tbRegEx";
             this.tbRegEx.Size = new System.Drawing.Size(943, 27);
             this.tbRegEx.TabIndex = 18;
             this.tbRegEx.Text = "";
             this.tbRegEx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OnKeyUp);
             // 
-            // cbWrap
+            // label3
             // 
-            this.cbWrap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbWrap.AutoSize = true;
-            this.cbWrap.Location = new System.Drawing.Point(702, 7);
-            this.cbWrap.Name = "cbWrap";
-            this.cbWrap.Size = new System.Drawing.Size(81, 17);
-            this.cbWrap.TabIndex = 17;
-            this.cbWrap.Text = "Word Wrap";
-            this.cbWrap.UseVisualStyleBackColor = true;
-            this.cbWrap.CheckedChanged += new System.EventHandler(this.OnWrapChange);
-            // 
-            // cbMultiline
-            // 
-            this.cbMultiline.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbMultiline.Checked = true;
-            this.cbMultiline.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbMultiline.Location = new System.Drawing.Point(789, 7);
-            this.cbMultiline.Name = "cbMultiline";
-            this.cbMultiline.Size = new System.Drawing.Size(69, 19);
-            this.cbMultiline.TabIndex = 16;
-            this.cbMultiline.Text = "Multiline";
-            this.cbMultiline.CheckedChanged += new System.EventHandler(this.OnOptionsChange);
+            this.label3.Location = new System.Drawing.Point(0, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 16);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Regular Expression:";
             // 
             // tbInput
             // 
@@ -165,6 +173,38 @@ namespace RegExClient
             this.tbInput.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseClick);
             this.tbInput.Validated += new System.EventHandler(this.OnTextToTestValidated);
             // 
+            // cbWrap
+            // 
+            this.cbWrap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbWrap.AutoSize = true;
+            this.cbWrap.Location = new System.Drawing.Point(702, 7);
+            this.cbWrap.Name = "cbWrap";
+            this.cbWrap.Size = new System.Drawing.Size(81, 17);
+            this.cbWrap.TabIndex = 17;
+            this.cbWrap.Text = "Word Wrap";
+            this.cbWrap.UseVisualStyleBackColor = true;
+            this.cbWrap.CheckedChanged += new System.EventHandler(this.OnWrapChange);
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 18);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Text to Test:";
+            // 
+            // cbMultiline
+            // 
+            this.cbMultiline.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbMultiline.Checked = true;
+            this.cbMultiline.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbMultiline.Location = new System.Drawing.Point(789, 7);
+            this.cbMultiline.Name = "cbMultiline";
+            this.cbMultiline.Size = new System.Drawing.Size(69, 19);
+            this.cbMultiline.TabIndex = 16;
+            this.cbMultiline.Text = "Multiline";
+            this.cbMultiline.CheckedChanged += new System.EventHandler(this.OnOptionsChange);
+            // 
             // cbIgnoreCase
             // 
             this.cbIgnoreCase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -176,22 +216,6 @@ namespace RegExClient
             this.cbIgnoreCase.TabIndex = 1;
             this.cbIgnoreCase.Text = "Ignore Case";
             this.cbIgnoreCase.CheckedChanged += new System.EventHandler(this.OnOptionsChange);
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(3, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 18);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Text to Test:";
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(0, 3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 16);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Regular Expression:";
             // 
             // tabPage2
             // 
@@ -511,28 +535,6 @@ namespace RegExClient
             this.helpToolStripButton.Text = "He&lp";
             this.helpToolStripButton.Click += new System.EventHandler(this.OnHelp);
             // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.tbRegEx);
-            this.splitContainer2.Panel1.Controls.Add(this.label3);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.tbInput);
-            this.splitContainer2.Panel2.Controls.Add(this.cbWrap);
-            this.splitContainer2.Panel2.Controls.Add(this.label1);
-            this.splitContainer2.Panel2.Controls.Add(this.cbMultiline);
-            this.splitContainer2.Panel2.Controls.Add(this.cbIgnoreCase);
-            this.splitContainer2.Size = new System.Drawing.Size(952, 436);
-            this.splitContainer2.SplitterDistance = 52;
-            this.splitContainer2.TabIndex = 19;
-            // 
             // RegExClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -551,6 +553,11 @@ namespace RegExClient
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this.tcForm.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -561,11 +568,6 @@ namespace RegExClient
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

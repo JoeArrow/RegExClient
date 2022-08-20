@@ -528,5 +528,20 @@ namespace RegExClient
         {
             tbInput.WordWrap = cbWrap.Checked;
         }
+
+        // ------------------------------------------------
+
+        private void SplitterMoved(object sender, SplitterEventArgs e)
+        {
+            var splitter = sender as SplitContainer;
+
+            if(splitter != null)
+            {
+                if(splitter.SplitterDistance < 52)
+                {
+                    splitter.SplitterDistance = 52;
+                }
+            }
+        }
     }
 }

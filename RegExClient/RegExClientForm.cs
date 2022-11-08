@@ -45,6 +45,29 @@ namespace RegExClient
 
         // ------------------------------------------------
 
+        public Orientation Orientation
+        {
+            set { spContainer.Orientation = value; }
+            get { return spContainer.Orientation; }
+        }
+
+        // ------------------------------------------------
+
+        public int SplitDist
+        {
+            set { spContainer.SplitterDistance = value; }
+            get { return spContainer.SplitterDistance; }
+        }
+
+        // ------------------------------------------------
+
+        public void EvenSplit()
+        {
+            SplitDist = (Orientation == Orientation.Vertical) ? spContainer.Width / 2 : spContainer.Height / 2;
+        }
+
+        // ------------------------------------------------
+
         private void ShowMatches()
         {
             var toggleColor = true;
@@ -542,6 +565,14 @@ namespace RegExClient
                     splitter.SplitterDistance = 52;
                 }
             }
+        }
+
+        // ------------------------------------------------
+
+        private void OnToggleOrientation(object sender, EventArgs e)
+        {
+            spContainer.Orientation = (Orientation == Orientation.Vertical) ? Orientation.Horizontal : Orientation.Vertical;
+            EvenSplit();
         }
     }
 }

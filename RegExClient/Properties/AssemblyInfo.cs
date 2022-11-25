@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 
 [assembly: AssemblyCulture("")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("JoeWare")]
 [assembly: AssemblyTrademark("JoeWare")]
 [assembly: AssemblyTitle("RegExClient")]
 [assembly: AssemblyProduct("RegExClient")]
-[assembly: AssemblyCopyright("Copyright © JoeWare 2021")]
 [assembly: AssemblyDescription("**RegEx Client** is designed to allow the user to test *Regular Expressions*.<br/>" +
                                "Regular Expressions and the text used to test them can be saved and<br/> " +
                                "reloaded later.<br/><br/> " +

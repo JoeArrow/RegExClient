@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegExClient", "RegExClient\RegExClient.csproj", "{2031E8E7-6B41-4D5A-A774-447DA436F9D2}"
 EndProject
@@ -16,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Regex", "Sample Rege
 		Sample Regex\DateMatch-Long.regx = Sample Regex\DateMatch-Long.regx
 		Sample Regex\DateMatch.regx = Sample Regex\DateMatch.regx
 		Sample Regex\DateMatch_Long.regx = Sample Regex\DateMatch_Long.regx
+		Sample Regex\Phone Numbers\From IAmTimCorey.regx = Sample Regex\Phone Numbers\From IAmTimCorey.regx
 		Sample Regex\Look Ahead sample.regx = Sample Regex\Look Ahead sample.regx
 		Sample Regex\Look Behind sample.regx = Sample Regex\Look Behind sample.regx
 		Look Both ways in the Preamble.regx = Look Both ways in the Preamble.regx

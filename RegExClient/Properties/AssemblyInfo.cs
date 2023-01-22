@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
                                "Right-Clicking on the 'Text to Test' will toggle whether the Regular Expression is applied or not.<br/>" +
                                "Editing the text to test is much easier when the RegEx is not being applied.<br/><br/>" +
                                "Once a complicated RegEx is perfected, it can be saved (along with the text being used to test it).<br/>" +
-                               "this will come in handy for recalling it later<br/> and possibly revising it.<br/><br/>" +
+                               "This will come in handy for recalling it later and possibly revising it.<br/><br/>" +
                                "The test text can be <span style='color:red'>zoomed</span> into and out of by using<br/>" +
                                "**CTRL - Plus (+)**<br/>and<br/>**CTRL - Minus (-)**<br/> " +
                                "(For those of us with aging eyes 😎)<br/><br/> " +

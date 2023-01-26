@@ -1,1 +1,0 @@
-{"RegEx":"((?\u003c=this is a )simple(?= sentence))","Text":"This is a simple sentence.\nIt is simple to see that these two copies of \"simple\" should not be matched.\nBut, this is a simple sentence which SHOULD have a match in it."}

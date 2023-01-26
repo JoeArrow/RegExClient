@@ -11,23 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{43855036-DDC
 		Lib\MarkdownSharp.dll = Lib\MarkdownSharp.dll
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Regex", "Sample Regex", "{FA6943FE-8BFA-4BCE-96C6-9DB024B2E761}"
-	ProjectSection(SolutionItems) = preProject
-		Sample Regex\DateMatch-Long.regx = Sample Regex\DateMatch-Long.regx
-		Sample Regex\DateMatch.regx = Sample Regex\DateMatch.regx
-		Sample Regex\DateMatch_Long.regx = Sample Regex\DateMatch_Long.regx
-		Sample Regex\Phone Numbers\From IAmTimCorey.regx = Sample Regex\Phone Numbers\From IAmTimCorey.regx
-		Sample Regex\Look Ahead sample.regx = Sample Regex\Look Ahead sample.regx
-		Sample Regex\Look Behind sample.regx = Sample Regex\Look Behind sample.regx
-		Look Both ways in the Preamble.regx = Look Both ways in the Preamble.regx
-		Sample Regex\Look Both Ways.regx = Sample Regex\Look Both Ways.regx
-		Sample Regex\MultipleQuotesMatch.regx = Sample Regex\MultipleQuotesMatch.regx
-		Sample Regex\NotImplementedException.regx = Sample Regex\NotImplementedException.regx
-		Sample Regex\Password.regx = Sample Regex\Password.regx
-		Sample Regex\The Preamble.regx = Sample Regex\The Preamble.regx
-		Sample Regex\UNCMatch.regx = Sample Regex\UNCMatch.regx
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EBC26065-D363-4AB4-AB08-62F5C3C05612}"
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md

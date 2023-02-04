@@ -7,11 +7,15 @@ using System.Web.Script.Serialization;
 
 using AboutJoeWare_Lib;
 using RegExClient.Help;
+using System.Windows.Shapes;
 
 namespace RegExClient
 {
     public partial class RegExClientForm : Form
     {
+        private readonly string cr = $"{Environment.NewLine}";
+        private readonly string crt = $"{Environment.NewLine}\t";
+
         private string _currentFile;
         private bool _matchesVisible = false;
         private RegExItem _regExItem = new RegExItem();
@@ -89,6 +93,19 @@ namespace RegExClient
                     tbInput.SelectionStart = tbInput.Text.Length;
                     tbInput.SelectionLength = 0;
                     tbInput.SelectionBackColor = Color.White;
+
+                    var groupCollection = group.Groups;
+
+                    // ------------------------
+                    // Loop through each group.
+
+                    foreach(Group matchGroup in groupCollection)
+                    {
+                        foreach(Capture capture in matchGroup.Captures)
+                        {
+                            rtbGroups.AppendText($"{capture.Value}{cr}");
+                        }
+                    }
                 }
 
                 tbInput.SelectionStart = 0;
@@ -107,6 +124,7 @@ namespace RegExClient
 
         private void HideMatches()
         {
+            rtbGroups.Text = string.Empty;
             _regExItem.Text = tbInput.Text;
             tbInput.Text = _regExItem.Text;
 
@@ -159,12 +177,13 @@ namespace RegExClient
             _currentFile = fileName;
             
             var stream = new StreamReader(fileName);
-            Text = $"{TITLE}: {Path.GetFileName(_currentFile)}";
+            Text = $"{TITLE}: {System.IO.Path.GetFileName(_currentFile)}";
 
             try
             {
                 _regExItem = jsSer.Deserialize<RegExItem>(stream.ReadToEnd());
 
+                rtbGroups.Text = string.Empty;
                 tbReplaceResult.Text = string.Empty;
 
                 tbRegEx.Text = _regExItem.RegEx;
@@ -213,7 +232,7 @@ namespace RegExClient
                         swFileStream.Close();
                     }
 
-                    Text = $"{TITLE}: {Path.GetFileName(_currentFile)}";
+                    Text = $"{TITLE}: {System.IO.Path.GetFileName(_currentFile)}";
                 }
                 catch(Exception exp)
                 {
@@ -233,13 +252,14 @@ namespace RegExClient
             _currentFile = string.Empty;
 
             tbRegEx.Text = string.Empty;
-            tbInput.Text = string.Empty;
+            tbInput.Text = string.Empty; 
+            rtbGroups.Text = string.Empty;
 
             tbReplaceRegex.Text = string.Empty;
             tbReplaceString.Text = string.Empty;
             tbReplaceResult.Text = string.Empty;
 
-            Text = $"{TITLE}: {Path.GetFileName(_currentFile)}";
+            Text = $"{TITLE}: {System.IO.Path.GetFileName(_currentFile)}";
 
             tbInput.Focus();
         }

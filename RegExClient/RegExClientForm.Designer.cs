@@ -29,7 +29,7 @@ namespace RegExClient
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegExClientForm));
             this.tcForm = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tpRegex = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tbRegEx = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,18 +38,20 @@ namespace RegExClient
             this.label1 = new System.Windows.Forms.Label();
             this.cbMultiline = new System.Windows.Forms.CheckBox();
             this.cbIgnoreCase = new System.Windows.Forms.CheckBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpReplace = new System.Windows.Forms.TabPage();
+            this.pbToggleOrientation = new System.Windows.Forms.PictureBox();
             this.cbReplaceMultiline = new System.Windows.Forms.CheckBox();
             this.cbWordWrap = new System.Windows.Forms.CheckBox();
             this.spContainer = new System.Windows.Forms.SplitContainer();
             this.tbReplaceInput = new System.Windows.Forms.RichTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tbReplaceResult = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbReplaceString = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.tbReplaceRegex = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideMatchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,22 +73,23 @@ namespace RegExClient
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pbToggleOrientation = new System.Windows.Forms.PictureBox();
+            this.tpGroups = new System.Windows.Forms.TabPage();
+            this.rtbGroups = new System.Windows.Forms.RichTextBox();
             this.tcForm.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tpRegex.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tpReplace.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbToggleOrientation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spContainer)).BeginInit();
             this.spContainer.Panel1.SuspendLayout();
             this.spContainer.Panel2.SuspendLayout();
             this.spContainer.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbToggleOrientation)).BeginInit();
+            this.tpGroups.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcForm
@@ -94,8 +97,9 @@ namespace RegExClient
             this.tcForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tcForm.Controls.Add(this.tabPage1);
-            this.tcForm.Controls.Add(this.tabPage2);
+            this.tcForm.Controls.Add(this.tpRegex);
+            this.tcForm.Controls.Add(this.tpGroups);
+            this.tcForm.Controls.Add(this.tpReplace);
             this.tcForm.Location = new System.Drawing.Point(2, 53);
             this.tcForm.Name = "tcForm";
             this.tcForm.SelectedIndex = 0;
@@ -103,16 +107,16 @@ namespace RegExClient
             this.tcForm.TabIndex = 10;
             this.tcForm.Selected += new System.Windows.Forms.TabControlEventHandler(this.OnSelected);
             // 
-            // tabPage1
+            // tpRegex
             // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.splitContainer2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(952, 436);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Regular Expression";
+            this.tpRegex.BackColor = System.Drawing.SystemColors.Control;
+            this.tpRegex.Controls.Add(this.splitContainer2);
+            this.tpRegex.Location = new System.Drawing.Point(4, 22);
+            this.tpRegex.Name = "tpRegex";
+            this.tpRegex.Padding = new System.Windows.Forms.Padding(3);
+            this.tpRegex.Size = new System.Drawing.Size(952, 436);
+            this.tpRegex.TabIndex = 0;
+            this.tpRegex.Text = "Regular Expression";
             // 
             // splitContainer2
             // 
@@ -223,24 +227,36 @@ namespace RegExClient
             this.cbIgnoreCase.Text = "Ignore Case";
             this.cbIgnoreCase.CheckedChanged += new System.EventHandler(this.OnOptionsChange);
             // 
-            // tabPage2
+            // tpReplace
             // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Controls.Add(this.pbToggleOrientation);
-            this.tabPage2.Controls.Add(this.cbReplaceMultiline);
-            this.tabPage2.Controls.Add(this.cbWordWrap);
-            this.tabPage2.Controls.Add(this.spContainer);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.tbReplaceString);
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.tbReplaceRegex);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(952, 436);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Regex Replace";
+            this.tpReplace.BackColor = System.Drawing.SystemColors.Control;
+            this.tpReplace.Controls.Add(this.pbToggleOrientation);
+            this.tpReplace.Controls.Add(this.cbReplaceMultiline);
+            this.tpReplace.Controls.Add(this.cbWordWrap);
+            this.tpReplace.Controls.Add(this.spContainer);
+            this.tpReplace.Controls.Add(this.label7);
+            this.tpReplace.Controls.Add(this.tbReplaceString);
+            this.tpReplace.Controls.Add(this.button2);
+            this.tpReplace.Controls.Add(this.tbReplaceRegex);
+            this.tpReplace.Controls.Add(this.label5);
+            this.tpReplace.Location = new System.Drawing.Point(4, 22);
+            this.tpReplace.Name = "tpReplace";
+            this.tpReplace.Padding = new System.Windows.Forms.Padding(3);
+            this.tpReplace.Size = new System.Drawing.Size(952, 436);
+            this.tpReplace.TabIndex = 1;
+            this.tpReplace.Text = "Regex Replace";
+            // 
+            // pbToggleOrientation
+            // 
+            this.pbToggleOrientation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbToggleOrientation.Image = global::RegExClient.Properties.Resources.OrientToggle;
+            this.pbToggleOrientation.Location = new System.Drawing.Point(904, 393);
+            this.pbToggleOrientation.Name = "pbToggleOrientation";
+            this.pbToggleOrientation.Size = new System.Drawing.Size(40, 36);
+            this.pbToggleOrientation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbToggleOrientation.TabIndex = 18;
+            this.pbToggleOrientation.TabStop = false;
+            this.pbToggleOrientation.Click += new System.EventHandler(this.OnToggleOrientation);
             // 
             // cbReplaceMultiline
             // 
@@ -298,6 +314,22 @@ namespace RegExClient
             this.tbReplaceInput.TabIndex = 4;
             this.tbReplaceInput.Text = "";
             this.tbReplaceInput.WordWrap = false;
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(0, 1);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 16);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Input Text:";
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(1, 1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 15);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Output Text:";
             // 
             // tbReplaceResult
             // 
@@ -360,14 +392,6 @@ namespace RegExClient
             this.label5.Size = new System.Drawing.Size(104, 16);
             this.label5.TabIndex = 10;
             this.label5.Text = "Regular Expression:";
-            // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(0, 1);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 16);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Input Text:";
             // 
             // menuStrip1
             // 
@@ -543,25 +567,30 @@ namespace RegExClient
             this.helpToolStripButton.Text = "He&lp";
             this.helpToolStripButton.Click += new System.EventHandler(this.OnHelp);
             // 
-            // label2
+            // tpGroups
             // 
-            this.label2.Location = new System.Drawing.Point(1, 1);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 15);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Output Text:";
+            this.tpGroups.Controls.Add(this.rtbGroups);
+            this.tpGroups.Location = new System.Drawing.Point(4, 22);
+            this.tpGroups.Name = "tpGroups";
+            this.tpGroups.Size = new System.Drawing.Size(952, 436);
+            this.tpGroups.TabIndex = 2;
+            this.tpGroups.Text = "Capture Groups";
+            this.tpGroups.UseVisualStyleBackColor = true;
             // 
-            // pbToggleOrientation
+            // rtbGroups
             // 
-            this.pbToggleOrientation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbToggleOrientation.Image = global::RegExClient.Properties.Resources.OrientToggle;
-            this.pbToggleOrientation.Location = new System.Drawing.Point(904, 393);
-            this.pbToggleOrientation.Name = "pbToggleOrientation";
-            this.pbToggleOrientation.Size = new System.Drawing.Size(40, 36);
-            this.pbToggleOrientation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbToggleOrientation.TabIndex = 18;
-            this.pbToggleOrientation.TabStop = false;
-            this.pbToggleOrientation.Click += new System.EventHandler(this.OnToggleOrientation);
+            this.rtbGroups.AcceptsTab = true;
+            this.rtbGroups.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbGroups.Location = new System.Drawing.Point(0, 0);
+            this.rtbGroups.Name = "rtbGroups";
+            this.rtbGroups.ReadOnly = true;
+            this.rtbGroups.Size = new System.Drawing.Size(956, 433);
+            this.rtbGroups.TabIndex = 2;
+            this.rtbGroups.Text = "";
+            this.rtbGroups.WordWrap = false;
             // 
             // RegExClientForm
             // 
@@ -580,14 +609,15 @@ namespace RegExClient
             this.Text = "RegEx Client";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this.tcForm.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tpRegex.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tpReplace.ResumeLayout(false);
+            this.tpReplace.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbToggleOrientation)).EndInit();
             this.spContainer.Panel1.ResumeLayout(false);
             this.spContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spContainer)).EndInit();
@@ -596,19 +626,19 @@ namespace RegExClient
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbToggleOrientation)).EndInit();
+            this.tpGroups.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         private System.Windows.Forms.TabControl tcForm;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tpRegex;
         private System.Windows.Forms.RichTextBox tbInput;
         private System.Windows.Forms.CheckBox cbIgnoreCase;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tpReplace;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbReplaceString;
         private System.Windows.Forms.Button button2;
@@ -647,6 +677,8 @@ namespace RegExClient
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pbToggleOrientation;
+        private System.Windows.Forms.TabPage tpGroups;
+        private System.Windows.Forms.RichTextBox rtbGroups;
     }
 }
 

@@ -448,14 +448,14 @@ namespace RegExClient
                 switch(tab.SelectedTab.Text)
                 {
                     case "Regular Expression":
-                        if(!string.IsNullOrEmpty(tbReplaceInput.Text))
+                        if(!string.IsNullOrWhiteSpace(tbReplaceInput.Text))
                         {
                             _regExItem.Text = tbReplaceInput.Text;
                         }
                         break;
 
                     case "Regex Replace":
-                        if(!string.IsNullOrEmpty(tbInput.Text))
+                        if(!string.IsNullOrWhiteSpace(tbInput.Text))
                         {
                             _regExItem.Text = tbInput.Text;
                         }

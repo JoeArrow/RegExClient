@@ -105,7 +105,7 @@ namespace RegExClient
             this.tcForm.SelectedIndex = 0;
             this.tcForm.Size = new System.Drawing.Size(777, 462);
             this.tcForm.TabIndex = 10;
-            this.tcForm.Selected += new System.Windows.Forms.TabControlEventHandler(this.OnSelectTab);
+            this.tcForm.Selected += new System.Windows.Forms.TabControlEventHandler(this.OnTabSelect);
             // 
             // tpRegex
             // 

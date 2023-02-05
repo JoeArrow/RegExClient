@@ -439,7 +439,7 @@ namespace RegExClient
 
         // ------------------------------------------------
 
-        private void OnSelectTab(object sender, TabControlEventArgs e)
+        private void OnTabSelect(object sender, TabControlEventArgs e)
         {
             var tab = sender as TabControl;
 
@@ -448,11 +448,17 @@ namespace RegExClient
                 switch(tab.SelectedTab.Text)
                 {
                     case "Regular Expression":
-                        _regExItem.Text = tbReplaceInput.Text;
+                        if(!string.IsNullOrEmpty(tbReplaceInput.Text))
+                        {
+                            _regExItem.Text = tbReplaceInput.Text;
+                        }
                         break;
 
                     case "Regex Replace":
-                        _regExItem.Text = tbInput.Text;
+                        if(!string.IsNullOrEmpty(tbInput.Text))
+                        {
+                            _regExItem.Text = tbInput.Text;
+                        }
                         break;
                 }
 
@@ -487,10 +493,16 @@ namespace RegExClient
 
             switch(keyData)
             {
+                // ----
+                // Save
+
                 case (Keys.Control | Keys.S):
                     _regExItem = new RegExItem() { RegEx = tbRegEx.Text, Text = tbInput.Text, ReplaceString = tbReplaceString.Text };
                     SaveRegEx();
                     break;
+
+                // -----------
+                // Open a File
 
                 case (Keys.Control | Keys.O):
                     var openDlg = new OpenFileDialog() { Filter = "regx Files|*.regx|All Files|*.*" };
@@ -501,6 +513,10 @@ namespace RegExClient
                     }
 
                     break;
+
+                // ------------------------------------------
+                // Next 2 checks result in Zooming in and out
+                // of the Input Text, with limits...
 
                 case (Keys.Control | Keys.Add):
                 case (Keys.Control | Keys.Oemplus):
@@ -517,6 +533,10 @@ namespace RegExClient
                         tbInput.ZoomFactor -= .05f;
                     }
                     break;
+
+                // ------------------------------------------
+                // Next 2 checks result in Zooming in and out
+                // of the RegEx Text, with limits...
 
                 case (Keys.Alt | Keys.Add):
                 case (Keys.Alt | Keys.Oemplus):
@@ -542,17 +562,6 @@ namespace RegExClient
 
         // ------------------------------------------------
 
-        private void OnFormClosing(object sender, FormClosingEventArgs e)
-        {
-            Properties.Settings.Default.FormSize = Size;
-            Properties.Settings.Default.ZoomFactor = tbInput.ZoomFactor;
-            Properties.Settings.Default.IgnoreCase = cbIgnoreCase.Checked;
-
-            Properties.Settings.Default.Save();
-        }
-
-        // ------------------------------------------------
-
         private void OnToggleWordWrap(object sender, EventArgs e)
         {
             tbReplaceInput.WordWrap = cbWordWrap.Checked;
@@ -567,6 +576,8 @@ namespace RegExClient
         }
 
         // ------------------------------------------------
+        // This will keep the RegEx Textbox tall enough to
+        // read...
 
         private void SplitterMoved(object sender, SplitterEventArgs e)
         {
@@ -587,6 +598,17 @@ namespace RegExClient
         {
             spContainer.Orientation = (Orientation == Orientation.Vertical) ? Orientation.Horizontal : Orientation.Vertical;
             EvenSplit();
+        }
+
+        // ------------------------------------------------
+
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.FormSize = Size;
+            Properties.Settings.Default.ZoomFactor = tbInput.ZoomFactor;
+            Properties.Settings.Default.IgnoreCase = cbIgnoreCase.Checked;
+
+            Properties.Settings.Default.Save();
         }
     }
 }

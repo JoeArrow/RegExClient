@@ -38,6 +38,8 @@ namespace RegExClient
             this.label1 = new System.Windows.Forms.Label();
             this.cbMultiline = new System.Windows.Forms.CheckBox();
             this.cbIgnoreCase = new System.Windows.Forms.CheckBox();
+            this.tpGroups = new System.Windows.Forms.TabPage();
+            this.rtbGroups = new System.Windows.Forms.RichTextBox();
             this.tpReplace = new System.Windows.Forms.TabPage();
             this.pbToggleOrientation = new System.Windows.Forms.PictureBox();
             this.cbReplaceMultiline = new System.Windows.Forms.CheckBox();
@@ -73,14 +75,13 @@ namespace RegExClient
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.tpGroups = new System.Windows.Forms.TabPage();
-            this.rtbGroups = new System.Windows.Forms.RichTextBox();
             this.tcForm.SuspendLayout();
             this.tpRegex.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.tpGroups.SuspendLayout();
             this.tpReplace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbToggleOrientation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spContainer)).BeginInit();
@@ -89,7 +90,6 @@ namespace RegExClient
             this.spContainer.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.tpGroups.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcForm
@@ -103,9 +103,9 @@ namespace RegExClient
             this.tcForm.Location = new System.Drawing.Point(2, 53);
             this.tcForm.Name = "tcForm";
             this.tcForm.SelectedIndex = 0;
-            this.tcForm.Size = new System.Drawing.Size(960, 462);
+            this.tcForm.Size = new System.Drawing.Size(777, 462);
             this.tcForm.TabIndex = 10;
-            this.tcForm.Selected += new System.Windows.Forms.TabControlEventHandler(this.OnSelected);
+            this.tcForm.Selected += new System.Windows.Forms.TabControlEventHandler(this.OnSelectTab);
             // 
             // tpRegex
             // 
@@ -114,7 +114,7 @@ namespace RegExClient
             this.tpRegex.Location = new System.Drawing.Point(4, 22);
             this.tpRegex.Name = "tpRegex";
             this.tpRegex.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRegex.Size = new System.Drawing.Size(952, 436);
+            this.tpRegex.Size = new System.Drawing.Size(769, 436);
             this.tpRegex.TabIndex = 0;
             this.tpRegex.Text = "Regular Expression";
             // 
@@ -139,7 +139,7 @@ namespace RegExClient
             this.splitContainer2.Panel2.Controls.Add(this.label1);
             this.splitContainer2.Panel2.Controls.Add(this.cbMultiline);
             this.splitContainer2.Panel2.Controls.Add(this.cbIgnoreCase);
-            this.splitContainer2.Size = new System.Drawing.Size(952, 436);
+            this.splitContainer2.Size = new System.Drawing.Size(769, 436);
             this.splitContainer2.SplitterDistance = 52;
             this.splitContainer2.TabIndex = 19;
             this.splitContainer2.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.SplitterMoved);
@@ -153,7 +153,7 @@ namespace RegExClient
             this.tbRegEx.Location = new System.Drawing.Point(3, 22);
             this.tbRegEx.Multiline = false;
             this.tbRegEx.Name = "tbRegEx";
-            this.tbRegEx.Size = new System.Drawing.Size(943, 27);
+            this.tbRegEx.Size = new System.Drawing.Size(760, 27);
             this.tbRegEx.TabIndex = 18;
             this.tbRegEx.Text = "";
             this.tbRegEx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OnKeyUp);
@@ -175,7 +175,7 @@ namespace RegExClient
             this.tbInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbInput.Location = new System.Drawing.Point(3, 35);
             this.tbInput.Name = "tbInput";
-            this.tbInput.Size = new System.Drawing.Size(935, 342);
+            this.tbInput.Size = new System.Drawing.Size(752, 342);
             this.tbInput.TabIndex = 1;
             this.tbInput.Text = "";
             this.tbInput.WordWrap = false;
@@ -187,7 +187,7 @@ namespace RegExClient
             // 
             this.cbWrap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbWrap.AutoSize = true;
-            this.cbWrap.Location = new System.Drawing.Point(702, 7);
+            this.cbWrap.Location = new System.Drawing.Point(519, 7);
             this.cbWrap.Name = "cbWrap";
             this.cbWrap.Size = new System.Drawing.Size(81, 17);
             this.cbWrap.TabIndex = 17;
@@ -208,7 +208,7 @@ namespace RegExClient
             this.cbMultiline.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbMultiline.Checked = true;
             this.cbMultiline.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbMultiline.Location = new System.Drawing.Point(789, 7);
+            this.cbMultiline.Location = new System.Drawing.Point(606, 7);
             this.cbMultiline.Name = "cbMultiline";
             this.cbMultiline.Size = new System.Drawing.Size(69, 19);
             this.cbMultiline.TabIndex = 16;
@@ -220,12 +220,37 @@ namespace RegExClient
             this.cbIgnoreCase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbIgnoreCase.Checked = true;
             this.cbIgnoreCase.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbIgnoreCase.Location = new System.Drawing.Point(860, 7);
+            this.cbIgnoreCase.Location = new System.Drawing.Point(677, 7);
             this.cbIgnoreCase.Name = "cbIgnoreCase";
             this.cbIgnoreCase.Size = new System.Drawing.Size(84, 19);
             this.cbIgnoreCase.TabIndex = 1;
             this.cbIgnoreCase.Text = "Ignore Case";
             this.cbIgnoreCase.CheckedChanged += new System.EventHandler(this.OnOptionsChange);
+            // 
+            // tpGroups
+            // 
+            this.tpGroups.Controls.Add(this.rtbGroups);
+            this.tpGroups.Location = new System.Drawing.Point(4, 22);
+            this.tpGroups.Name = "tpGroups";
+            this.tpGroups.Size = new System.Drawing.Size(952, 436);
+            this.tpGroups.TabIndex = 2;
+            this.tpGroups.Text = "Capture Groups";
+            this.tpGroups.UseVisualStyleBackColor = true;
+            // 
+            // rtbGroups
+            // 
+            this.rtbGroups.AcceptsTab = true;
+            this.rtbGroups.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbGroups.Location = new System.Drawing.Point(0, 0);
+            this.rtbGroups.Name = "rtbGroups";
+            this.rtbGroups.ReadOnly = true;
+            this.rtbGroups.Size = new System.Drawing.Size(956, 433);
+            this.rtbGroups.TabIndex = 2;
+            this.rtbGroups.Text = "";
+            this.rtbGroups.WordWrap = false;
             // 
             // tpReplace
             // 
@@ -400,7 +425,7 @@ namespace RegExClient
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(962, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(779, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -518,7 +543,7 @@ namespace RegExClient
             this.helpToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(962, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(779, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -567,37 +592,12 @@ namespace RegExClient
             this.helpToolStripButton.Text = "He&lp";
             this.helpToolStripButton.Click += new System.EventHandler(this.OnHelp);
             // 
-            // tpGroups
-            // 
-            this.tpGroups.Controls.Add(this.rtbGroups);
-            this.tpGroups.Location = new System.Drawing.Point(4, 22);
-            this.tpGroups.Name = "tpGroups";
-            this.tpGroups.Size = new System.Drawing.Size(952, 436);
-            this.tpGroups.TabIndex = 2;
-            this.tpGroups.Text = "Capture Groups";
-            this.tpGroups.UseVisualStyleBackColor = true;
-            // 
-            // rtbGroups
-            // 
-            this.rtbGroups.AcceptsTab = true;
-            this.rtbGroups.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbGroups.Location = new System.Drawing.Point(0, 0);
-            this.rtbGroups.Name = "rtbGroups";
-            this.rtbGroups.ReadOnly = true;
-            this.rtbGroups.Size = new System.Drawing.Size(956, 433);
-            this.rtbGroups.TabIndex = 2;
-            this.rtbGroups.Text = "";
-            this.rtbGroups.WordWrap = false;
-            // 
             // RegExClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(962, 516);
+            this.ClientSize = new System.Drawing.Size(779, 516);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tcForm);
             this.Controls.Add(this.menuStrip1);
@@ -615,6 +615,7 @@ namespace RegExClient
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.tpGroups.ResumeLayout(false);
             this.tpReplace.ResumeLayout(false);
             this.tpReplace.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbToggleOrientation)).EndInit();
@@ -626,7 +627,6 @@ namespace RegExClient
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.tpGroups.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -7,7 +7,6 @@ using System.Web.Script.Serialization;
 
 using AboutJoeWare_Lib;
 using RegExClient.Help;
-using System.Windows.Shapes;
 
 namespace RegExClient
 {
@@ -76,8 +75,8 @@ namespace RegExClient
 
                 var regex = GetRegex();
 
-                // ----------------------------
-                // Define the string to search.
+                // ------------------------
+                // Search the input string.
 
                 var matchCollection = regex.Matches(tbInput.Text);
 
@@ -124,9 +123,9 @@ namespace RegExClient
 
         private void HideMatches()
         {
-            rtbGroups.Text = string.Empty;
             _regExItem.Text = tbInput.Text;
             tbInput.Text = _regExItem.Text;
+            rtbGroups.Text = string.Empty;
 
             if(_matchesVisible)
             {
@@ -440,32 +439,35 @@ namespace RegExClient
 
         // ------------------------------------------------
 
-        private void OnSelected(object sender, TabControlEventArgs e)
+        private void OnSelectTab(object sender, TabControlEventArgs e)
         {
             var tab = sender as TabControl;
 
-            switch(tab.SelectedTab.Text)
+            if(tab != null)
             {
-                case "Regular Expression":
-                    _regExItem.Text = tbReplaceInput.Text;
-                    break;
+                switch(tab.SelectedTab.Text)
+                {
+                    case "Regular Expression":
+                        _regExItem.Text = tbReplaceInput.Text;
+                        break;
 
-                case "Regex Replace":
-                    _regExItem.Text = tbInput.Text;
-                    break;
-            }
+                    case "Regex Replace":
+                        _regExItem.Text = tbInput.Text;
+                        break;
+                }
 
-            if(_regExItem != null)
-            {
-                tbRegEx.Text = _regExItem.RegEx;
+                if(_regExItem != null)
+                {
+                    tbRegEx.Text = _regExItem.RegEx;
 
-                tbInput.Text = _regExItem.Text;
-                tbReplaceInput.Text = _regExItem.Text;
-                
-                tbReplaceRegex.Text = _regExItem.RegEx;
-                tbReplaceString.Text = _regExItem.ReplaceString;
+                    tbInput.Text = _regExItem.Text;
+                    tbReplaceInput.Text = _regExItem.Text;
 
-                ShowMatches();
+                    tbReplaceRegex.Text = _regExItem.RegEx;
+                    tbReplaceString.Text = _regExItem.ReplaceString;
+
+                    ShowMatches();
+                }
             }
         }
 

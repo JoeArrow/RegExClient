@@ -29,8 +29,11 @@ namespace Reggie
             Text = TITLE;
 
             Size = Properties.Settings.Default.FormSize;
+            tbRegEx.Size = Properties.Settings.Default.RegexSize;
             tbInput.ZoomFactor = Properties.Settings.Default.ZoomFactor;
             cbIgnoreCase.Checked = Properties.Settings.Default.IgnoreCase;
+            tbRegEx.ZoomFactor = Properties.Settings.Default.RegexZoomFactor;
+            spContainer.SplitterDistance = Properties.Settings.Default.SplitterDist;
 
             if(!string.IsNullOrWhiteSpace(fileName))
             {
@@ -605,8 +608,11 @@ namespace Reggie
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
             Properties.Settings.Default.FormSize = Size;
+            Properties.Settings.Default.RegexSize = tbRegEx.Size;
             Properties.Settings.Default.ZoomFactor = tbInput.ZoomFactor;
             Properties.Settings.Default.IgnoreCase = cbIgnoreCase.Checked;
+            Properties.Settings.Default.RegexZoomFactor = tbRegEx.ZoomFactor;
+            Properties.Settings.Default.SplitterDist = spContainer.SplitterDistance;
 
             Properties.Settings.Default.Save();
         }

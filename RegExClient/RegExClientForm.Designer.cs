@@ -103,7 +103,7 @@ namespace Reggie
             this.tcForm.Location = new System.Drawing.Point(2, 53);
             this.tcForm.Name = "tcForm";
             this.tcForm.SelectedIndex = 0;
-            this.tcForm.Size = new System.Drawing.Size(777, 462);
+            this.tcForm.Size = new System.Drawing.Size(1047, 462);
             this.tcForm.TabIndex = 10;
             this.tcForm.Selected += new System.Windows.Forms.TabControlEventHandler(this.OnTabSelect);
             // 
@@ -113,8 +113,8 @@ namespace Reggie
             this.tpRegex.Controls.Add(this.splitContainer2);
             this.tpRegex.Location = new System.Drawing.Point(4, 22);
             this.tpRegex.Name = "tpRegex";
-            this.tpRegex.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRegex.Size = new System.Drawing.Size(769, 436);
+            this.tpRegex.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpRegex.Size = new System.Drawing.Size(1039, 436);
             this.tpRegex.TabIndex = 0;
             this.tpRegex.Text = "Regular Expression";
             // 
@@ -139,8 +139,8 @@ namespace Reggie
             this.splitContainer2.Panel2.Controls.Add(this.label1);
             this.splitContainer2.Panel2.Controls.Add(this.cbMultiline);
             this.splitContainer2.Panel2.Controls.Add(this.cbIgnoreCase);
-            this.splitContainer2.Size = new System.Drawing.Size(769, 436);
-            this.splitContainer2.SplitterDistance = 52;
+            this.splitContainer2.Size = new System.Drawing.Size(1039, 436);
+            this.splitContainer2.SplitterDistance = 51;
             this.splitContainer2.TabIndex = 19;
             this.splitContainer2.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.SplitterMoved);
             // 
@@ -153,7 +153,7 @@ namespace Reggie
             this.tbRegEx.Location = new System.Drawing.Point(3, 22);
             this.tbRegEx.Multiline = false;
             this.tbRegEx.Name = "tbRegEx";
-            this.tbRegEx.Size = new System.Drawing.Size(760, 27);
+            this.tbRegEx.Size = new System.Drawing.Size(1030, 26);
             this.tbRegEx.TabIndex = 18;
             this.tbRegEx.Text = "";
             this.tbRegEx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OnKeyUp);
@@ -173,9 +173,9 @@ namespace Reggie
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbInput.Location = new System.Drawing.Point(3, 35);
+            this.tbInput.Location = new System.Drawing.Point(3, 28);
             this.tbInput.Name = "tbInput";
-            this.tbInput.Size = new System.Drawing.Size(752, 342);
+            this.tbInput.Size = new System.Drawing.Size(1022, 349);
             this.tbInput.TabIndex = 1;
             this.tbInput.Text = "";
             this.tbInput.WordWrap = false;
@@ -187,7 +187,7 @@ namespace Reggie
             // 
             this.cbWrap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbWrap.AutoSize = true;
-            this.cbWrap.Location = new System.Drawing.Point(519, 7);
+            this.cbWrap.Location = new System.Drawing.Point(789, 7);
             this.cbWrap.Name = "cbWrap";
             this.cbWrap.Size = new System.Drawing.Size(81, 17);
             this.cbWrap.TabIndex = 17;
@@ -197,7 +197,7 @@ namespace Reggie
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 18);
             this.label1.TabIndex = 4;
@@ -208,7 +208,7 @@ namespace Reggie
             this.cbMultiline.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbMultiline.Checked = true;
             this.cbMultiline.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbMultiline.Location = new System.Drawing.Point(606, 7);
+            this.cbMultiline.Location = new System.Drawing.Point(876, 7);
             this.cbMultiline.Name = "cbMultiline";
             this.cbMultiline.Size = new System.Drawing.Size(69, 19);
             this.cbMultiline.TabIndex = 16;
@@ -220,7 +220,7 @@ namespace Reggie
             this.cbIgnoreCase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbIgnoreCase.Checked = true;
             this.cbIgnoreCase.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbIgnoreCase.Location = new System.Drawing.Point(677, 7);
+            this.cbIgnoreCase.Location = new System.Drawing.Point(947, 7);
             this.cbIgnoreCase.Name = "cbIgnoreCase";
             this.cbIgnoreCase.Size = new System.Drawing.Size(84, 19);
             this.cbIgnoreCase.TabIndex = 1;
@@ -266,7 +266,7 @@ namespace Reggie
             this.tpReplace.Controls.Add(this.label5);
             this.tpReplace.Location = new System.Drawing.Point(4, 22);
             this.tpReplace.Name = "tpReplace";
-            this.tpReplace.Padding = new System.Windows.Forms.Padding(3);
+            this.tpReplace.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tpReplace.Size = new System.Drawing.Size(769, 436);
             this.tpReplace.TabIndex = 1;
             this.tpReplace.Text = "Regex Replace";
@@ -298,7 +298,7 @@ namespace Reggie
             // 
             this.cbWordWrap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cbWordWrap.AutoSize = true;
-            this.cbWordWrap.Location = new System.Drawing.Point(817, 393);
+            this.cbWordWrap.Location = new System.Drawing.Point(818, 393);
             this.cbWordWrap.Name = "cbWordWrap";
             this.cbWordWrap.Size = new System.Drawing.Size(81, 17);
             this.cbWordWrap.TabIndex = 7;
@@ -323,8 +323,8 @@ namespace Reggie
             // 
             this.spContainer.Panel2.Controls.Add(this.label2);
             this.spContainer.Panel2.Controls.Add(this.tbReplaceResult);
-            this.spContainer.Size = new System.Drawing.Size(946, 254);
-            this.spContainer.SplitterDistance = 448;
+            this.spContainer.Size = new System.Drawing.Size(765, 254);
+            this.spContainer.SplitterDistance = 362;
             this.spContainer.TabIndex = 17;
             // 
             // tbReplaceInput
@@ -335,7 +335,7 @@ namespace Reggie
             this.tbReplaceInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReplaceInput.Location = new System.Drawing.Point(0, 16);
             this.tbReplaceInput.Name = "tbReplaceInput";
-            this.tbReplaceInput.Size = new System.Drawing.Size(447, 238);
+            this.tbReplaceInput.Size = new System.Drawing.Size(362, 238);
             this.tbReplaceInput.TabIndex = 4;
             this.tbReplaceInput.Text = "";
             this.tbReplaceInput.WordWrap = false;
@@ -364,7 +364,7 @@ namespace Reggie
             this.tbReplaceResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReplaceResult.Location = new System.Drawing.Point(1, 16);
             this.tbReplaceResult.Name = "tbReplaceResult";
-            this.tbReplaceResult.Size = new System.Drawing.Size(485, 238);
+            this.tbReplaceResult.Size = new System.Drawing.Size(389, 238);
             this.tbReplaceResult.TabIndex = 6;
             this.tbReplaceResult.Text = "";
             this.tbReplaceResult.WordWrap = false;
@@ -392,7 +392,7 @@ namespace Reggie
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button2.Location = new System.Drawing.Point(446, 393);
+            this.button2.Location = new System.Drawing.Point(365, 394);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 23);
             this.button2.TabIndex = 5;
@@ -420,12 +420,14 @@ namespace Reggie
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(779, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1049, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -535,6 +537,7 @@ namespace Reggie
             // 
             // toolStrip1
             // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripButton,
             this.openToolStripButton,
@@ -543,7 +546,7 @@ namespace Reggie
             this.helpToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(779, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1049, 27);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -553,7 +556,7 @@ namespace Reggie
             this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
             this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripButton.Name = "newToolStripButton";
-            this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.newToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.newToolStripButton.Text = "&New";
             this.newToolStripButton.Click += new System.EventHandler(this.OnNew);
             // 
@@ -563,7 +566,7 @@ namespace Reggie
             this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
             this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripButton.Name = "openToolStripButton";
-            this.openToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.openToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.openToolStripButton.Text = "&Open";
             this.openToolStripButton.Click += new System.EventHandler(this.OnOpenRegex);
             // 
@@ -573,14 +576,14 @@ namespace Reggie
             this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
             this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripButton.Name = "saveToolStripButton";
-            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.saveToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.saveToolStripButton.Text = "&Save";
             this.saveToolStripButton.Click += new System.EventHandler(this.OnSaveRegEx);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // helpToolStripButton
             // 
@@ -588,7 +591,7 @@ namespace Reggie
             this.helpToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripButton.Image")));
             this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.helpToolStripButton.Name = "helpToolStripButton";
-            this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.helpToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.helpToolStripButton.Text = "He&lp";
             this.helpToolStripButton.Click += new System.EventHandler(this.OnHelp);
             // 
@@ -597,13 +600,13 @@ namespace Reggie
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(779, 516);
+            this.ClientSize = new System.Drawing.Size(1049, 516);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tcForm);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(590, 400);
+            this.MinimumSize = new System.Drawing.Size(590, 398);
             this.Name = "RegExClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reggie - Regular Expression Client";

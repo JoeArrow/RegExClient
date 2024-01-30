@@ -11,5 +11,14 @@
     <Setting Name="IgnoreCase" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="RegexZoomFactor" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">1.15</Value>
+    </Setting>
+    <Setting Name="RegexSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">960, 30</Value>
+    </Setting>
+    <Setting Name="SplitterDist" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">51</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

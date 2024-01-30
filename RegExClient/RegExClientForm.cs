@@ -6,9 +6,9 @@ using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
 
 using AboutJoeWare_Lib;
-using RegExClient.Help;
+using Reggie.Help;
 
-namespace RegExClient
+namespace Reggie
 {
     public partial class RegExClientForm : Form
     {
@@ -18,7 +18,7 @@ namespace RegExClient
         private string _currentFile;
         private bool _matchesVisible = false;
         private RegExItem _regExItem = new RegExItem();
-        private const string TITLE = "Regular Expression Client";
+        private const string TITLE = "Reggie - Regular Expression Client";
         private readonly JavaScriptSerializer jsSer = new JavaScriptSerializer();
 
         public RegExClientForm(string fileName)

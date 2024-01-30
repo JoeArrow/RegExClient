@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace RegExClient
+namespace Reggie
 {
     static class Program
     {

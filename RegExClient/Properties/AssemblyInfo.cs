@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("JoeWare")]
 [assembly: AssemblyTitle("RegExClient")]
 [assembly: AssemblyProduct("RegExClient")]
-[assembly: AssemblyDescription("**RegEx Client** is designed to allow the user to test *Regular Expressions*.<br/>" +
+[assembly: AssemblyDescription("**Reggie - Regular Expression Client** is designed to allow the user to test *Regular Expressions*.<br/>" +
                                "Regular Expressions and the text used to test them can be saved and<br/> " +
                                "reloaded later.<br/><br/>" +
                                "Right-Clicking on the 'Text to Test' will toggle whether the Regular Expression is applied or not.<br/>" +

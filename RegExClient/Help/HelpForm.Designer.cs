@@ -1,5 +1,5 @@
 ﻿
-namespace RegExClient.Help
+namespace Reggie.Help
 {
     partial class HelpForm
     {

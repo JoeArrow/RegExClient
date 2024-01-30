@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 
-namespace RegExClient.Help
+namespace Reggie.Help
 {
     public partial class HelpForm : Form
     {

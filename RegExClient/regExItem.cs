@@ -1,6 +1,6 @@
 ﻿using System.Web.Script.Serialization;
 
-namespace RegExClient
+namespace Reggie
 {
     // ----------------------------------------------------
     /// <summary>

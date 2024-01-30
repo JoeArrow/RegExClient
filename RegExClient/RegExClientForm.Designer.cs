@@ -1,5 +1,5 @@
 ﻿
-namespace RegExClient
+namespace Reggie
 {
     partial class RegExClientForm
     {
@@ -232,7 +232,7 @@ namespace RegExClient
             this.tpGroups.Controls.Add(this.rtbGroups);
             this.tpGroups.Location = new System.Drawing.Point(4, 22);
             this.tpGroups.Name = "tpGroups";
-            this.tpGroups.Size = new System.Drawing.Size(952, 436);
+            this.tpGroups.Size = new System.Drawing.Size(769, 436);
             this.tpGroups.TabIndex = 2;
             this.tpGroups.Text = "Capture Groups";
             this.tpGroups.UseVisualStyleBackColor = true;
@@ -267,14 +267,14 @@ namespace RegExClient
             this.tpReplace.Location = new System.Drawing.Point(4, 22);
             this.tpReplace.Name = "tpReplace";
             this.tpReplace.Padding = new System.Windows.Forms.Padding(3);
-            this.tpReplace.Size = new System.Drawing.Size(952, 436);
+            this.tpReplace.Size = new System.Drawing.Size(769, 436);
             this.tpReplace.TabIndex = 1;
             this.tpReplace.Text = "Regex Replace";
             // 
             // pbToggleOrientation
             // 
             this.pbToggleOrientation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbToggleOrientation.Image = global::RegExClient.Properties.Resources.OrientToggle;
+            this.pbToggleOrientation.Image = global::Reggie.Properties.Resources.OrientToggle;
             this.pbToggleOrientation.Location = new System.Drawing.Point(904, 393);
             this.pbToggleOrientation.Name = "pbToggleOrientation";
             this.pbToggleOrientation.Size = new System.Drawing.Size(40, 36);
@@ -606,7 +606,7 @@ namespace RegExClient
             this.MinimumSize = new System.Drawing.Size(590, 400);
             this.Name = "RegExClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RegEx Client";
+            this.Text = "Reggie - Regular Expression Client";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this.tcForm.ResumeLayout(false);
             this.tpRegex.ResumeLayout(false);

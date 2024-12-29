@@ -7,14 +7,15 @@
     <ProjectGuid>{2031E8E7-6B41-4D5A-A774-447DA436F9D2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>RegExClient</RootNamespace>
-    <AssemblyName>RegExClient</AssemblyName>
+    <AssemblyName>Reggie</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>false</Deterministic>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl></PublishUrl>
+    <PublishUrl>
+    </PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -24,7 +25,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl></UpdateUrl>
+    <UpdateUrl>
+    </UpdateUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>

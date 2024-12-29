@@ -17,9 +17,11 @@ namespace RegExClient
 
         private string _currentFile;
         private bool _matchesVisible = false;
+        private const string TITLE = "Reggie";
         private RegExItem _regExItem = new RegExItem();
-        private const string TITLE = "Regular Expression Client";
         private readonly JavaScriptSerializer jsSer = new JavaScriptSerializer();
+
+        // ------------------------------------------------
 
         public RegExClientForm(string fileName)
         {
